@@ -288,14 +288,17 @@ module.exports = {
   theme: 'reco',
   themeConfig: {
     type: 'blog',
+    logo: 'https://s1.ax1x.com/2023/04/03/ppfxe0A.png',
     authorAvatar: 'https://p3-passport.byteimg.com/img/user-avatar/039391726bfa394febe9e5853f06026a~180x180.awebp',
     nav: [
       {
         text: '博客',
+        icon: 'reco-home',
         link: '/blog/welcome'
       },
       {
         text: 'Demo',
+        icon: 'reco-other',
         items: [
           {
             text: '音乐播放器',
@@ -320,10 +323,38 @@ module.exports = {
         ]
       },
       {
+        text: '百宝箱',
+        icon: 'reco-menu',
+        items: [
+          {
+            text: '前端工具箱',
+            link: 'https://www.runjs.cool'
+          },
+          {
+            text: 'tinypng图片压缩',
+            link: 'https://tinypng.com'
+          },
+          {
+            text: '路过图床',
+            link: 'https://imgse.com'
+          },
+          {
+            text: '代码随想录',
+            link: 'https://programmercarl.com'
+          },
+          {
+            text: '打字背英文',
+            link: 'https://qwerty.kaiyi.cool'
+          }
+        ]
+      },
+      {
         text: '社交账号',
+        icon: 'reco-account',
         items: [{
           text: '掘金',
           link: 'https://juejin.cn/user/3488066386291463'
+          
         },
           {
             text: 'Github',
@@ -335,12 +366,14 @@ module.exports = {
           }
         ]
       },
+      { text: 'TimeLine', link: '/timeline/', icon: 'reco-date' },
+
     ],
     sidebar,
     subSidebar: 'auto',
     blogConfig: {
       category: {
-        location: 4,
+        location: 5,
         text: '专栏'
       },
       tag: {
@@ -348,8 +381,10 @@ module.exports = {
         text: '标签'      // 默认文案 “标签”
       },
       socialLinks: [     // 信息栏展示社交信息
-        {icon: 'reco-github', link: 'https://github.com/recoluan'},
-        {icon: 'reco-npm', link: 'https://www.npmjs.com/~reco_luan'}
+        { icon: 'reco-github', link: 'https://github.com/Dragon-chen777' },
+        { icon: 'reco-juejin', link: 'https://juejin.cn/user/3488066386291463' },
+        { icon: 'reco-csdn', link: 'https://blog.csdn.net/Xiaoyc7' },
+        { icon: 'reco-bilibili', link: 'https://space.bilibili.com/273377574' },
       ]
     }
   },
