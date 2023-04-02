@@ -295,6 +295,31 @@ module.exports = {
         link: '/blog/welcome'
       },
       {
+        text: 'Demo',
+        items: [
+          {
+            text: '音乐播放器',
+            link: 'https://dragon-chen777.github.io/Music-player'
+          },
+          {
+            text: '打方块游戏',
+            link: 'https://dragon-chen777.github.io/Block-collision-game'
+          },
+          {
+            text: '马保国打字游戏',
+            link: 'https://dragon-chen777.github.io/Typer-game'
+          },
+          {
+            text: '答案之书',
+            link: 'https://dragon-chen777.github.io/Book-of-answers'
+          },
+          {
+            text: '影院座位预订',
+            link: 'https://dragon-chen777.github.io/Cinema-seat-reservation'
+          }
+        ]
+      },
+      {
         text: '社交账号',
         items: [{
           text: '掘金',
