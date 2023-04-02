@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: 'https://images.unsplash.com/photo-1564419429381-98dbcf916478?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=699&q=80'
+heroImage: 'https://p3-passport.byteimg.com/img/user-avatar/039391726bfa394febe9e5853f06026a~180x180.awebp'
 heroImageStyle: { 
 	width: '200px',
 	height: '200px',
