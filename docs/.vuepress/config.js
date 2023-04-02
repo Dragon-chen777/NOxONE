@@ -341,7 +341,7 @@ module.exports = {
     blogConfig: {
       category: {
         location: 4,
-        text: '分类'
+        text: '专栏'
       },
       tag: {
         location: 5,     // 在导航栏菜单中所占的位置，默认3
@@ -353,7 +353,21 @@ module.exports = {
       ]
     }
   },
-  plugins: [],
+  plugins: [
+    [
+      "@vuepress-reco/vuepress-plugin-kan-ban-niang",
+      {
+        clean: true,
+        modelStyle: {
+          position: "fixed",
+          left: "0px",
+          bottom: "0px",
+          opacity: "0.9",
+          zIndex: 99999
+        }
+      }
+    ]
+  ],
   locales: {
     '/': {
       lang: 'zn-CN'
