@@ -1,7 +1,11 @@
 ---
-title: article1
+title: 伪代码理解EventLoop
 author: NOxONE
-date: '2021-12-12'
+date: '2023-03-31'
+categories:
+- js
+tags:
+- js
 ---
 
 1. `js主线程`执行遇到异步代码将其推入事件触发线程维护的异步回调队列中（分宏微）

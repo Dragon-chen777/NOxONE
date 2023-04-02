@@ -1,8 +1,13 @@
 ---
-title: article1
+title: 一文搞懂执行上下文、VO、AO、Scope、[[scope]]、作用域链、闭包
 author: NOxONE
-date: '2021-12-12'
+date: '2022-07-18'
+categories:
+- js
+tags:
+- js
 ---
+
 ## 0. 写在开头
 本文将秉承**talk is cheap, show me the code**原则，争取将`执行上下文`、`VO`、`AO`、`Scope`、`[[scope]]`、`作用域`、`作用域链`这些晦涩抽象的概念用`伪代码`的形式来清晰表述出来，用以强化理解和记忆。
 
