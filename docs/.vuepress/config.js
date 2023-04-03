@@ -263,13 +263,13 @@ const FRONT_END_ENGINEERING_COLUMN = {
     },
   ]
 }
-const WELCOME = {
-  title: '欢迎到访NOxONE的小破站',
-  path: BLOG_BASE + '/welcome',
+const WEBSITE_CREATE_DIARY = {
+  title: '建站日记',
+  path: BLOG_BASE + '/website-create-diary',
 }
 const sidebar = { // 侧栏
   '/blog': [
-    WELCOME,
+    WEBSITE_CREATE_DIARY,
     JS_COLUMN,
     CSS_COLUMN,
     ES6_COLUMN,
@@ -285,6 +285,9 @@ module.exports = {
   title: 'NOxONE',
   description: '流水落花春去也，天上人间',
   base: '/NOxONE/',
+  head: [
+    ['link', { rel: 'icon', href: 'https://s1.ax1x.com/2023/04/03/pphHoSH.png'}]
+  ],
   theme: 'reco',
   themeConfig: {
     type: 'blog',
@@ -294,7 +297,7 @@ module.exports = {
       {
         text: '博客',
         icon: 'reco-home',
-        link: '/blog/welcome'
+        link: '/blog/website-create-diary'
       },
       {
         text: 'Demo',
@@ -354,7 +357,7 @@ module.exports = {
         items: [{
           text: '掘金',
           link: 'https://juejin.cn/user/3488066386291463'
-          
+
         },
           {
             text: 'Github',
@@ -390,12 +393,13 @@ module.exports = {
   },
   plugins: [
     [
-      "@vuepress-reco/vuepress-plugin-kan-ban-niang",
+      "vuepress-plugin-kan-ban-niang",
       {
-        clean: true,
+        theme: ['shizuku', 'z16', 'blackCat'],
+        clean: false,
         modelStyle: {
           position: "fixed",
-          left: "0px",
+          right: "100px",
           bottom: "0px",
           opacity: "0.9",
           zIndex: 99999
@@ -414,5 +418,5 @@ module.exports = {
         '@': '/'
       }
     }
-  }
+  },
 }
