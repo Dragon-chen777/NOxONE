@@ -286,7 +286,7 @@ module.exports = {
   description: '流水落花春去也，天上人间',
   base: '/NOxONE/',
   head: [
-    ['link', { rel: 'icon', href: 'https://s1.ax1x.com/2023/04/03/pphHoSH.png'}]
+    ['link', { rel: 'icon', href: 'https://s1.ax1x.com/2023/04/03/pphHoSH.png' }]
   ],
   theme: 'reco',
   themeConfig: {
@@ -359,14 +359,14 @@ module.exports = {
           link: 'https://juejin.cn/user/3488066386291463'
 
         },
-          {
-            text: 'Github',
-            link: 'https://github.com/Dragon-chen777'
-          },
-          {
-            text: 'Bilibili',
-            link: 'https://space.bilibili.com/273377574'
-          }
+        {
+          text: 'Github',
+          link: 'https://github.com/Dragon-chen777'
+        },
+        {
+          text: 'Bilibili',
+          link: 'https://space.bilibili.com/273377574'
+        }
         ]
       },
       { text: 'TimeLine', link: '/timeline/', icon: 'reco-date' },
@@ -403,7 +403,34 @@ module.exports = {
           bottom: "0px",
           opacity: "0.9",
           zIndex: 99999
+        },
+        messages: {
+          home: '迷路了吗？让我带你回家吧~',
+          theme: '好吧，希望你能喜欢我的其他小伙伴 ＞﹏＜',
+          close: '别离开我，好吗？'
         }
+      }
+    ],
+    [
+      "vuepress-plugin-music-player",
+      {
+        musicList: [
+          { 
+            cover: 'https://dragon-chen777.github.io/Music-player/img/%E6%89%93%E4%B8%8A%E8%8A%B1%E7%81%AB.jpg', 
+            title: '打上花火', // 默认自动从link路径获取名称
+            link: 'https://dragon-chen777.github.io/Music-player/music/打上花火.mp3',
+          },
+          { 
+            cover: 'https://dragon-chen777.github.io/Music-player/img/Mojito.jpg', 
+            title: 'Mojito',
+            link: 'https://dragon-chen777.github.io/Music-player/music/Mojito.mp3',
+          },
+          { 
+            cover: 'https://dragon-chen777.github.io/Music-player/img/%E7%A6%BB%E4%BA%BA.jpg', 
+            title: '离人',
+            link: 'https://dragon-chen777.github.io/Music-player/music/离人.mp3',
+          },
+        ],
       }
     ]
   ],
@@ -419,4 +446,8 @@ module.exports = {
       }
     }
   },
+  extraWatchFiles: [
+    '../../vuepress-plugin-music-player'
+  ]
 }
+// import f from '../../vuepress-plugin-music-player'
