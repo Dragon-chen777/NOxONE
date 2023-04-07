@@ -395,7 +395,6 @@ module.exports = {
     [
       "vuepress-plugin-kan-ban-niang",
       {
-        theme: ['shizuku', 'z16', 'blackCat'],
         clean: false,
         modelStyle: {
           position: "fixed",
@@ -406,19 +405,19 @@ module.exports = {
         },
         messages: {
           home: '迷路了吗？让我带你回家吧~',
-          theme: '好吧，希望你能喜欢我的其他小伙伴 ＞﹏＜',
+          theme: '哼，花心的男人~',
           close: '别离开我，好吗？'
         }
       }
     ],
     [
-      "vuepress-plugin-music-player",
+      "@noxone/vuepress-plugin-music-player",
       {
         musicList: [
           { 
             cover: 'https://dragon-chen777.github.io/Music-player/img/%E6%89%93%E4%B8%8A%E8%8A%B1%E7%81%AB.jpg', 
             title: '打上花火', // 默认自动从link路径获取名称
-            link: 'https://dragon-chen777.github.io/Music-player/music/打上花火.mp3',
+            link: '/music/打上花火.mp3',
           },
           { 
             cover: 'https://dragon-chen777.github.io/Music-player/img/Mojito.jpg', 

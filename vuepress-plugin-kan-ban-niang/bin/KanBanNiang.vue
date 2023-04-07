@@ -24,7 +24,7 @@
       ></canvas>
     </div>
     <div class="showBanNiang" v-show="displayBanNiang" @click="showBanNiang">
-      看板娘
+      baby
     </div>
   </div>
 </template>
@@ -49,15 +49,16 @@ export default {
       },
       currentTheme: THEME[0],
       myTheme: THEME,
-      themeName: ['shizuku', 'z16', 'blackCat', 'whiteCat'],
+      themeName: ['shizuku', 'Tia','Pio','xiaomai','shield','blackCat', 'whiteCat'],
       // 模型地址
       model: {
         shizuku:'/models/shizuku/assets/shizuku.model.json',
-        z16: '/models/z16/assets/z16.model.json',
         blackCat: '/models/hijiki/assets/hijiki.model.json',
         whiteCat: '/models/tororo/assets/tororo.model.json',
-        haru01: '/models/haru/01/assets/haru01.model.json',
-        haru02: '/models/haru/02/assets/haru02.model.json',
+        Pio: '/models/Pio/model4.json',
+        xiaomai: '/models/xiaomai/xiaomai.model.json',
+        shield: '/models/shield/model2.json',
+        Tia: '/models/Tia/index1.json'
       },
       // model的高宽
       style: {
@@ -145,7 +146,6 @@ export default {
         'banniang',
         this.$withBase(this.model[this.currentTheme])
       )
-      console.log(11111)
       this.$nextTick(()=>{
         setTimeout(()=> {
           this.isShowMessageBox = true
@@ -185,12 +185,23 @@ export default {
     .messageBox
       position fixed
       padding 10px
-      height 60px
-      width 160px
-      border-radius 8px
+      height 50px
+      width 140px
+      border-radius 16px
       background-color lighten($accentColor, 50%)
       color $textColor
       opacity 0.8
+      &::after
+        position absolute
+        content ''
+        height 0
+        width 0
+        border 6px solid lighten($accentColor, 50%)
+        border-top 6px solid transparent
+        border-right 6px solid transparent
+        bottom -6px
+        left 40%
+        transform translateX(-50%) rotate(-45deg)
     .operation
       width 20px
       position fixed

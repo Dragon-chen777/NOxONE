@@ -1,11 +1,10 @@
 const { resolve } = require('path')
 module.exports = (options, context) => ({
   define () {
-    console.log(223)
     const { clean, messages, theme, modelStyle, btnStyle, width, height, messageStyle } = options
     return {
       CLEAN: clean || false,
-      THEME: theme || ['shizuku', 'z16', 'blackCat', 'whiteCat'],
+      THEME: theme || ['shizuku', 'Tia','Pio','xiaomai','shield'],
       MESSAGES: messages || {
         welcome: '',
         home: '迷路了吗？我带你回家吧~',
