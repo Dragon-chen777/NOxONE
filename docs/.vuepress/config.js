@@ -1,4 +1,4 @@
-const BASE_URL = 'https://dragon-chen777.github.io/assets'
+const BASE_URL = 'https://dragon-chen777.github.io'
 
 const BLOG_BASE = '/blog'
 const JS_COLUMN = {
@@ -269,7 +269,10 @@ const WEBSITE_CREATE_DIARY = {
   title: '建站日记',
   path: BLOG_BASE + '/website-create-diary',
 }
-
+const DONE_LIST = {
+  title: 'Todo',
+  path: BLOG_BASE + '/todo-list'
+}
 const NOXONE_MUSIC_LIST = [
   'カナタハルカ',
   'なんでもないや',
@@ -293,6 +296,7 @@ const sidebar = { // 侧栏
     BROWSER_COLUMN,
     ALGORITHM_COLUMN,
     FRONT_END_ENGINEERING_COLUMN,
+    DONE_LIST
   ]
 }
 
