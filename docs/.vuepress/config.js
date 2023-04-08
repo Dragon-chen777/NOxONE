@@ -432,7 +432,8 @@ module.exports = {
     [
       "@noxone/vuepress-plugin-music-player",
       {
-        musicList: NOXONE_MUSIC_LIST
+        musicList: NOXONE_MUSIC_LIST,
+        zIndex: 99
       }
     ]
   ],
