@@ -323,7 +323,7 @@ module.exports = {
         icon: 'reco-other',
         items: [
           {
-            text: '音乐播放器',
+            text: 'NOxONE音乐播放器',
             link: 'https://dragon-chen777.github.io/Music-player'
           },
           {
@@ -341,6 +341,10 @@ module.exports = {
           {
             text: '影院座位预订',
             link: 'https://dragon-chen777.github.io/Cinema-seat-reservation'
+          },
+          {
+            text: '我的处女作',
+            link: 'https://dragon-chen777.github.io/My-first-web-20200722'
           }
         ]
       },
@@ -433,7 +437,7 @@ module.exports = {
       "@noxone/vuepress-plugin-music-player",
       {
         musicList: NOXONE_MUSIC_LIST,
-        zIndex: 99
+        zIndex: 19
       }
     ]
   ],
