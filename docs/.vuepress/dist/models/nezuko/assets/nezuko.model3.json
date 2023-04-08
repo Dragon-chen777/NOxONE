@@ -1,0 +1,23 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "nezuko.moc3",
+		"Textures": [
+			"nezuko.2048/texture_00.png"
+		],
+		"Physics": "nezuko.physics3.json",
+		"DisplayInfo": "nezuko.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	]
+}

@@ -1,3 +1,5 @@
+const BASE_URL = 'https://dragon-chen777.github.io/assets'
+
 const BLOG_BASE = '/blog'
 const JS_COLUMN = {
   title: 'JS',
@@ -267,6 +269,19 @@ const WEBSITE_CREATE_DIARY = {
   title: '建站日记',
   path: BLOG_BASE + '/website-create-diary',
 }
+
+const NOXONE_MUSIC_LIST = [
+  'カナタハルカ',
+  'なんでもないや',
+  '打上花火',
+  '愛にできることはまだあるかい',
+  '张三的歌'
+].map(music => ({
+  cover: `${BASE_URL}/assets/music/${music}.png`,
+  title: music,
+  link: `${BASE_URL}/assets/music/${music}.mp3`
+}))
+
 const sidebar = { // 侧栏
   '/blog': [
     WEBSITE_CREATE_DIARY,
@@ -413,23 +428,7 @@ module.exports = {
     [
       "@noxone/vuepress-plugin-music-player",
       {
-        musicList: [
-          { 
-            cover: 'https://dragon-chen777.github.io/Music-player/img/%E6%89%93%E4%B8%8A%E8%8A%B1%E7%81%AB.jpg', 
-            title: '打上花火', // 默认自动从link路径获取名称
-            link: '/music/打上花火.mp3',
-          },
-          { 
-            cover: 'https://dragon-chen777.github.io/Music-player/img/Mojito.jpg', 
-            title: 'Mojito',
-            link: 'https://dragon-chen777.github.io/Music-player/music/Mojito.mp3',
-          },
-          { 
-            cover: 'https://dragon-chen777.github.io/Music-player/img/%E7%A6%BB%E4%BA%BA.jpg', 
-            title: '离人',
-            link: 'https://dragon-chen777.github.io/Music-player/music/离人.mp3',
-          },
-        ],
+        musicList: NOXONE_MUSIC_LIST
       }
     ]
   ],
@@ -445,8 +444,4 @@ module.exports = {
       }
     }
   },
-  extraWatchFiles: [
-    '../../vuepress-plugin-music-player'
-  ]
 }
-// import f from '../../vuepress-plugin-music-player'
