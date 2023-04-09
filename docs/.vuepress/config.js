@@ -278,7 +278,16 @@ const NOXONE_MUSIC_LIST = [
   'なんでもないや',
   '打上花火',
   '愛にできることはまだあるかい',
-  '张三的歌'
+  '宝贝（in the night）',
+  '张三的歌',
+  'Melody',
+  '普通朋友',
+  '飞机场的10：30',
+  '爱，很简单',
+  '对不起',
+  '一路向北',
+  'Drugs You Should Try It',
+  'Mamacita',
 ].map(music => ({
   cover: `${BASE_URL}/assets/music/${music}.png`,
   title: music,
