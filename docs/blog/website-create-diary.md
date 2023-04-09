@@ -146,10 +146,10 @@ module.exports = {
 嗯... 今天的工作差不多就这样啦~
 
 # 2023.04.09
-# 1. 搭建noxone-ui库
-今天正式起到搭建了noxone-ui库，可以在Vue项目中使用，目前库里边还只有一个组件，那就是`<noxone-music-player/>`，具体详情点击我的仓库地址进去看看
+## 1. 搭建noxone-ui库
+今天正式起到搭建了`noxone-ui`库，可以在Vue项目中使用，目前库里边还只有一个组件，那就是`<noxone-music-player/>`，具体详情点击我的仓库地址进去看看
 
-喏~ 这里是[传送门](https://github.com/Dragon-chen777/vuepress-plugin-music-player)
+喏~ 这里是[传送门](https://github.com/Dragon-chen777/noxone-ui)
 
 # TODO列表
 1. 看板娘右工具栏功能拓展
