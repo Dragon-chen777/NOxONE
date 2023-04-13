@@ -31,6 +31,11 @@
 
 <script>
 import live2dJSString from './assets/js/live2d'
+import {Bus} from '../util'
+window.noxone = window.noxone || {}
+if (!window.noxone.Bus) window.noxone.Bus = new Bus()
+document.body.style.overflow = 'hidden'
+console.log('%c noxoneLive2D已成功加载~，欢迎访问作者博客：https://dragon-chen777.github.io/NOxONE/','color: #00a1d6')
 export default {
   name: 'KanBanNiang',
   data () {
@@ -141,20 +146,22 @@ export default {
         script.innerHTML = live2dJSString
         document.body.appendChild(script)
       }
-      console.log(this.$withBase(this.model[this.currentTheme]))
       window.loadlive2d(
         'banniang',
         this.$withBase(this.model[this.currentTheme])
       )
-      this.$nextTick(()=>{
-        setTimeout(()=> {
-          this.isShowMessageBox = true
-          setTimeout(()=>{
-            this.isShowMessageBox = false
-
-          },3000)
-        }, 3000)
-      })
+      let _this = this
+      window.noxone.Bus.$on(
+        'noxoneCoverDestroyed',
+        function showLive2DWelcome(){
+          setTimeout(()=> {
+            _this.isShowMessageBox = true
+            setTimeout(()=>{
+              _this.isShowMessageBox = false
+            },3000)
+          }, 500)
+        }
+      )
     }
   }
 }

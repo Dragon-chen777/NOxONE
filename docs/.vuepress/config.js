@@ -314,12 +314,12 @@ module.exports = {
   description: '流水落花春去也，天上人间',
   base: '/NOxONE/',
   head: [
-    ['link', { rel: 'icon', href: 'https://s1.ax1x.com/2023/04/03/pphHoSH.png' }]
+    ['link', { rel: 'icon', href: `${BASE_URL}/assets/images/logo.png` }]
   ],
   theme: 'reco',
   themeConfig: {
     type: 'blog',
-    logo: 'https://s1.ax1x.com/2023/04/03/ppfxe0A.png',
+    logo: `${BASE_URL}/assets/images/NOxONE_LOGO.png`,
     authorAvatar: 'https://p3-passport.byteimg.com/img/user-avatar/039391726bfa394febe9e5853f06026a~180x180.awebp',
     nav: [
       {
@@ -448,6 +448,10 @@ module.exports = {
         musicList: NOXONE_MUSIC_LIST,
         zIndex: 19
       }
+    ],
+    [
+      "vuepress-plugin-cover",
+      {}
     ]
   ],
   locales: {

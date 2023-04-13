@@ -1,0 +1,19 @@
+{
+  "author": {
+    "name": "noxone"
+  },
+  "description": "this is a tiny but awesome musicPlayer for vuepress",
+  "keywords": [
+    "Vue",
+    "Vuepress",
+    "MusicPlayer",
+    "Plugin"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "@noxone/vuepress-plugin-cover",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}
