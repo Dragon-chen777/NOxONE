@@ -2,8 +2,8 @@
   <div v-if="isShow" ref="noxone-cover" id="noxone-cover" :class="{ 'enableClose': enableClose }" :style="globalSty" class="noxone-cover">
     <div id="text" class="text"></div>
     <div id="text-copy" class="text-copy" v-html="textArr"></div>
-    <div v-if="enableClose" class="nextTip pulsate-bck" v-html="nextTip"></div>
-    <div v-else class="skipTip pulsate-bck" v-html="skipTip" @click="close('noxoneCoverDestroyed')"></div>
+    <div v-if="enableClose && isFontLoaded" class="nextTip pulsate-bck" v-html="nextTip"></div>
+    <div v-if="!enableClose && isFontLoaded" class="skipTip pulsate-bck" v-html="skipTip" @click="close('noxoneCoverDestroyed')"></div>
     <template v-if="isShowMeteors && enableClose">
       <div class="meteor meteor1"></div>
       <div class="meteor meteor2"></div>
@@ -17,16 +17,14 @@
 <script>
 import Typed from '../lib/typed.js'
 import {setAnimation,Bus} from '../util'
-window.noxone = window.noxone || {}
-if (!window.noxone.Bus) window.noxone.Bus = new Bus()
-document.body.style.overflow = 'hidden'
-console.log('%c noxoneCover已成功加载~，欢迎访问作者博客：https://dragon-chen777.github.io/NOxONE/','color: #00a1d6')
+
 
 let _typed = null
 export default {
   name: 'Cover',
   data() {
     return {
+      isFontLoaded: false,
       isShow: true,
       isFadeOut: false,
       enableClose: false,
@@ -98,7 +96,11 @@ export default {
       })
     }
   },
-  created() {
+  beforeMount() {
+    window.noxone = window.noxone || {}
+    if (!window.noxone.Bus) window.noxone.Bus = new Bus()
+    console.log('%c noxoneCover已成功加载~，欢迎访问作者博客：https://dragon-chen777.github.io/NOxONE/','color: #00a1d6')
+
     const isMobile = !!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
     if (isMobile) {
       this.zoom *= 0.75
@@ -107,7 +109,9 @@ export default {
     }
   },
   mounted() {
+    document.body.style.overflow = 'hidden'
     document.fonts.ready.then(()=>{
+      this.isFontLoaded = true
       setTimeout(() => {
         // 正确获取text-copy的宽高（vue的mounted钩子有这个bug）
         this.initTextBox()

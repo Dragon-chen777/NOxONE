@@ -30,8 +30,7 @@
 </template>
 <script>
 import {Bus} from '../util'
-window.noxone = window.noxone || {}
-if (!window.noxone.Bus) window.noxone.Bus = new Bus()
+
 let AUDIO = null
 export default {
   data() {
@@ -58,8 +57,11 @@ export default {
       return this.musicList[this.curMusicIdx]
     },
   },
-  created() {
+  beforeMount() {
+           window.noxone = window.noxone || {}
+    if (!window.noxone.Bus) window.noxone.Bus = new Bus()
     console.log('%c noxoneMusicPlayer已成功加载~，欢迎访问作者博客：https://dragon-chen777.github.io/NOxONE/','color: #00a1d6')
+    
     let _this = this
     window.noxone.Bus.$on(
       'noxoneCoverDestroyed',
@@ -71,6 +73,7 @@ export default {
     if (isMobile) this.globalSty.zoom *= 0.7
   },
   mounted() {
+ 
     AUDIO = this.$refs.audio
   },
   methods: {

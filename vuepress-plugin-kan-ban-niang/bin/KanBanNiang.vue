@@ -32,10 +32,7 @@
 <script>
 import live2dJSString from './assets/js/live2d'
 import {Bus} from '../util'
-window.noxone = window.noxone || {}
-if (!window.noxone.Bus) window.noxone.Bus = new Bus()
-document.body.style.overflow = 'hidden'
-console.log('%c noxoneLive2D已成功加载~，欢迎访问作者博客：https://dragon-chen777.github.io/NOxONE/','color: #00a1d6')
+
 export default {
   name: 'KanBanNiang',
   data () {
@@ -78,11 +75,16 @@ export default {
       btnStyle: BTN_STYLE
     }
   },
-  mounted () {
+  beforeMount() {
+    window.noxone = window.noxone || {}
+    if (!window.noxone.Bus) window.noxone.Bus = new Bus()
+    console.log('%c noxoneLive2D已成功加载~，欢迎访问作者博客：https://dragon-chen777.github.io/NOxONE/','color: #00a1d6')
     this.btnStyle = {
       ...this.btnStyle,
       height: this.myTheme.length > 1 ? '120px' : '100px'
     }
+  },
+  mounted () {
     // 初始化live2d模型
     this.initBanNiang()
   },
