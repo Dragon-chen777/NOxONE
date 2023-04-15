@@ -73,6 +73,11 @@ input:focus{
   font-weight: 600;  
 }
 .navbar {
+  border-radius 0 0 0 1rem
+  box-shadow: none
+  background rgba(255, 255, 255, 0) !important
+  // -webkit-backdrop-filter blur(1px)
+  // backdrop-filter blur(1px)
   .home-link{
     .logo{
       border-radius: 0;  
@@ -80,21 +85,45 @@ input:focus{
     .site-name {
       display none
     }
-
+  }
+  .links{
+    background-color rgba(255,255,255,0) !important
   }
 }
-// https://s1.ax1x.com/2023/04/03/ppfxWh6.jpg
-// https://s1.ax1x.com/2023/04/03/ppfx41O.jpg
-// https://s1.ax1x.com/2023/04/03/ppfx5cD.jpg
-// https://s1.ax1x.com/2023/04/03/ppfxIje.jpg
-// .home-blog {
-//   .hero {
-//     background-image url(https://s1.ax1x.com/2023/04/03/ppfx41O.jpg) !important
-//     h1{
-//       color: #fff;
-//     }
-//     p{
-//       color #fff
-//     }
-//   }
-// }
+.home-blog {
+  .hero {
+    margin 0 !important
+    h1,.description {
+      text-shadow -2px 0 #666, 2px 0 #666, 0 2px #666, 0 -2px #666
+    }
+    .typed-cursor {
+      color #fff !important
+    }
+  }
+}
+@media (max-width: 419px){
+.home-blog {
+  .hero {
+    height 100vh !important
+    h1 {
+      margin: 0 auto 0.5rem !important
+      font-size: 1.5rem !important
+    }
+    .description{
+      font-size: 0.8rem !important  
+    }
+  }
+}}
+@media (max-width: 719px){
+.home-blog {
+  .hero {
+    height 100vh !important
+    h1 {
+      margin: 0 auto 0.5rem !important
+      font-size: 1.5rem !important
+    }
+    .description{
+      font-size: 0.8rem !important  
+    }
+  } 
+}}

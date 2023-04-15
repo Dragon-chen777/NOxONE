@@ -1,12 +1,7 @@
 ---
 home: true
-heroImage: 'https://p3-passport.byteimg.com/img/user-avatar/039391726bfa394febe9e5853f06026a~180x180.awebp'
-heroImageStyle: { 
-	width: '200px',
-	height: '200px',
-	display: block,
-	margin: '6rem auto 1.5rem',
-	borderRadius: '50%',
-	boxShadow: '0 5px 18px rgba(0,0,0,0.2)'
-}
+bgImage: '/images/1.jpg'
+heroImage: null
+heroText: '爱自己，是终身浪漫的开始'
+tagline: ['To love oneself is the beginning of a lifelong romance','To love oneself  is the beginning of a lifelong romance']
 ---
