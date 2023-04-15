@@ -18,7 +18,7 @@
       </div>
       <audio
         ref="audio"
-        :src="curMusic.link" 
+        :src="curMusic.link"
         @timeupdate="updateProgress"
         @ended="playMusic('next')"
       />
@@ -58,10 +58,10 @@ export default {
     },
   },
   beforeMount() {
-           window.noxone = window.noxone || {}
+   window.noxone = window.noxone || {}
     if (!window.noxone.Bus) window.noxone.Bus = new Bus()
     console.log('%c noxoneMusicPlayer已成功加载~，欢迎访问作者博客：https://dragon-chen777.github.io/NOxONE/','color: #00a1d6')
-    
+
     let _this = this
     window.noxone.Bus.$on(
       'noxoneCoverDestroyed',
@@ -69,11 +69,28 @@ export default {
         _this.playMusic('play')
       }
     )
+    window.noxone.Bus.$on(
+      'playNoxoneMusic',
+      function musicPlay(){
+        _this.playMusic('play')
+      }
+    )
+    window.noxone.Bus.$on(
+      'playPreNoxoneMusic',
+      function musicPlay(){
+        _this.playMusic('pre')
+      }
+    )
+    window.noxone.Bus.$on(
+      'playNextNoxoneMusic',
+      function musicPlay(){
+        _this.playMusic('next')
+      }
+    )
     const isMobile = !!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
     if (isMobile) this.globalSty.zoom *= 0.7
   },
   mounted() {
- 
     AUDIO = this.$refs.audio
   },
   methods: {
@@ -122,7 +139,7 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap')
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css')
 
-* 
+*
   box-sizing border-box
   -webkit-tap-highlight-color rgba(0,0,0,0)
 
@@ -140,9 +157,9 @@ export default {
   padding 20px 20px
   z-index 1
   transition all 0.5s ease-out
-  
-.music-container.playing 
-  .music-cover 
+
+.music-container.playing
+  .music-cover
     img
       animation-play-state running
   .music-info

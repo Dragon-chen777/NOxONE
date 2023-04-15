@@ -1,6 +1,6 @@
 {
   "name": "@noxone/vuepress-plugin-music-player",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "this is a tiny but awesome musicPlayer for vuepress",
   "main": "index.js",
   "scripts": {

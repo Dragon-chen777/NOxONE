@@ -1,15 +1,19 @@
 {
   "name": "vuepress-starter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "docs:dev": "vuepress dev docs -- --watch",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "fontmin": "font-spider docs/.vuepress/dist/index.html"
   },
   "dependencies": {
     "@noxone/vuepress-plugin-music-player": "^1.0.2",
     "@vuepress-reco/vuepress-plugin-kan-ban-niang": "^1.0.5",
     "vuepress-theme-reco": "^1.6.17"
+  },
+  "devDependencies": {
+    "fontmin": "^0.9.9"
   }
 }

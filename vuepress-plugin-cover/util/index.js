@@ -2,7 +2,6 @@ function setAnimation(dom, animationName, animationEndCb) {
   dom.classList.add(animationName)
   animationEndCb && dom.addEventListener('animationend', animationEndCb)
 }
-
 class Bus {
   constructor() {
     this.taskQueue = {}
@@ -13,7 +12,7 @@ class Bus {
     let taskQueue = this.taskQueue
     if (!taskQueue[event]) taskQueue[event] = [] // 建立事件订阅队列
     if (!taskQueue[event].includes(listener)) taskQueue[event].push(listener) // 向队列添加事件订阅者
-    console.log(`%c 已通过window.noxone.noxone.Bus.$on("${event}", ${listener.name|| '()=>{...}'})订阅事件`, 'color: #00a1d6')
+    console.log(`%c 已通过window.noxone.noxone.Bus.$on("${event}", ${listener.name || '()=>{...}'})订阅事件`, 'color: #00a1d6')
     console.log(`%c 等待window.noxone.noxone.Bus.$emit("${event}")发布事件`, 'color: #00a1d6')
   }
 
@@ -42,7 +41,7 @@ class Bus {
         if (listener.name) console.log(`%c 触发${listener.name}事件 ^_^`, 'color: #00a1d6')
         else console.log(`%c 触发未知事件（某人定义了箭头函数或定义的函数没有名字） ^_^`, 'color: #00a1d6')
         listener()
-      } 
+      }
     }
     if (this.taskQueueOfOnce[event]) {
       let queue = this.taskQueue[event]
@@ -63,5 +62,5 @@ class Bus {
 
 export {
   setAnimation,
-  Bus
+  Bus,
 }

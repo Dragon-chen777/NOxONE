@@ -451,7 +451,9 @@ module.exports = {
     ],
     [
       "vuepress-plugin-cover",
-      {}
+      {
+
+      }
     ]
   ],
   locales: {

@@ -51,3 +51,33 @@ module.exports = {
   ]
 }
 ```
+## 3.新增
+
+1. 向全局`window`挂载`noxone`以实现事件发布订阅
+`订阅播放事件`
+```js
+window.noxone.Bus.$on(
+	'playNoxoneMusic',
+	function musicPlay(){
+		_this.playMusic('play')
+	}
+)
+```
+`订阅上下切换歌曲事件`
+```js
+    window.noxone.Bus.$on(
+  'playPreNoxoneMusic',
+  function musicPlay(){
+    _this.playMusic('pre')
+  }
+)
+window.noxone.Bus.$on(
+  'playNextNoxoneMusic',
+  function musicPlay(){
+    _this.playMusic('next')
+  }
+)
+```
+意味着，您可以通过例如`window.onxone.$emit('playNoxoneMusic')`的方式让音乐组件播放
+2. 修复移动端noxoneMuiscPlayer组件初始显示尺寸异常问题
+
