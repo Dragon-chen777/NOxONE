@@ -2,6 +2,7 @@ const sidebar = require('../blog')
 const BASE_URL = 'https://dragon-chen777.github.io'
 
 const NOXONE_MUSIC_LIST = [ // todo
+  '很高兴认识你',
   'カナタハルカ',
   'なんでもないや',
   '打上花火',
@@ -22,8 +23,6 @@ const NOXONE_MUSIC_LIST = [ // todo
   link: `${BASE_URL}/assets/music/${music}.mp3`
 }))
 
-
-
 module.exports = {
   title: 'NOxONE',
   description: '欢迎来到NOxONE的小破站~',
@@ -39,8 +38,7 @@ module.exports = {
     type: 'blog',
     logo: `${BASE_URL}/assets/images/NOxONE_LOGO.png`,
     authorAvatar: 'https://p3-passport.byteimg.com/img/user-avatar/039391726bfa394febe9e5853f06026a~180x180.awebp',
-    nav: [
-      {
+    nav: [{
         text: '博客',
         icon: 'reco-home',
         link: '/blog/website-create-diary'
@@ -49,27 +47,27 @@ module.exports = {
         text: 'Demos',
         icon: 'reco-other',
         items: [{
-            text: 'NOxONE音乐播放器',
+            text: '🎵NOxONE音乐播放器',
             link: 'https://dragon-chen777.github.io/Music-player'
           },
           {
-            text: '打方块游戏',
+            text: '🎮打方块游戏',
             link: 'https://dragon-chen777.github.io/Block-collision-game'
           },
           {
-            text: '马保国打字游戏',
+            text: '👨马保国打字游戏',
             link: 'https://dragon-chen777.github.io/Typer-game'
           },
           {
-            text: '答案之书',
+            text: '📕答案之书',
             link: 'https://dragon-chen777.github.io/Book-of-answers'
           },
           {
-            text: '影院座位预订',
+            text: '🎥影院座位预订',
             link: 'https://dragon-chen777.github.io/Cinema-seat-reservation'
           },
           {
-            text: '我的处女作',
+            text: '💎我的处女作',
             link: 'https://dragon-chen777.github.io/My-first-web-20200722'
           }
         ]
@@ -78,23 +76,23 @@ module.exports = {
         text: '百宝箱',
         icon: 'reco-menu',
         items: [{
-            text: '前端工具箱',
+            text: '🔨开发工具箱',
             link: 'https://www.runjs.cool'
           },
           {
-            text: 'tinypng图片压缩',
+            text: '✨tinypng图片压缩',
             link: 'https://tinypng.com'
           },
           {
-            text: '路过图床',
+            text: '🌈路过图床',
             link: 'https://imgse.com'
           },
           {
-            text: '代码随想录',
+            text: '🎯代码随想录',
             link: 'https://programmercarl.com'
           },
           {
-            text: '打字背英文',
+            text: '🎲打字背英文',
             link: 'https://qwerty.kaiyi.cool'
           }
         ]
@@ -103,23 +101,28 @@ module.exports = {
         text: '社交账号',
         icon: 'reco-account',
         items: [{
+            icon: 'reco-github',
             text: 'Github',
             link: 'https://github.com/Dragon-chen777'
           },
           {
+            icon: 'reco-npm',
             text: 'npm',
             link: 'https://www.npmjs.com/~noxone'
           },
           {
+            icon: 'reco-juejin',
             text: '掘金',
             link: 'https://juejin.cn/user/3488066386291463'
 
           },
           {
+            icon: 'reco-csdn',
             text: 'CSDN',
             link: 'https://blog.csdn.net/Xiaoyc7'
           },
           {
+            icon: 'reco-bilibili',
             text: 'Bilibili',
             link: 'https://space.bilibili.com/273377574'
           }
@@ -143,7 +146,7 @@ module.exports = {
           link: 'https://github.com/Dragon-chen777'
         },
         {
-          icon: 'reco-csdn',
+          icon: 'reco-npm',
           link: 'https://www.npmjs.com/~noxone'
         },
         {
@@ -159,15 +162,64 @@ module.exports = {
           link: 'https://space.bilibili.com/273377574'
         },
       ]
+    },
+    locales: {
+      '/': {
+        recoLocales: {
+          article: '文章', // 默认 文章
+          tag: '标签', // 默认 标签
+          category: '专栏', // 默认 分类
+          friendLink: '友链', // 默认 友情链接
+          pagation: {
+            prev: '上一页',
+            next: '下一页',
+            go: 'GO',
+            jump: '传送到'
+          }
+        }
+      }
     }
   },
   plugins: {
-    "@noxone/vuepress-plugin-cover": {},
+    "@noxone/vuepress-plugin-cover": {
+      main: [{
+          content: [
+            '我想，',
+            '在这个世界上,',
+            '虽然没有最美好的相遇，',
+            '但却应该有为了相遇或重逢，',
+            '所做的最美好的努力。'
+          ]
+        },
+        {
+          content: [
+            '一定要爱着点什么，',
+            '恰似草木对光阴的钟情。',
+          ],
+        },
+        {
+          content: [
+            '人生如梦，',
+            '我投入了的却是真情，',
+            '世界先爱了我，',
+            '我不能不爱它。',
+          ]
+        },
+        {
+          content: [
+            '爱自己，',
+            '是终身浪漫的开始',
+          ]
+        },
+      ],
+    },
     "@noxone/vuepress-plugin-music-player": {
       musicList: NOXONE_MUSIC_LIST,
-      zIndex: 19
+      zIndex: 19,
+      themeColor: '#00a1d6'
     },
     "vuepress-plugin-kan-ban-niang": {
+      theme: ['shizuku'],
       clean: false,
       modelStyle: {
         position: "fixed",
@@ -183,11 +235,6 @@ module.exports = {
       }
     }
   },
-  locales: {
-    '/': {
-      lang: 'zn-CN'
-    }
-  },
   configureWebpack: {
     resolve: {
       alias: {
@@ -197,5 +244,6 @@ module.exports = {
   },
   extraWatchFiles: [
     '.vuepress/styles/index.styl', // 使用相对路径
+    '.vuepress/styles/palette.styl'
   ]
 }

@@ -1,15 +1,37 @@
-// light模式
+@font-face
+  font-family FONT2
+  src url('/fonts/font3.min.ttf')
+
 * {
   -webkit-tap-highlight-color: rgba(0,0,0,0)
 }
 body {
   cursor url('https://dragon-chen777.github.io/assets/cursors/1/default.cur'),auto
 }
-button, input,a:hover{
+button, input, a,.hover:hover,
+.tags span, .social-item,i{
 	cursor url('https://dragon-chen777.github.io/assets/cursors/1/select.cur'),auto !important
 }
-input:focus{
+input:focus {
   cursor url('https://dragon-chen777.github.io/assets/cursors/1/text.cur'),auto !important
+}
+#app .theme-container{
+  .reco-github{
+    color #24292f !important
+  }
+  .reco-npm {
+    color #c80000 !important  
+  }
+  .reco-juejin {
+    color #1e80ff !important  
+  }
+  .reco-csdn {
+    color #fb5430 !important  
+  }
+  .reco-bilibili {
+    color #00aeec !important  
+  }
+  
 }
 .page .content__default {
   // 代码：``
@@ -73,31 +95,284 @@ input:focus{
   font-weight: 600;  
 }
 .navbar {
-  border-radius 0 0 0 1rem
+  transition: background 0.35s ease-out, backdrop-filter 0.35s ease-out
+  border-radius 0 0 1rem 1rem
   box-shadow: none
-  background rgba(255, 255, 255, 0) !important
-  // -webkit-backdrop-filter blur(1px)
-  // backdrop-filter blur(1px)
+  background rgba(0, 0, 0, 0) !important
   .home-link{
     .logo{
-      border-radius: 0;  
+      border-radius 0
     }
     .site-name {
       display none
     }
   }
-  .links{
+  .links {
     background-color rgba(255,255,255,0) !important
+    .color-picker {
+      display none
+    }
+    .search-box{
+      transition all 0.2s ease
+      .iconfont.reco-search {
+        transition all 0.2s ease
+        color #555
+        // color #000
+      }
+      input{
+        transition all 0.2s ease
+        border-radius: 1rem
+        background: rgba(255,255,255,0.3) !important
+      }
+    }
+    .nav-links {
+      .nav-item {
+        i {
+          color #eee !important
+          transition all 0.3s ease
+        }
+        .nav-link {
+          color #eee !important
+          transition all 0.3s ease
+        }
+        .dropdown-title {
+          color #eee !important
+          transition all 0.3s ease
+          .arrow {
+            border-top: 6px solid #eee !important
+            transition all 0.3s ease
+          }
+
+        }
+        .dropdown-item {
+          .nav-link {
+            color #555 !important
+            &:hover {
+              transition all 0.3s ease
+              color $accentColor !important
+            }
+          }
+        }
+        &:hover {
+          .dropdown-item {
+            .nav-link {
+              color #555 !important  
+              &:hover {
+                color $accentColor !important
+              }
+            }
+          }
+          i {
+            color $accentColor !important
+          }
+          .nav-link {
+            color $accentColor !important
+            transition all 0.3s ease
+          }
+          .dropdown-title {
+            color $accentColor !important
+            .arrow {
+              border-top: 6px solid $accentColor !important
+            }
+          }
+        }
+      }
+    } 
+  }
+  .sidebar-button {
+    transition all 0.3s ease
+    color #fefefe
+  }
+}
+.navbar.focus {
+  transition: background 0.5s ease-in, backdrop-filter 0.5s ease-in
+  position fixed !important
+  background: rgba(255,255,255,0.4) !important
+  -webkit-backdrop-filter: blur(10px) !important
+  backdrop-filter: blur(10px) !important
+  box-shadow: var(--box-shadow) !important
+  .sidebar-button {
+    color #555
+  }
+  .links {
+    .search-box{
+      transition all 0.2s ease
+      .iconfont.reco-search {
+        transition all 0.2s ease
+        color #555
+      }
+      input{
+        transition all 0.2s ease
+        border-color #555
+      }
+      input:focus{
+        transition all 0.2s ease
+        border-color $accentColor
+      }
+    }
+    .nav-links {
+      .nav-item {
+        i {
+          color #555 !important
+          transition all 0.3s ease
+        }
+        .nav-link {
+          color #555 !important
+          transition all 0.3s ease
+        }
+        .dropdown-title {
+          color #555 !important
+          transition all 0.3s ease
+          .arrow {
+            border-top: 6px solid #555 !important
+            transition all 0.3s ease
+          }
+
+        }
+        .dropdown-item {
+          .nav-link {
+            color #555 !important
+            &:hover {
+              transition all 0.3s ease
+              color $accentColor !important
+            }
+          }
+        }
+        &:hover {
+          .dropdown-item {
+            .nav-link {
+              color #555 !important  
+              &:hover {
+                color $accentColor !important
+              }
+            }
+          }
+          i {
+            color $accentColor !important
+          }
+          .nav-link {
+            color $accentColor !important
+            transition all 0.3s ease
+          }
+          .dropdown-title {
+            color $accentColor !important
+            .arrow {
+              border-top: 6px solid $accentColor !important
+            }
+          }
+        }
+      }
+    } 
+  }
+}
+.navbar.fixed {
+  transition: background 0.5s ease-in, backdrop-filter 0.5s ease-in
+  position fixed !important
+  background: rgba(255,255,255,0.4) !important
+  -webkit-backdrop-filter: blur(10px) !important
+  backdrop-filter: blur(10px) !important
+  box-shadow: var(--box-shadow) !important
+  .sidebar-button {
+    color #555
+  }
+  .links {
+    .search-box{
+      transition all 0.2s ease
+      .iconfont.reco-search {
+        transition all 0.2s ease
+        color #555
+      }
+      input{
+        transition all 0.2s ease
+        border-color #555
+      }
+      input:focus{
+        transition all 0.2s ease
+        border-color $accentColor
+      }
+    }
+    .nav-links {
+      .nav-item {
+        i {
+          color #555 !important
+          transition all 0.3s ease
+        }
+        .nav-link {
+          color #555 !important
+          transition all 0.3s ease
+        }
+        .dropdown-title {
+          color #555 !important
+          transition all 0.3s ease
+          .arrow {
+            border-top: 6px solid #555 !important
+            transition all 0.3s ease
+          }
+
+        }
+        .dropdown-item {
+          .nav-link {
+            color #555 !important
+            &:hover {
+              transition all 0.3s ease
+              color $accentColor !important
+            }
+          }
+        }
+        &:hover {
+          .dropdown-item {
+            .nav-link {
+              color #555 !important  
+              &:hover {
+                color $accentColor !important
+              }
+            }
+          }
+          i {
+            color $accentColor !important
+          }
+          .nav-link {
+            color $accentColor !important
+            transition all 0.3s ease
+          }
+          .dropdown-title {
+            color $accentColor !important
+            .arrow {
+              border-top: 6px solid $accentColor !important
+            }
+          }
+        }
+      }
+    } 
   }
 }
 .home-blog {
+  background #eee
+  -webkit-backdrop-filter blur(1px) !important
+  backdrop-filter blur(10px) !important
   .hero {
+    font-family FONT2 !important 
     margin 0 !important
     h1,.description {
       text-shadow -2px 0 #666, 2px 0 #666, 0 2px #666, 0 -2px #666
     }
     .typed-cursor {
+      text-shadow: -1px 0 #666, 1px 0 #666, 0 1px #666, 0 -1px #666 !important;
+      font-weight 600
       color #fff !important
+    }
+  }
+  .home-blog-wrapper {
+    
+    .info-wrapper {
+      border-radius 1rem !important
+    }
+    .blog-list {
+      .abstract-wrapper {
+        .abstract-item {
+          border-radius 0.8rem !important  
+        }
+      }  
     }
   }
 }
