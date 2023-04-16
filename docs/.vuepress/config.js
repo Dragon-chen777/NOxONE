@@ -2,7 +2,7 @@ const sidebar = require('../blog')
 const BASE_URL = 'https://dragon-chen777.github.io'
 
 const NOXONE_MUSIC_LIST = [ // todo
-  '很高兴认识你',
+  '《鬼灭之刃》-红莲华',
   'カナタハルカ',
   'なんでもないや',
   '打上花火',
@@ -13,6 +13,7 @@ const NOXONE_MUSIC_LIST = [ // todo
   '普通朋友',
   '飞机场的10：30',
   '爱，很简单',
+  '很高兴认识你',
   '对不起',
   '一路向北',
   'Drugs You Should Try It',
@@ -233,7 +234,19 @@ module.exports = {
         theme: '哼，花心的男人~',
         close: '别离开我，好吗？'
       }
-    }
+    },
+    "sakura": {
+      num: 10, // 默认数量
+      show: true, //  是否显示
+      zIndex: 9999, // 层级
+      img: {
+        replace: false, // false 默认图 true 换图 需要填写httpUrl地址
+        httpUrl: '...' // 绝对路径
+      }
+    },
+    'reading-progress': {},
+    'go-top': {},
+    '@vuepress-reco/back-to-top': false
   },
   configureWebpack: {
     resolve: {

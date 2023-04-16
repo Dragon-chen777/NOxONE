@@ -2,6 +2,8 @@
 title: 一文搞懂执行上下文、VO、AO、Scope、[[scope]]、作用域链、闭包
 author: NOxONE
 date: '2022-07-18'
+sticky: 1
+cover: 'https://dragon-chen777.github.io/assets/images/祢豆子/8.jpg'
 categories:
 - js
 tags:

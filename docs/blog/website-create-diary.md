@@ -2,6 +2,8 @@
 title: 建站日记
 author: NOxONE
 date: '2077-07-07'
+sticky: 4
+cover: 'https://dragon-chen777.github.io/assets/images/祢豆子/8.jpg'
 ---
 # 2023.04.01 ~ 2023.04.02
 ## 1. 搭建博客主框架

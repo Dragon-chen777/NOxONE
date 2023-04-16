@@ -2,6 +2,8 @@
 title: Virtual DOM和Diff原理及实现
 author: NOxONE
 date: '2023-03-20'
+sticky: 2
+cover: 'https://dragon-chen777.github.io/assets/images/祢豆子/7.jpg'
 categories:
 - vue
 tags:
