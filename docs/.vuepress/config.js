@@ -2,7 +2,7 @@ const sidebar = require('../blog')
 const BASE_URL = 'https://dragon-chen777.github.io'
 
 const NOXONE_MUSIC_LIST = [ // todo
-  '《鬼灭之刃》-红莲华',
+  '红莲华',
   'カナタハルカ',
   'なんでもないや',
   '打上花火',
@@ -183,7 +183,8 @@ module.exports = {
   },
   plugins: {
     "@noxone/vuepress-plugin-cover": {
-      main: [{
+      main: [
+        {
           content: [
             '我想，',
             '在这个世界上,',
@@ -217,24 +218,9 @@ module.exports = {
     "@noxone/vuepress-plugin-music-player": {
       musicList: NOXONE_MUSIC_LIST,
       zIndex: 19,
-      themeColor: '#00a1d6'
+      themeColor: '#69c6f5'
     },
-    "vuepress-plugin-kan-ban-niang": {
-      theme: ['shizuku'],
-      clean: false,
-      modelStyle: {
-        position: "fixed",
-        right: "100px",
-        bottom: "0px",
-        opacity: "0.9",
-        zIndex: 99999
-      },
-      messages: {
-        home: '迷路了吗？让我带你回家吧~',
-        theme: '哼，花心的男人~',
-        close: '别离开我，好吗？'
-      }
-    },
+    "@noxone/vuepress-plugin-live2d": {},
     "sakura": {
       num: 10, // 默认数量
       show: true, //  是否显示
