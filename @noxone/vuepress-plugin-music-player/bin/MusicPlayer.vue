@@ -3,18 +3,18 @@
     <div class="music-container" :class="{playing: isPlaying, hidden: isPlayerHidden}" >
       <div class="music-info">
         <div class="title">{{ curMusic.title }}</div>
-        <div class="progress-container" @click="setProgress($event)">
-          <div class="progress" :style="{width: playProgress}"></div>
+        <div class="progress-container hover" @click="setProgress($event)">
+          <div class="progress hover" :style="{width: playProgress}"></div>
         </div>
       </div>
       <div class="music-cover">
         <img :src="curMusic.cover"/>
       </div>
       <div class="control-pannel">
-        <div class="hide-btn" @click="setPlayerStatus('hide')">x</div>
-        <div class="action-btn fas fa-backward" @click="playMusic('pre')"></div>
-        <div class="action-btn action-btn-big fas" :class="[isPlaying ? 'fa-pause' : 'fa-play']" @click="playMusic(isPlaying?'pause':'play')"></div>
-        <div class="action-btn fas fa-forward" @click="playMusic('next')"></div>
+        <div class="hide-btn hover" @click="setPlayerStatus('hide')">x</div>
+        <div class="action-btn fas fa-backward hover" @click="playMusic('pre')"></div>
+        <div class="action-btn action-btn-big fas hover" :class="[isPlaying ? 'fa-pause' : 'fa-play']" @click="playMusic(isPlaying?'pause':'play')"></div>
+        <div class="action-btn fas fa-forward hover" @click="playMusic('next')"></div>
       </div>
       <audio
         ref="audio"
