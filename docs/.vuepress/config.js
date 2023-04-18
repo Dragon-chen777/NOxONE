@@ -213,8 +213,7 @@ module.exports = {
             '是终身浪漫的开始',
           ]
         },
-      ],
-      isShowOnce: true
+      ]
     },
     "@noxone/vuepress-plugin-music-player": {
       musicList: NOXONE_MUSIC_LIST,
