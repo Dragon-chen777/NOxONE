@@ -21,7 +21,10 @@ module.exports = (config, ctx) => ({
       resolve(__dirname, `assets/fonts/${NOXONE_COVER_CONFIG.fontFamily}`),
       resolve(__dirname, 'assets/fonts'),
       'font.min.ttf',
-      NOXONE_COVER_CONFIG.main.map(item => item.content.join('')).join('') + NOXONE_COVER_CONFIG.nextTip + NOXONE_COVER_CONFIG.skipTip
+      NOXONE_COVER_CONFIG.main.map(item => item.content.join('')).join('')
+      + NOXONE_COVER_CONFIG.nextTip
+      + NOXONE_COVER_CONFIG.skipTip
+      + 'NOxONE'
     )
     console.log(NOXONE_COVER_CONFIG)
 

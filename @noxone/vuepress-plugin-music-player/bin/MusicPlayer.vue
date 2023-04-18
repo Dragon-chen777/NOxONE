@@ -1,6 +1,6 @@
 <template>
-  <div class="noxone-music" :style="globalSty">
-    <div class="music-container" :class="{playing: isPlaying, hidden: isPlayerHidden}" >
+  <div class="noxone-music" :style="globalSty" :class="{playing: isPlaying, hidden: isPlayerHidden}">
+    <div class="music-container" >
       <div class="music-info">
         <div class="title">{{ curMusic.title }}</div>
         <div class="progress-container hover" @click="setProgress($event)">
@@ -23,7 +23,7 @@
         @ended="playMusic('next')"
       />
     </div>
-    <div class="small-container" :class="{show: isPlayerHidden, hidden: !isPlayerHidden}" @click="setPlayerStatus('show')">
+    <div class="small-container hover" :class="{show: isPlayerHidden, hidden: !isPlayerHidden}" @click="setPlayerStatus('show')">
       <div class="show-btn fas fa-angle-right"></div>
     </div>
   </div>
@@ -75,8 +75,17 @@ export default {
         _this.playMusic(cmd)
       }
     )
+    window.noxone.Bus.$on(
+      'setPlayerStatus',
+      function setPlayerStatus(cmd) {
+        _this.setPlayerStatus(cmd)
+      }
+    )
     const isMobile = !!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-    if (isMobile) this.globalSty.zoom *= 0.7
+    if (isMobile){
+      this.globalSty.zoom *= 0.7
+      this.isPlayerHidden = true
+    }
   },
   mounted() {
     AUDIO = this.$refs.audio
@@ -121,8 +130,9 @@ export default {
       this.playProgress = `${(currentTime / duration) * 100}%`
     },
     setProgress(e) {
+      console.log(e.target.clientWidth,e);
       const progressContainerWidth = e.target.clientWidth
-      const clickX = e.offsetX
+      const clickX = e.offsetX / this.globalSty.zoom // zoom会影响到e.offsetX
       const duration = AUDIO.duration
       AUDIO.currentTime = (clickX / progressContainerWidth) * duration
     },
@@ -136,14 +146,24 @@ export default {
 <style lang="stylus" scoped>
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap')
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css')
-
 *
   box-sizing border-box
   -webkit-tap-highlight-color rgba(0,0,0,0)
-
 .noxone-music
   position fixed
   left 0
+.noxone-music.playing
+  .music-cover
+    img
+      animation-play-state running
+  .music-info
+    opacity 1
+    transform translateY(-100%)
+.noxone-music.hidden
+  pointer-events none
+  .music-container
+    opacity 0
+    transform translateX(-110%)
 
 .music-container
   position relative
@@ -156,16 +176,7 @@ export default {
   z-index 1
   transition all 0.5s ease-out
 
-.music-container.playing
-  .music-cover
-    img
-      animation-play-state running
-  .music-info
-    opacity 1
-    transform translateY(-100%)
-.music-container.hidden
-  opacity 0
-  transform translateX(-110%)
+
 
 .music-cover
   position relative
@@ -223,21 +234,24 @@ export default {
   top 50%
   left 0
   transform translate(-100%,-50%)
-  width 25px
+  border-radius 0 28px 28px 0
+  width 32px
   height 45px
-  border 1px solid rgba(0,0,0,.2)
-  box-shadow 2.8px 2.8px 2.2px rgba(0,0,0,.02),6.7px 6.7px 5.3px rgba(0,0,0,.028),12.5px 12.5px 10px rgba(0,0,0,.035),22.3px 22.3px 17.9px rgba(0,0,0,.042),41.8px 41.8px 33.4px rgba(0,0,0,.05),100px 100px 80px rgba(0,0,0,.07)
+  background-color #fefefe
+  filter drop-shadow(1px 1px 2px #666)
   display flex
   align-items center
   justify-content center
   z-index 9
   cursor pointer
   background-color #fff
-  border-radius 0 20px 20px 0
   overflow hidden
   color var(--theme-color)
+  pointer-events auto
   .show-btn
-    font-size 24px
+    margin-top 2px
+    margin-left -4px
+    font-size 34px
     font-weight 600
     color var(--theme-color)
 .small-container.hidden
@@ -264,20 +278,23 @@ export default {
   z-index 0
   .title
     color var(--music-title-color)
-    font-weight 600
+    color #333
+    font-weight 500
+    font-size 22px
+    text-shadow: -2px 0 #eee, 2px 0 #eee, 0 2px #eee, 0 -2px #eee;
 
 .progress-container
+  background-clip content-box
   background-color rgb(240,240,240)
   border-radius 5px
   cursor pointer
-  margin 10px 0
-  height 4px
+  padding 8px 0
   width 100%
 
   .progress
     background-color var(--theme-color)
     border-radius 5px
-    height 100%
+    height 4px
     width 0
     transition width .1s linear
 

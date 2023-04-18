@@ -139,7 +139,7 @@ export default {
 <style lang="stylus" scoped>
 @require '../assets/css/animista.css'
 @font-face
-  font-family FONT
+  font-family NOXONE_FONT1
   src url('../assets/fonts/font.min.ttf')
 
 .bg
@@ -150,7 +150,7 @@ export default {
   height 100vh
 
 #noxone-cover
-  font-family FONT !important
+  font-family NOXONE_FONT1 !important
   position fixed
   top 0
   bottom 0

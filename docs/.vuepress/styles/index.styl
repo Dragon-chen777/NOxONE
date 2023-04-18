@@ -1,9 +1,16 @@
 @font-face
-  font-family FONT2
-  src url('/NOxONE/fonts/font3.min.ttf')
-
+  font-family: NOXONE_GLOBAL_FONT
+  src: url('/fonts/Alimama_DongFangDaKai_Regular.woff') format('woff'),
+       url('/fonts/Alimama_DongFangDaKai_Regular.woff2') format('woff'),
+       url(/fonts/Alimama_DongFangDaKai_Regular.ttf) format('truetype')
 * {
   -webkit-tap-highlight-color: rgba(0,0,0,0)
+}
+.home-blog, .abstract-wrapper, .tags, .info-wrapper, .noxone-music, .NoxoneLive2D{
+  font-family: NOXONE_GLOBAL_FONT
+}
+.search-box{
+  font-family none
 }
 body {
   cursor url('https://dragon-chen777.github.io/assets/cursors/1/default.cur'),auto
@@ -20,18 +27,18 @@ input:focus {
     color #24292f !important
   }
   .reco-npm {
-    color #c80000 !important  
+    color #c80000 !important
   }
   .reco-juejin {
-    color #1e80ff !important  
+    color #1e80ff !important
   }
   .reco-csdn {
-    color #fb5430 !important  
+    color #fb5430 !important
   }
   .reco-bilibili {
-    color #00aeec !important  
+    color #00aeec !important
   }
-  
+
 }
 .page .content__default {
   // 代码：``
@@ -89,22 +96,32 @@ input:focus {
   }
 }
 
+
 // 标题
 .page .page-title .title {
   font-size: 2rem;
-  font-weight: 600;  
+  font-weight: 600;
 }
 .navbar {
+  font-family NOXONE_GLOBAL_FONT
   transition: background 0.35s ease-out, backdrop-filter 0.35s ease-out
   border-radius 0 0 1rem 1rem
-  box-shadow: none
-  background rgba(0, 0, 0, 0) !important
+  box-shadow: none !important
+  background rgba(255, 255, 255, 0) !important
   .home-link{
     .logo{
-      border-radius 0
+      margin-right 8px
+      transition all 0.3s ease-in
     }
     .site-name {
-      display none
+      font-family NOXONE_FONT1
+      transition all 0.49s ease-in
+      color #333
+      text-shadow -2px 0 #fefefe, 2px 0 #fefefe, 0 2px #fefefe, 0 -2px #fefefe
+      color #fefefe
+      text-shadow -2px 0 #333, 2px 0 #333, 0 2px #333, 0 -2px #333
+      font-weight 600
+      font-size 1.8rem
     }
   }
   .links {
@@ -116,13 +133,19 @@ input:focus {
       transition all 0.2s ease
       .iconfont.reco-search {
         transition all 0.2s ease
-        color #555
-        // color #000
+        color #fff
       }
       input{
         transition all 0.2s ease
         border-radius: 1rem
         background: rgba(255,255,255,0.3) !important
+      }
+      input.focused{
+        border-color $accentColor !important
+
+      }
+      input.focused + .reco-search{
+        color $accentColor !important
       }
     }
     .nav-links {
@@ -156,7 +179,7 @@ input:focus {
         &:hover {
           .dropdown-item {
             .nav-link {
-              color #555 !important  
+              color #555 !important
               &:hover {
                 color $accentColor !important
               }
@@ -177,20 +200,32 @@ input:focus {
           }
         }
       }
-    } 
+    }
   }
   .sidebar-button {
-    transition all 0.3s ease
+    transition all 0.3s ease-in
     color #fefefe
   }
 }
-.navbar.focus {
-  transition: background 0.5s ease-in, backdrop-filter 0.5s ease-in
+.navbar.focus, .navbar.fixed {
+  transition: background 0.3s ease-in, backdrop-filter 0.3s ease-in
   position fixed !important
-  background: rgba(255,255,255,0.4) !important
+  background: rgba(255,255,255,0.7) !important
   -webkit-backdrop-filter: blur(10px) !important
   backdrop-filter: blur(10px) !important
   box-shadow: var(--box-shadow) !important
+  .home-link{
+    .logo{
+      transform rotate(360deg) scale(1.2)
+      margin-left 20px
+      margin-right 20px
+    }
+    .site-name {
+      color #333
+      text-shadow -2px 0 #fefefe, 2px 0 #fefefe, 0 2px #fefefe, 0 -2px #fefefe
+      transform  scale(1.2)
+    }
+  }
   .sidebar-button {
     color #555
   }
@@ -204,10 +239,6 @@ input:focus {
       input{
         transition all 0.2s ease
         border-color #555
-      }
-      input:focus{
-        transition all 0.2s ease
-        border-color $accentColor
       }
     }
     .nav-links {
@@ -241,7 +272,7 @@ input:focus {
         &:hover {
           .dropdown-item {
             .nav-link {
-              color #555 !important  
+              color #555 !important
               &:hover {
                 color $accentColor !important
               }
@@ -261,97 +292,95 @@ input:focus {
             }
           }
         }
-      }
-    } 
-  }
-}
-.navbar.fixed {
-  transition: background 0.5s ease-in, backdrop-filter 0.5s ease-in
-  position fixed !important
-  background: rgba(255,255,255,0.4) !important
-  -webkit-backdrop-filter: blur(10px) !important
-  backdrop-filter: blur(10px) !important
-  box-shadow: var(--box-shadow) !important
-  .sidebar-button {
-    color #555
-  }
-  .links {
-    .search-box{
-      transition all 0.2s ease
-      .iconfont.reco-search {
-        transition all 0.2s ease
-        color #555
-      }
-      input{
-        transition all 0.2s ease
-        border-color #555
-      }
-      input:focus{
-        transition all 0.2s ease
-        border-color $accentColor
       }
     }
-    .nav-links {
-      .nav-item {
-        i {
-          color #555 !important
-          transition all 0.3s ease
-        }
-        .nav-link {
-          color #555 !important
-          transition all 0.3s ease
-        }
-        .dropdown-title {
-          color #555 !important
-          transition all 0.3s ease
-          .arrow {
-            border-top: 6px solid #555 !important
-            transition all 0.3s ease
-          }
-
-        }
-        .dropdown-item {
-          .nav-link {
-            color #555 !important
-            &:hover {
-              transition all 0.3s ease
-              color $accentColor !important
-            }
-          }
-        }
-        &:hover {
-          .dropdown-item {
-            .nav-link {
-              color #555 !important  
-              &:hover {
-                color $accentColor !important
-              }
-            }
-          }
-          i {
-            color $accentColor !important
-          }
-          .nav-link {
-            color $accentColor !important
-            transition all 0.3s ease
-          }
-          .dropdown-title {
-            color $accentColor !important
-            .arrow {
-              border-top: 6px solid $accentColor !important
-            }
-          }
-        }
-      }
-    } 
   }
 }
+// .navbar.fixed {
+//   transition: background 0.5s ease-in, backdrop-filter 0.5s ease-in
+//   position fixed !important
+//   background: rgba(255,255,255,0.4) !important
+//   -webkit-backdrop-filter: blur(10px) !important
+//   backdrop-filter: blur(10px) !important
+//   box-shadow: var(--box-shadow) !important
+//   .sidebar-button {
+//     color #555
+//   }
+//   .links {
+//     .search-box{
+//       transition all 0.2s ease
+//       .iconfont.reco-search {
+//         transition all 0.2s ease
+//         color #555
+//       }
+//       input{
+//         transition all 0.2s ease
+//         border-color #555
+//       }
+//     }
+//     .nav-links {
+//       .nav-item {
+//         i {
+//           color #555 !important
+//           transition all 0.3s ease
+//         }
+//         .nav-link {
+//           color #555 !important
+//           transition all 0.3s ease
+//         }
+//         .dropdown-title {
+//           color #555 !important
+//           transition all 0.3s ease
+//           .arrow {
+//             border-top: 6px solid #555 !important
+//             transition all 0.3s ease
+//           }
+
+//         }
+//         .dropdown-item {
+//           .nav-link {
+//             color #555 !important
+//             &:hover {
+//               transition all 0.3s ease
+//               color $accentColor !important
+//             }
+//           }
+//         }
+//         &:hover {
+//           .dropdown-item {
+//             .nav-link {
+//               color #555 !important
+//               &:hover {
+//                 color $accentColor !important
+//               }
+//             }
+//           }
+//           i {
+//             color $accentColor !important
+//           }
+//           .nav-link {
+//             color $accentColor !important
+//             transition all 0.3s ease
+//           }
+//           .dropdown-title {
+//             color $accentColor !important
+//             .arrow {
+//               border-top: 6px solid $accentColor !important
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
 .home-blog {
+  font-family: NOXONE_GLOBAL_FONT
   background #eee
   -webkit-backdrop-filter blur(1px) !important
   backdrop-filter blur(10px) !important
   .hero {
-    font-family FONT2 !important 
+    font-family NOXONE_GLOBAL_FONT !important
     margin 0 !important
     h1,.description {
       text-shadow -2px 0 #666, 2px 0 #666, 0 2px #666, 0 -2px #666
@@ -363,16 +392,16 @@ input:focus {
     }
   }
   .home-blog-wrapper {
-    
+
     .info-wrapper {
       border-radius 1rem !important
     }
     .blog-list {
       .abstract-wrapper {
         .abstract-item {
-          border-radius 0.8rem !important  
+          border-radius 0.8rem !important
         }
-      }  
+      }
     }
   }
 }
@@ -385,7 +414,7 @@ input:focus {
       font-size: 1.5rem !important
     }
     .description{
-      font-size: 0.8rem !important  
+      font-size: 0.8rem !important
     }
   }
 }}
@@ -398,7 +427,7 @@ input:focus {
       font-size: 1.5rem !important
     }
     .description{
-      font-size: 0.8rem !important  
+      font-size: 0.8rem !important
     }
-  } 
+  }
 }}

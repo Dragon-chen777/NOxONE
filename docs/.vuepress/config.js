@@ -25,7 +25,7 @@ const NOXONE_MUSIC_LIST = [ // todo
 }))
 
 module.exports = {
-  title: 'NOxONE',
+  title: 'NOXONE',
   description: '欢迎来到NOxONE的小破站~',
   base: '/NOxONE/',
   head: [
@@ -37,7 +37,7 @@ module.exports = {
   theme: 'reco',
   themeConfig: {
     type: 'blog',
-    logo: `${BASE_URL}/assets/images/NOxONE_LOGO.png`,
+    logo: `https://p3-passport.byteimg.com/img/user-avatar/039391726bfa394febe9e5853f06026a~180x180.awebp`,
     authorAvatar: 'https://p3-passport.byteimg.com/img/user-avatar/039391726bfa394febe9e5853f06026a~180x180.awebp',
     nav: [{
         text: '博客',
@@ -214,6 +214,7 @@ module.exports = {
           ]
         },
       ],
+      isShowOnce: true
     },
     "@noxone/vuepress-plugin-music-player": {
       musicList: NOXONE_MUSIC_LIST,

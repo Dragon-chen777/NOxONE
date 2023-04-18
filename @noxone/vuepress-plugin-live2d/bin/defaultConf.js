@@ -1,4 +1,4 @@
-module.exports =  {
+module.exports = {
   messages: [
     '我每天都会按时起床，按时吃饭，按时上下班，也会按时想你',
     '我身体很好，可以一个人扛得住水桶，一个人扛得住行李箱，就是扛不住想你',
@@ -26,11 +26,14 @@ module.exports =  {
     '草在结它的种子，风在摇它的叶子。我们站着，不说话，就十分美好。',
     '今夜我不关心人类，我只想你',
   ],
+  right: 100,
+  bottom: 0,
+  zoom: 1,
+  zIndex: 99999,
+  pixels: 'px', // 像素单位
+  // 对话框
+  msgBoxFontColor: '#333',
+  msgBoxBgColor: '#fefefe',
   msgHoldTime: 8000,
   msgDelayTime: 3000,
-  width: 150,
-  height: 220,
-  right: 140,
-  bottom: 0,
-  pixels: 'px', // 像素单位
 }

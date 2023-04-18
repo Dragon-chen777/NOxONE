@@ -7,19 +7,21 @@
       @mouseleave="hidePanel"
     >
       <div v-show="isShowPanel" class="panel">
-
-        <div @mouseenter="onMusicPlayerHover" class="music-player item">
+        <div @mouseenter="onMusicPlayerHover" class="music-player item" :class="{'isPlaying': noxoneMusic.isPlaying}">
           <i class="music-icon iconfont icon-musicIcon1"></i>
           <div class="music-control">
             <div @click="playNoxoneMusic('pre')" class="btn pre-btn"><i class="iconfont icon-preBtn"></i></div>
             <div @click="playNoxoneMusic('play')" class="btn play-btn" v-if="!noxoneMusic.isPlaying"><i class="iconfont icon-play"></i></div>
-            <div @click="playNoxoneMusic('pause')" class="btn pause-btn" v-else><i class="iconfont icon-pause"></i></div>
+            <div @click="playNoxoneMusic('pause')" class="btn play-btn" v-else><i class="iconfont icon-pause"></i></div>
             <div @click="playNoxoneMusic('next')" class="btn next-btn"><i class="iconfont icon-nextBtn"></i></div>
           </div>
         </div>
+        <div @mouseenter="onGameBoxHover" class="game-box item">
+          <div @click="playGame('Block-collision-game')" class="game"><i class="iconfont icon-youxiyouxiji"></i></div>
+        </div>
       </div>
       <div v-show="isShowMsg" class="message-box" v-html="curMsg"></div>
-      <canvas id="live2d" :height="live2DHeight" :width="live2DWidth"></canvas>
+      <canvas id="live2d" :height="220" :width="150"></canvas>
     </div>
     <div v-if="!isLoaded" class="loading">loading...</div>
   </div>
@@ -34,6 +36,7 @@ export default {
   name: "Live2D",
   data() {
     return {
+      isMobile: false,
       isLoaded: false,
       isMobile: false,
       isShowPanel: false,
@@ -45,8 +48,8 @@ export default {
       modelMap: {
         shizuku: "/models/shizuku/assets/shizuku.model.json", // 目前仅支持一种
       },
-      live2DWidth: NOXONE_LIVE2D_CONFIG.width,
-      live2DHeight: NOXONE_LIVE2D_CONFIG.height,
+      live2DZoom: NOXONE_LIVE2D_CONFIG.zoom,
+      live2DRight: NOXONE_LIVE2D_CONFIG.right,
       noxoneMusic: {
         curMusic: {},
         isPlaying: false,
@@ -58,10 +61,12 @@ export default {
       return {
         '--live2d-width': NOXONE_LIVE2D_CONFIG.width + NOXONE_LIVE2D_CONFIG.pixels,
         '--live2d-height': NOXONE_LIVE2D_CONFIG.height + NOXONE_LIVE2D_CONFIG.pixels,
-        '--live2d-container-right': NOXONE_LIVE2D_CONFIG.right + NOXONE_LIVE2D_CONFIG.pixels,
+        '--live2d-container-right': this.live2DRight + NOXONE_LIVE2D_CONFIG.pixels,
         '--live2d-container-bottom': NOXONE_LIVE2D_CONFIG.bottom + NOXONE_LIVE2D_CONFIG.pixels,
-        '--live2d-msgbox-bg-color': 'rgba(255,255,255,0.6)' || NOXONE_LIVE2D_CONFIG.msgBoxBgColor,
-        '--live2d-msgbox-font-color': '#333' || NOXONE_LIVE2D_CONFIG.msgBoxFontColor,
+        '--live2d-msgbox-bg-color': NOXONE_LIVE2D_CONFIG.msgBoxBgColor,
+        '--live2d-msgbox-font-color': NOXONE_LIVE2D_CONFIG.msgBoxFontColor,
+        '--live2d-zIndex': NOXONE_LIVE2D_CONFIG.zIndex,
+        '--live2d-zoom': this.live2DZoom,
       }
     }
   },
@@ -142,7 +147,7 @@ export default {
       if (cmd === 'play') {
         // 根据歌曲简介动态生成内容 xxxxx，一首《xx》送给你~
         this.noxoneMusic.isPlaying = true
-        this.showImmediateMsg(`正在为主人播放<b style="color: #00a1d6;">《${curMusic.title}》</b><br>送给最最最可爱的你😘`)
+        this.showImmediateMsg(`这首<b style="color: #00a1d6;">《${curMusic.title}》</b><br>送给最最最可爱的你😘`)
         return
       }
       if (cmd === 'pre') {
@@ -162,11 +167,18 @@ export default {
       }
     },
     onMusicPlayerHover(){
-      console.log(1)
-      this.showImmediateMsg(`${this.curModel}可以为主人点歌哦😊`)
+      this.showImmediateMsg(`你好~ 我叫${this.curModel}，<br>我可以为您点歌哦🎵`)
+    },
+    onGameBoxHover(){
+      this.showImmediateMsg(`偷偷告诉你~<br>我家主人不在家喔~<br>想玩他写的游戏吗？`)
     },
     playNoxoneMusic(cmd) {
       window.noxone.Bus.$emit('playNoxoneMusic',cmd)
+    },
+    playGame(name) {
+      if (name === 'Block-collision-game') {
+        window.open('https://dragon-chen777.github.io/Block-collision-game/','_blank')
+      }
     }
   },
 
@@ -178,6 +190,12 @@ export default {
       "color: #00a1d6"
     )
     window.noxone.Bus.$on('noxoneMusicPlayStatusChange', this.handleNoxoneMusicPlayStatusChange)
+
+    this.isMobile = !!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    if (this.isMobile) {
+      this.live2DZoom *= 0.7
+      this.live2DRight = -40
+    }
   },
   mounted() {
     this.showRandomMsgLoop()
@@ -188,50 +206,52 @@ export default {
 
 <style lang="stylus" scoped>
 @require './assets/iconfont/iconfont.css'
-@font-face
-  font-family NOXONE_LIVE2D_FONT
-  src url('./assets/fonts/font3.ttf')
-
+// @font-face
+//   font-family: NOXONE_GLOBAL_FONT
+//   src: url('./assets/fonts/Alimama_DongFangDaKai_Regular.woff') format('woff'),
+//         url('./assets/fonts/Alimama_DongFangDaKai_Regular.woff2') format('woff'),
+//         url('./assets/fonts/Alimama_DongFangDaKai_Regular.ttf') format('truetype')
+$themeColor = #69c6f5
 * {
   padding 0
   margin 0
   box-sizing border-box
 }
-
 .NoxoneLive2D {
-  position: fixed
-  right: var(--live2d-container-right)
-  bottom: var(--live2d-container-bottom)
-  color: #00adb5
+  font-family NOXONE_GLOBAL_FONT
+  position fixed
+  right var(--live2d-container-right)
+  bottom var(--live2d-container-bottom)
+  color $themeColor
   text-align center
+  z-index var(--live2d-zIndex)
+  zoom var(--live2d-zoom)
+  -webkit-user-select none
+  -moz-user-select none
 }
+
 
 .live2d-container {
   position relative
-  padding 0 80px
+  padding 0 80px 0 140px
 
   .message-box {
-    font-family NOXONE_LIVE2D_FONT
-    font-weight 500
-    font-style: 18px;
     position absolute
-    bottom calc(var(--live2d-height) * 0.95)
+    bottom 210px
     transform translateX(-10%)
+    width 220px
     padding 12px 20px
     border-radius 25px
-    box-shadow 0 0 1px 1px #666
-    filter: drop-shadow(0 0 10px #999)
-    width calc(var(--live2d-width) * 1.4)
+    font-weight 500
+    font-size 18px
     color var(--live2d-msgbox-font-color)
-    background-color: var(--live2d-msgbox-bg-color)
-    -webkit-backdrop-filter blur(10px)
-    backdrop-filter blur(10px)
-    pointer-events none
+    background-color var(--live2d-msgbox-bg-color)
+    filter drop-shadow(1px 1px 5px #333)
 
     &::after {
       position absolute
       bottom -20px
-      left calc(var(--live2d-width) * 0.6)
+      left 90px
       content ''
       display block
       border 10px var(--live2d-msgbox-bg-color) solid
@@ -242,16 +262,9 @@ export default {
   }
 
   #live2d {
-    width var(--live2d-width)
-    height var(--live2d-height)
+    width 150px
+    height 220px
     pointer-events: none
-    z-index: 99999
-  }
-}
-
-.live2d-container.small {
-  #live2d {
-    transform: translate(50%, 25%) scale(0.5)
   }
 }
 
@@ -262,54 +275,74 @@ export default {
   bottom 0
   left 0
   right 0
+  pointer-events none
   .item {
+    pointer-events auto
     position absolute
     border-radius 1rem
-    width 100px
-    height 60px
-    background rgba(255, 255, 219,0.5)
-    box-shadow 0 0 5px 3px #777
-    -webkit-backdrop-filter blur(1px) !important
-    backdrop-filter blur(10px) !important
+    background-color var(--live2d-msgbox-bg-color)
+    filter drop-shadow(1px 1px 5px #333)
     i {
       font-weight 600
       color #ddd
-      text-shadow: -2px 0 #666, 2px 0 #666, 0 2px #666, 0 -2px #666
+      text-shadow -2px 0 #666, 2px 0 #666, 0 2px #666, 0 -2px #666
     }
   }
-
+  .game-box{
+    width 50px
+    height 30px
+    top 50px
+    left 80px
+    display flex
+    align-items center
+    justify-content center
+    .game{
+      width 20px
+      height 20px
+      i{
+        font-size 20px
+      }
+      &:hover{
+        i{
+          color $themeColor
+        }
+      }
+    }
+  }
   .music-player {
-    top 40px
-    left -20px
+    bottom 50px
+    left 10px
     width 120px
     height 55px
+
     .music-icon{
-      position: absolute;
+      position absolute
       top -15px
       right 0px
       font-size 30px
-      color rgb(105, 198, 245)
+      color $themeColor
+      animation rotate 1.8s linear infinite
+      animation-play-state paused
     }
     .music-control{
-      position: absolute;
-      top: 50%;
-      left 50%;
-      transform translate(-50%,-50%);
+      position absolute
+      top 50%
+      left 50%
+      transform translate(-50%,-50%)
       display flex
-      justify-content: center;
+      justify-content center
       .btn{
         box-sizing border-box
         width 30px
         height 30px
         line-height 30px
         text-align center
-        color #fff
         i {
           font-size 20px
         }
         &:hover{
           i{
-            color rgb(105, 198, 245)
+            color $themeColor
           }
         }
       }
@@ -322,5 +355,23 @@ export default {
       }
     }
   }
+  .music-player.isPlaying{
+    .music-icon{
+      animation-play-state running
+    }
+  }
 }
+
+
+@keyframes rotate
+  0%
+    transform rotate(0)
+  25%
+    transform rotate(25deg)
+  50%
+    transform rotate(0)
+  75%
+    transform rotate(-25deg)
+  100%
+    transform rotate(0)
 </style>

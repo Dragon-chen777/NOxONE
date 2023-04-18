@@ -10,7 +10,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.icon-youxiyouxiji:before {
+  content: "\e61e";
+}
 .icon-musicIcon1:before {
   content: "\e600";
 }
