@@ -1,6 +1,3 @@
----
-highlight: tomorrow-night
----
 ## 0. vuepress-plugin-cover介绍
 这是我封装的第二个vuepress插件，可以为你的博客首屏定制一个开场白封面，
 
@@ -14,7 +11,7 @@ highlight: tomorrow-night
 
 文案会有一个打字的效果，是基于一个有趣的js字体动效库[typedjs](https://github.com/mattboldt/typed.js/)实现的，具体的效果，可以进我博客看看~
 
-喏，这里我博客的传送门👉 [点击传送](http://localhost:8080/NOxONE/)
+喏，这里是我博客的传送门👉 [点击传送](https://dragon-chen777.github.io/NOxONE/)
 
 另外，喜欢的话，可以动动您的小拇指进入我的[Github项目仓库](https://github.com/Dragon-chen777/vuepress-plugin-cover)，在右上角点个⭐，谢谢啦~
 
@@ -53,22 +50,22 @@ module.exports = {
             // bgColor
             // bgColorMobile
           },
-          // { ... } 下一个文案 
+          // { ... } 下一个文案
         ],
-        pixels: 'px', // 字体像素单位 
-        fontSize: 36, // 字体36px 
-        fontWeight: 500, // 自己猜 
-        fontColor: '#fff', // 自己猜 
-        fontAlign: 'center', // 自己猜 
-        textBorderColor: '#000', // 字体边框色 
-        textBorderSize: '1px', // 字体边框大小 
-        writingMode: 'horizontal-tb', // 书写模式，可选值：vertical-lr | vertical-rl | horizontal-tb 
-        typeSpeed: 100, // 打字速度 
-        isAutoClose: false, // 打字结束自动关闭，默认需要点击后关闭 
-        nextTip: 'NEXT >', // 下一步提示文字（将作为v-html传入，意味着您也可以传入一个标签，例如<img style="width:200;height:200" src="https://xxx">） 
-        skipTip: 'SKIP >', // 跳过提示文字（也是作为v-html传入） 
-        closeAnimation: 'text-blur-out', // 关闭淡出动画类 
-        isShowMeteors: true, // 打字结束显示流星 
+        pixels: 'px', // 字体像素单位
+        fontSize: 36, // 字体36px
+        fontWeight: 500, // 自己猜
+        fontColor: '#fff', // 自己猜
+        fontAlign: 'center', // 自己猜
+        textBorderColor: '#000', // 字体边框色
+        textBorderSize: '1px', // 字体边框大小
+        writingMode: 'horizontal-tb', // 书写模式，可选值：vertical-lr | vertical-rl | horizontal-tb
+        typeSpeed: 100, // 打字速度
+        isAutoClose: false, // 打字结束自动关闭，默认需要点击后关闭
+        nextTip: 'NEXT >', // 下一步提示文字（将作为v-html传入，意味着您也可以传入一个标签，例如<img style="width:200;height:200" src="https://xxx">）
+        skipTip: 'SKIP >', // 跳过提示文字（也是作为v-html传入）
+        closeAnimation: 'text-blur-out', // 关闭淡出动画类
+        isShowMeteors: true, // 打字结束显示流星
         fontFamily: '云峰静龙行.ttf', // 字体，内置了三种：三极行楷简体-粗.ttf | 云峰寒蝉体.ttf | 云峰静龙行.ttf，你也可以添加，在项目的assets/fonts文件夹下添加ttf格式的字体文件即可
         isShowOnce: false, // 默认每次刷新当前页面始终显示cover组件，若您不想的话可以设置true
       }
