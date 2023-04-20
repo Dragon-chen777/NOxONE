@@ -213,6 +213,18 @@ module.exports = {
             '是终身浪漫的开始',
           ]
         },
+        {
+          content: [
+            '我不想谋生，',
+            '我想生活'
+          ]
+        },
+        {
+          content: [
+            '要么重构，',
+            '要么享受'
+          ]
+        }
       ]
     },
     "@noxone/vuepress-plugin-music-player": {

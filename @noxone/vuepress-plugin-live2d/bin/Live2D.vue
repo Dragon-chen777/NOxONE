@@ -17,7 +17,7 @@
           </div>
         </div>
         <div @mouseenter="onGameBoxHover" class="game-box item">
-          <div @click="playGame('Block-collision-game')" class="game"><i class="iconfont icon-youxiyouxiji"></i></div>
+          <div @click="playGame('Block-collision-game')" class="game"><i class="iconfont icon-youxi"></i></div>
         </div>
       </div>
       <div v-show="isShowMsg" class="message-box" v-html="curMsg"></div>

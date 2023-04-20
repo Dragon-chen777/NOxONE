@@ -95,8 +95,6 @@ input:focus {
     background-color: #34495E;
   }
 }
-
-
 // 标题
 .page .page-title .title {
   font-size: 2rem;
@@ -217,7 +215,7 @@ input:focus {
   .home-link{
     .logo{
       transform rotate(360deg) scale(1.2)
-      margin-left 20px
+      margin-left 40px
       margin-right 20px
     }
     .site-name {
@@ -431,3 +429,132 @@ input:focus {
     }
   }
 }}
+#app.isMobile {
+  .search-box{
+    display none
+  }
+  .global-ui{
+    .Sakura{
+      display none
+    }
+  }
+}
+#app {
+  .abstract-wrapper {
+    $sty1Color = #00a1d6
+    $sty2Color = #67cc86
+    $sty3Color = #e4405f
+
+    .abstract-item {
+      .title::after {
+        background-color transparent
+      }
+      &::before, &::after{
+        z-index 1
+        position absolute
+        transform rotateZ(0)
+        content ''
+        display block
+        box-sizing border-box
+        border 2px solid transparent
+        width 0
+        height 0
+        border-radius inherit
+
+      }
+      &::before {
+        top 0
+        left 0
+      }
+      &::after {
+        bottom 0
+        right 0
+      }
+    }
+    .abstract-item.sty1:hover {
+      .title {
+        a {
+          color $sty1Color
+        }
+        &::after {
+          background-color $sty1Color
+        }
+      }
+      &::before {
+        width 100%
+        height 100%
+        border-top-color $sty1Color
+        border-right-color $sty1Color
+        transition width 0.1s ease-in, height 0.1s ease-in 0.1s
+      }
+      &::after{
+        width 100%
+        height 100%
+        border-bottom-color $sty1Color
+        border-left-color $sty1Color
+        transition width 0.1s ease-in 0.2s, height 0.1s ease-in 0.3s
+      }
+    }
+    .abstract-item.sty2:hover {
+      .title {
+        a {
+          color $sty2Color
+        }
+        &::after {
+          background-color $sty2Color
+        }
+      }
+      &::before {
+        width 100%
+        height 100%
+        border-top-color $sty2Color
+        border-right-color $sty2Color
+        transition width 0.18s ease-in, height 0.18s ease-in 0.18s
+      }
+      &::after{
+        width 100%
+        height 100%
+        border-bottom-color $sty2Color
+        border-left-color $sty2Color
+        transition width 0.18s ease-in, height 0.18s ease-in 0.18s
+      }
+    }
+    .abstract-item.sty3 {
+      &::before, &::after {
+        top 0
+        left 0
+        width 100%
+        height 100%
+        -webkit-transform-origin center
+        transform-origin center
+      }
+      &::before {
+        border-top 2px solid $sty3Color
+        border-bottom 2px solid $sty3Color
+        -webkit-transform scale3d(0,1,1)
+        transform scale3d(0,1,1)
+      }
+      &::after {
+        border-left 2px solid $sty3Color
+        border-right 2px solid $sty3Color
+        -webkit-transform scale3d(1,0,1)
+        transform scale3d(1,0,1)
+      }
+    }
+    .abstract-item.sty3:hover {
+      .title {
+        a {
+          color $sty3Color
+        }
+        &::after {
+          background-color $sty3Color
+        }
+      }
+      &::before, &::after {
+        -webkit-transform scale3d(1,1,1)
+        transform scale3d(1,1,1)
+        transition transform 0.5s, -webkit-transform 0.5s
+      }
+    }
+  }
+}
