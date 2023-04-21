@@ -14,6 +14,8 @@
             <div @click="playNoxoneMusic('play')" class="btn play-btn" v-if="!noxoneMusic.isPlaying"><i class="iconfont icon-play"></i></div>
             <div @click="playNoxoneMusic('pause')" class="btn play-btn" v-else><i class="iconfont icon-pause"></i></div>
             <div @click="playNoxoneMusic('next')" class="btn next-btn"><i class="iconfont icon-nextBtn"></i></div>
+            <div @click="setNoxoneMusicStatus('show')" v-if="noxoneMusicPlayer.isPlayerHidden" class="btn show-btn">展开</div>
+            <div @click="setNoxoneMusicStatus('hide')" v-else class="btn hide-btn">收起</div>
           </div>
         </div>
         <div @mouseenter="onGameBoxHover" class="game-box item">
@@ -39,7 +41,7 @@ export default {
       isMobile: false,
       isLoaded: false,
       isMobile: false,
-      isShowPanel: false,
+      isShowPanel: true,
       isShowMsg: true,
       msgHoldTime: NOXONE_LIVE2D_CONFIG.msgHoldTime,
       msgDelayTime: NOXONE_LIVE2D_CONFIG.msgDelayTime,
@@ -53,6 +55,9 @@ export default {
       noxoneMusic: {
         curMusic: {},
         isPlaying: false,
+      },
+      noxoneMusicPlayer: {
+        isPlayerHidden: false
       }
     }
   },
@@ -100,6 +105,7 @@ export default {
       this.isShowPanel = true
     },
     hidePanel() {
+      return
       this.isShowPanel = false
     },
     setRandomMsg: (() => { // 实现随机不重复展示
@@ -142,7 +148,7 @@ export default {
       }, 500)
     },
     // noxoneMusicPlayer交互
-    handleNoxoneMusicPlayStatusChange({cmd,curMusic}){
+    handleNoxoneMusicPlayStatusChange({cmd, curMusic}){
       this.noxoneMusic.curMusic = curMusic
       if (cmd === 'play') {
         // 根据歌曲简介动态生成内容 xxxxx，一首《xx》送给你~
@@ -166,6 +172,19 @@ export default {
         return
       }
     },
+    handleNoxoneMusicPlayerStatusChange({cmd,change}) {
+      for (let key in change) {
+        key in this.noxoneMusicPlayer ? this.noxoneMusicPlayer[key] = change[key] : -1
+      }
+      if (cmd === 'show') {
+        this.showImmediateMsg(`NOxONE播放器出现啦🎇`)
+        return
+      }
+      if (cmd === 'hide') {
+        this.showImmediateMsg(`NOxONE播放器隐藏啦🎆`)
+        return
+      }
+    },
     onMusicPlayerHover(){
       this.showImmediateMsg(`你好~ 我叫${this.curModel}，<br>我可以为您点歌哦🎵`)
     },
@@ -175,11 +194,15 @@ export default {
     playNoxoneMusic(cmd) {
       window.noxone.Bus.$emit('playNoxoneMusic',cmd)
     },
+    setNoxoneMusicStatus(cmd) {
+      window.noxone.Bus.$emit('setPlayerStatus',cmd)
+    },
     playGame(name) {
       if (name === 'Block-collision-game') {
         window.open('https://dragon-chen777.github.io/Block-collision-game/','_blank')
       }
-    }
+    },
+
   },
 
   beforeMount() {
@@ -190,7 +213,7 @@ export default {
       "color: #00a1d6"
     )
     window.noxone.Bus.$on('noxoneMusicPlayStatusChange', this.handleNoxoneMusicPlayStatusChange)
-
+    window.noxone.Bus.$on('noxoneMusicPlayerStatusChange', this.handleNoxoneMusicPlayerStatusChange)
     this.isMobile = !!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
     if (this.isMobile) {
       this.live2DZoom *= 0.7
@@ -351,7 +374,20 @@ $themeColor = #69c6f5
         i{
           font-size 24px
         }
-
+      }
+      .show-btn, .hide-btn {
+        position absolute
+        width auto
+        height auto
+        top -20px
+        left -5px
+        font-size 12px
+        font-weight 600
+        color #ddd
+        text-shadow -2px 0 #666, 2px 0 #666, 0 2px #666, 0 -2px #666
+        &:hover {
+          color $themeColor
+        }
       }
     }
   }

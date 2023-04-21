@@ -225,7 +225,8 @@ module.exports = {
             '要么享受！'
           ]
         }
-      ]
+      ],
+      isShowOnce: true
     },
     "@noxone/vuepress-plugin-music-player": {
       musicList: NOXONE_MUSIC_LIST,

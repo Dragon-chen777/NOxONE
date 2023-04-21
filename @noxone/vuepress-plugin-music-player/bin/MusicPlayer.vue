@@ -84,7 +84,7 @@ export default {
     const isMobile = !!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
     if (isMobile){
       this.globalSty.zoom *= 0.7
-      this.isPlayerHidden = true
+      this.setPlayerStatus('hide')
     }
   },
   mounted() {
@@ -137,8 +137,16 @@ export default {
       AUDIO.currentTime = (clickX / progressContainerWidth) * duration
     },
     setPlayerStatus(cmd) {
-      if (cmd === 'hide') return this.isPlayerHidden = true
-      if (cmd === 'show') return this.isPlayerHidden = false
+      if (cmd === 'hide'){
+        this.isPlayerHidden = true
+        window.noxone.Bus.$emit('noxoneMusicPlayerStatusChange', {cmd, change: {isPlayerHidden: this.isPlayerHidden}})
+        return
+      }
+      if (cmd === 'show') {
+        this.isPlayerHidden = false
+        window.noxone.Bus.$emit('noxoneMusicPlayerStatusChange', {cmd, change: {isPlayerHidden: this.isPlayerHidden}})
+        return
+      }
     }
   }
 }
