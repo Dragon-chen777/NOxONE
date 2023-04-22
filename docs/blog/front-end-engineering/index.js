@@ -1,7 +1,7 @@
 const BLOG_BASE = '/blog'
 
 const FRONT_END_ENGINEERING_COLUMN = {
-  title: '前端工程化',
+  title: '工程化',
   path: BLOG_BASE + '/front-end-engineering/webpack搭建',
   collapsable: true,
   children: [

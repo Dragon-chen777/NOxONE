@@ -24,7 +24,7 @@ npm i webpack webpack-cli -D
 该文件在执行webpack打包构建项目时会被读取里边的配置，所有的loader、plugin以及其他都在这里配置。若要修改默认配置文件的入口，可执行以下指令
 
 ```bash
-webpack --config webpack.dev.config.js 
+webpack --config webpack.dev.config.js
 // webpack.config.js ==> webpack.dev.config.js
 ```
 
@@ -39,7 +39,7 @@ webpack --config webpack.dev.config.js
 在命令行执行如下命令，即可打包构建当前项目
 
 ```bash
-npm run build 
+npm run build
 ```
 
 ## 2.Webpack配置入口和出口
@@ -130,12 +130,12 @@ npm i css-loader -D
       {
         test:/\.css$/, // 正则匹配到的以.css结尾的文件
         use:['css-loader'] // 用css-loader预编译
-       
+
        // use其他写法
        // use:[
        //   { loader:'css-loader'} // 'css-loader'是{loader:'css-loader'}简写
        // ]
-       
+
        // loader:'css-loader' 若只有一个loader那么不用use
       }
     ]
@@ -156,7 +156,7 @@ npm i style-loader -D
     rules:[
       {
         test:/\.css$/,
-        use:['style-loader','css-loader'] 
+        use:['style-loader','css-loader']
         // 注意数组项的顺序,这里会先css-loader处理后再交给style-loader处理,
         // 这样css样式才会最终应用于html文件
       }
@@ -204,7 +204,7 @@ npm less ./style/index.less ./style/index.css
 
 - `@babel/plugin-transform-arrow-functions`（转译箭头函数）
 - `@babel/plugin-transform-block-function`(转译const、let语法)
-  
+
 安装
 
 ```
@@ -298,12 +298,12 @@ npm i @babel/preset-typescript
 ```
 {
   presets:[
-    [ 
+    [
       '@babel/preset-env',
       {
         useBuildIns:'usage',
         corejs:3
-      } 
+      }
    ],
    [ '@babel/preset-typescript' ]
   ]
@@ -351,14 +351,14 @@ npm i postcss postcss-loader postcss-preset-env autoprefixer -D
 配置
 
 ```js
-{ 
-  test: /\.css$/, 
+{
+  test: /\.css$/,
   use: [
-    'style-loader', 
+    'style-loader',
     'css-loader',
     {
       loader:'postcss-loader',
-      options:{ 
+      options:{
         postcssOptions:{ // 配置postcss-loader选项
           plugins:[
             'postcss-preset-env' // 简写
@@ -368,7 +368,7 @@ npm i postcss postcss-loader postcss-preset-env autoprefixer -D
         }
       }
     },
-  ] 
+  ]
 }
 // 注意：postcss-loader要在css-loader之前对css代码进行兼容处理,
 // 之后再把处理好的css文件传入给css-loader进行依赖处理，问题是
@@ -398,7 +398,7 @@ module.exports = {
 // index.css
 @import './common.css'
 #app {
-  color:pink;      
+  color:pink;
 }
 ```
 
@@ -412,9 +412,9 @@ use:[
   {
     loader: 'css-loader',
     options: {
-      importLoaders:1 
+      importLoaders:1
       // 当有@import时将导入的文件退回给上一个loader进行处理,具体数值看场景
-      esModule:false 
+      esModule:false
       // 解析background-img:url('xx.png')时，将url('..')作为esModule处理，
       // 将其关闭避免引入路径出错bug，即不作为esMoudule处理
     }
@@ -436,7 +436,7 @@ const mp4 = require('./assets/medias/乡村爱情故事第三季1.mp4')
 配置
 
 ```js
-{ 
+{
   test:/\.(png|gif|svg|jpe?g|mp3|mp4)$/,
   use:['file-loader']
 }
@@ -469,7 +469,7 @@ const mp4 = require('./assets/medias/乡村爱情故事第三季1.mp4')
 
 `url-loader`内部也可以调用`file-loader`，最佳实践配置如下
 ```js
-use: [ 
+use: [
   {
     loader:'url-loader',
     options:{
@@ -495,7 +495,7 @@ output:{
 },
 module:{
   rules:[
-    { 
+    {
       test: /\.(png|gif|svg|jpe?g|mp3|mp4)$/,
       type:'asset/resource' // 替代file-loader
     }
@@ -510,7 +510,7 @@ module:{
   generator:{
     filename:"img/[name].[hash:7][ext]" // 指定资源存放路径及名称
   }
-}     
+}
 ```
 最佳实践
 ```js
@@ -588,7 +588,7 @@ let HtmlWebpackPlugin = require('html-webpack-plugin')
 
 plugins:[
   new HtmlWebpackPlug({
-    ititle:'项目名', // 字段值会在打包时传入<title></title> 
+    ititle:'项目名', // 字段值会在打包时传入<title></title>
     template:'./public/index.html', // 定义模板文件
   })
 ]
@@ -630,7 +630,7 @@ let {DefinePlugin} = require('webpack')
 
 plugins:[
   new DefinePlugin({
-    BASE_URL:'"./"' 
+    BASE_URL:'"./"'
     // 注意这里是一个坑，插件在编译时会原封不动地将'...'里的
     // 东西赋值给BASE_URL这个变量，因此传入字符串需要为'"./"'
     // 即 BASE_URL = "./",若为对象则传入格式为'{...}'
@@ -707,7 +707,7 @@ npm i webpack-dev-server -D
 ```
 运行以下命令，并访问localhost:8080
 ```
-npm run serve 
+npm run serve
 ```
 在webpack配置文件中，对应devServer字段可配置服务器
 ### 5.2 webpack-dev-middleware

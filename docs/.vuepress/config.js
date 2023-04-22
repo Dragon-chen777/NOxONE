@@ -29,10 +29,7 @@ module.exports = {
   description: '欢迎来到NOxONE的小破站~',
   base: '/NOxONE/',
   head: [
-    ['link', {
-      rel: 'icon',
-      href: `${BASE_URL}/assets/images/logo.png`
-    }]
+    ['link', { rel: 'icon', href: `${BASE_URL}/assets/images/logo.png`}]
   ],
   theme: 'reco',
   themeConfig: {
@@ -191,8 +188,7 @@ module.exports = {
   },
   plugins: {
     "@noxone/vuepress-plugin-cover": {
-      main: [
-        {
+      main: [{
           content: [
             '我想，',
             '在这个世界上,',
