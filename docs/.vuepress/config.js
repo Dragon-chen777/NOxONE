@@ -39,6 +39,7 @@ module.exports = {
     type: 'blog',
     logo: `https://p3-passport.byteimg.com/img/user-avatar/039391726bfa394febe9e5853f06026a~180x180.awebp`,
     authorAvatar: 'https://p3-passport.byteimg.com/img/user-avatar/039391726bfa394febe9e5853f06026a~180x180.awebp',
+    authorAvatar2: 'https://dragon-chen777.github.io/assets/images/noxoneAvator.png',
     nav: [{
         text: '博客',
         icon: 'reco-home',
@@ -179,6 +180,13 @@ module.exports = {
           }
         }
       }
+    },
+    vssueConfig: {
+      platform: 'github',
+      owner: 'https://github.com/Dragon-chen777',
+      repo: 'https://github.com/Dragon-chen777/NOxONE',
+      clientId: '6b16c80b6b1338dd296b',
+      clientSecret: '6a96da6578132cc58ee3d1f8935b88bf804336d3',
     }
   },
   plugins: {
