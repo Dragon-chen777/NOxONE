@@ -40,7 +40,7 @@ module.exports = {
     nav: [{
         text: '博客',
         icon: 'reco-home',
-        link: '/blog/website-create-diary'
+        link: '/blog/'
       },
       {
         text: 'Demos',
@@ -129,7 +129,7 @@ module.exports = {
       },
     ],
     sidebar,
-    subSidebar: 'auto',
+    // subSidebar: 'auto',
     blogConfig: {
       category: {
         location: 5,
@@ -259,6 +259,7 @@ module.exports = {
   },
   extraWatchFiles: [
     '.vuepress/styles/index.styl', // 使用相对路径
-    '.vuepress/styles/palette.styl'
+    '.vuepress/styles/palette.styl',
+    '.vuepress/components/'
   ]
 }

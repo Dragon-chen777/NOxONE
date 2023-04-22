@@ -2,6 +2,7 @@
 title: TODO
 author: NOxONE
 date: '2077-07-07'
+sink: 1
 ---
 
 > 我才24，我还很年轻

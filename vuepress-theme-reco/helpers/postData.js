@@ -23,13 +23,15 @@ export function sortPostsByStickyAndDate (posts) {
   posts.sort((prev, next) => {
     const prevSticky = prev.frontmatter.sticky
     const nextSticky = next.frontmatter.sticky
-    if (prevSticky && nextSticky) {
-      return prevSticky == nextSticky ? compareDate(prev, next) : (prevSticky - nextSticky)
-    } else if (prevSticky && !nextSticky) {
-      return -1
-    } else if (!prevSticky && nextSticky) {
-      return 1
-    }
+    if (prevSticky && nextSticky) return prevSticky == nextSticky ? compareDate(prev, next) : (prevSticky - nextSticky)
+    if (prevSticky && !nextSticky) return -1
+    if (!prevSticky && nextSticky)  return 1
+
+    const prevSink = prev.frontmatter.sink
+    const nextSink = prev.frontmatter.sink
+    if (prevSink && nextSink) return prevSink == nextSink ? compareDate(prev, next) : (nextSink - prevSink)
+    if (prevSink && !nextSink) return 1
+    if (!prevSink && nextSink) return -1
     return compareDate(prev, next)
   })
 }
