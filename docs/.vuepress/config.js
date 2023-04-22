@@ -183,8 +183,8 @@ module.exports = {
     },
     vssueConfig: {
       platform: 'github',
-      owner: 'https://github.com/Dragon-chen777',
-      repo: 'https://github.com/Dragon-chen777/NOxONE',
+      owner: 'Dragon-chen777',
+      repo: 'NOxONE',
       clientId: '6b16c80b6b1338dd296b',
       clientSecret: '6a96da6578132cc58ee3d1f8935b88bf804336d3',
     }
