@@ -226,7 +226,6 @@ module.exports = {
           ]
         }
       ],
-      isShowOnce: true
     },
     "@noxone/vuepress-plugin-music-player": {
       musicList: NOXONE_MUSIC_LIST,

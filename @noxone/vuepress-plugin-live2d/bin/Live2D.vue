@@ -42,7 +42,7 @@ export default {
       isLoaded: false,
       isMobile: false,
       isShowPanel: true,
-      isShowMsg: true,
+      isShowMsg: false,
       msgHoldTime: NOXONE_LIVE2D_CONFIG.msgHoldTime,
       msgDelayTime: NOXONE_LIVE2D_CONFIG.msgDelayTime,
       curMsg: '天上飘着些微云，地上吹着些微风。啊！微风吹动了我头发，教我如何不想她？',
@@ -105,7 +105,6 @@ export default {
       this.isShowPanel = true
     },
     hidePanel() {
-      return
       this.isShowPanel = false
     },
     setRandomMsg: (() => { // 实现随机不重复展示
@@ -202,7 +201,6 @@ export default {
         window.open('https://dragon-chen777.github.io/Block-collision-game/','_blank')
       }
     },
-
   },
 
   beforeMount() {
