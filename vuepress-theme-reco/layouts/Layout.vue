@@ -7,6 +7,7 @@
       </ModuleTransition>
       <Page v-else :key="path" :sidebar-items="sidebarItems"/>
     </template>
+    <Footer v-if="$frontmatter.home" class="footer" />
   </Common>
 </template>
 
@@ -15,6 +16,7 @@ import { defineComponent, computed, ref, onMounted } from 'vue'
 import Home from '@theme/components/Home'
 import HomeBlog from '@theme/components/HomeBlog'
 import Page from '@theme/components/Page'
+import Footer from '@theme/components/Footer'
 import Common from '@theme/components/Common'
 import { resolveSidebarItems } from '@theme/helpers/utils'
 import { useInstance } from '@theme/helpers/composable'

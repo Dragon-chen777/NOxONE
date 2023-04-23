@@ -34,6 +34,8 @@ module.exports = {
   theme: 'reco',
   themeConfig: {
     type: 'blog',
+    author: 'NOxONE',
+    startYear: '2023',
     logo: `https://p3-passport.byteimg.com/img/user-avatar/039391726bfa394febe9e5853f06026a~180x180.awebp`,
     authorAvatar: 'https://p3-passport.byteimg.com/img/user-avatar/039391726bfa394febe9e5853f06026a~180x180.awebp',
     authorAvatar2: 'https://dragon-chen777.github.io/assets/images/noxoneAvator.png',
