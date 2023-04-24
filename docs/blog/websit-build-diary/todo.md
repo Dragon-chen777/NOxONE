@@ -40,3 +40,9 @@ sink: 1
 3. 阅读进度条[vuepress-plugin-reading-progress](https://www.npmjs.com/package/vuepress-plugin-reading-progress)
 
 ## 8.博客专栏UI修改
+## 9.博客页开发和UI设计
+## 10.博客目录栏改造
+## 11.live2D在hover时播放随机播放声音
+## 12.live2D添加其他功能面板
+## 13.项目git hooks集成lint、prettier
+## 14.封装自己的live2D插件
