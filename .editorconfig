@@ -1,5 +1,5 @@
 [*]
-indent_style = space # 空格缩进,可选"space"、"tab"
+indent_style = tab # 空格缩进,可选"space"、"tab"
 indent_size = 2 # 缩进空格为4个
 # end_of_line = lf # 结尾换行符，可选"lf"、"cr"、"crlf"
 charset = utf-8 # 文件编码是 utf-8

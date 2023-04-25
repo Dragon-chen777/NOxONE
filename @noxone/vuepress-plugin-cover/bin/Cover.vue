@@ -1,11 +1,21 @@
 <template>
-  <div v-if="isShow" id="noxone-cover" ref="noxone-cover" :class="{ 'enableClose': enableClose,'mobile': isMobile }" :style="globalSty"
-       class="noxone-cover">
+  <div
+    v-if="isShow"
+    id="noxone-cover"
+    ref="noxone-cover"
+    :class="{ enableClose: enableClose, mobile: isMobile }"
+    :style="globalSty"
+    class="noxone-cover"
+  >
     <div id="text" class="text"></div>
     <div id="text-copy" class="text-copy" v-html="textArr[0]"></div>
     <div v-if="enableClose && isFontLoaded" class="nextTip pulsate-bck" v-html="nextTip"></div>
-    <div v-if="!enableClose && isFontLoaded" class="skipTip pulsate-bck" @click="close('noxoneCoverDestroyed')"
-         v-html="skipTip"></div>
+    <div
+      v-if="!enableClose && isFontLoaded"
+      class="skipTip pulsate-bck"
+      @click="close('noxoneCoverDestroyed')"
+      v-html="skipTip"
+    ></div>
     <template v-if="isShowMeteors && enableClose">
       <div class="meteor meteor1"></div>
       <div class="meteor meteor2"></div>
@@ -13,19 +23,19 @@
       <div class="meteor meteor4"></div>
       <div class="meteor meteor5"></div>
     </template>
-    <img v-if="bgImg" :src="bgImg" class="bg">
+    <img v-if="bgImg" :src="bgImg" class="bg" />
   </div>
 </template>
 <script>
 import Typed from '../lib/typed.js'
 
-const {setAnimation, Bus} = require('../util')
+const { setAnimation, Bus } = require('../util')
 let _typed = null
 export default {
   name: 'Cover',
   data() {
     return {
-      isMobile: false,
+        isMobile: false,
       isFontLoaded: false,
       isShow: true,
       isFadeOut: false,
@@ -37,7 +47,7 @@ export default {
       isShowMeteors: NOXONE_COVER_CONFIG.isShowMeteors,
       bgImg: '',
       fontSize: NOXONE_COVER_CONFIG.fontSize,
-      randomContent: NOXONE_COVER_CONFIG.main[Math.random() * NOXONE_COVER_CONFIG.main.length | 0] // 随机内容
+      randomContent: NOXONE_COVER_CONFIG.main[(Math.random() * NOXONE_COVER_CONFIG.main.length) | 0] // 随机内容
     }
   },
   computed: {
@@ -46,7 +56,8 @@ export default {
       if (NOXONE_COVER_CONFIG.typeMode === 'default') {
         let s = ''
         for (let line of this.randomContent.content) {
-          if (line.startsWith('title:')) { // 以title:开头即为标题
+          if (line.startsWith('title:')) {
+            // 以title:开头即为标题
             line = `<div class="title">${line.slice(6)}</div>`
           }
           s += `${line}<br>`
@@ -71,9 +82,9 @@ export default {
         '--text-border-size': NOXONE_COVER_CONFIG.textBorderSize,
         // 自适应
         '--text-box-w': this.textBoxW + NOXONE_COVER_CONFIG.pixels,
-        '--text-box-h': this.textBoxH + NOXONE_COVER_CONFIG.pixels,
+        '--text-box-h': this.textBoxH + NOXONE_COVER_CONFIG.pixels
       }
-    },
+    }
   },
   methods: {
     typeText() {
@@ -86,42 +97,52 @@ export default {
           if (NOXONE_COVER_CONFIG.isAutoClose) return _this.close('noxoneCoverDestroyedAuto') // 自动关闭
           _this.enableClose = true
           _this.$refs['noxone-cover'].onclick = () => _this.close('noxoneCoverDestroyed') // 点击关闭
-        },
+        }
       })
     },
     initTextBox() {
-      const {offsetWidth, offsetHeight} = document.getElementById('text-copy')
-      this.textBoxW = offsetWidth*1.1
+      const { offsetWidth, offsetHeight } = document.getElementById('text-copy')
+      this.textBoxW = offsetWidth * 1.1
       this.textBoxH = offsetHeight
     },
     close(eventName) {
       _typed.destroy()
       this.isFadeOut = true
-      setAnimation(this.$refs['noxone-cover'], 'text-blur-out' || NOXONE_COVER_CONFIG.closeAnimation, () => {
-        this.isShow = false
-        document.body.style.overflow = 'visible'
-        window.noxone.Bus.$emit(eventName)
-      })
+      setAnimation(
+        this.$refs['noxone-cover'],
+        'text-blur-out' || NOXONE_COVER_CONFIG.closeAnimation,
+        () => {
+          this.isShow = false
+          document.body.style.overflow = 'visible'
+          window.noxone.Bus.$emit(eventName)
+        }
+      )
     }
   },
   beforeMount() {
     window.noxone = window.noxone || {}
     if (!window.noxone.Bus) window.noxone.Bus = new Bus()
-    console.log('%c noxoneCover已成功加载~，欢迎访问作者博客：https://dragon-chen777.github.io/NOxONE/', 'color: #00a1d6')
+    console.log(
+      '%c noxoneCover已成功加载~，欢迎访问作者博客：https://dragon-chen777.github.io/NOxONE/',
+      'color: #00a1d6'
+    )
 
     console.log(this.randomContent)
     if (NOXONE_COVER_CONFIG.isShowOnce && sessionStorage.getItem('isNoxoneCoverShowed')) return
     sessionStorage.setItem('isNoxoneCoverShowed', true)
 
-    this.isMobile = !!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    this.isMobile = !!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    )
     this.bgImg = this.isMobile ? this.randomContent.bgImgMobile : this.randomContent.bgImg
-    if (this.isMobile) { // 适配处理
+    if (this.isMobile) {
+      // 适配处理
       this.fontSize *= 0.75
-
     }
   },
   mounted() {
-    if (NOXONE_COVER_CONFIG.isShowOnce && sessionStorage.getItem('isNoxoneCoverShowed')) return this.isShow = false
+    if (NOXONE_COVER_CONFIG.isShowOnce && sessionStorage.getItem('isNoxoneCoverShowed'))
+      return (this.isShow = false)
     document.body.style.overflow = 'hidden'
 
     document.fonts.ready.then(() => {
@@ -132,7 +153,7 @@ export default {
         this.typeText()
       }, 500)
     })
-  },
+  }
 }
 </script>
 

@@ -81,11 +81,15 @@ module.exports = {
             link: 'https://www.runjs.cool'
           },
           {
-            text: '✨tinypng图片压缩',
+            text: '🎨tinypng图片压缩',
             link: 'https://tinypng.com'
           },
           {
-            text: '🌈路过图床',
+            text: '👓代码片段生成器',
+            link: 'https://99cc.vip/public/tools/vscode_snippet/index.html'
+          },
+          {
+            text: '路过图床',
             link: 'https://imgse.com'
           },
           {
