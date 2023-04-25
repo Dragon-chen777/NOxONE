@@ -35,7 +35,7 @@ export default {
   name: 'Cover',
   data() {
     return {
-        isMobile: false,
+      isMobile: false,
       isFontLoaded: false,
       isShow: true,
       isFadeOut: false,
