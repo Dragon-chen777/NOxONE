@@ -1,38 +1,34 @@
 {
-  "name": "@noxone/vuepress",
-  "version": "1.7.5",
-  "main": "index.js",
-  "license": "MIT",
-  "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
-    "docs:hot": "vuepress dev docs --host localhost",
-    "prepare": "husky install"
-  },
-  "dependencies": {
-    "@noxone/vuepress-plugin-cover": "^1.0.2",
-    "@noxone/vuepress-plugin-music-player": "^1.2.0",
-    "@vuepress-reco/vuepress-plugin-kan-ban-niang": "^1.0.5",
-    "vuepress-plugin-go-top": "^1.0.4",
-    "vuepress-plugin-reading-progress": "^1.0.10",
-    "vuepress-theme-reco": "^1.6.17"
-  },
-  "devDependencies": {
-    "eslint": "^8.39.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.1",
-    "prettier": "^2.8.8",
-    "vuepress-plugin-sakura": "^1.2.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "docs/**": [
-      "prettier --config .prettierrc.js --write",
-      "git add"
-    ]
-  }
+	"name": "@noxone/vuepress",
+	"version": "1.7.5",
+	"main": "index.js",
+	"license": "MIT",
+	"scripts": {
+		"docs:dev": "vuepress dev docs",
+		"docs:build": "vuepress build docs",
+		"docs:hot": "vuepress dev docs --host localhost",
+		"prepare": "husky install"
+	},
+	"dependencies": {
+		"@noxone/vuepress-plugin-cover": "^1.0.2",
+		"@noxone/vuepress-plugin-music-player": "^1.2.0",
+		"@vuepress-reco/vuepress-plugin-kan-ban-niang": "^1.0.5",
+		"vuepress-plugin-go-top": "^1.0.4",
+		"vuepress-plugin-reading-progress": "^1.0.10",
+		"vuepress-theme-reco": "^1.6.17"
+	},
+	"devDependencies": {
+		"lint-staged": "^13.2.1",
+		"prettier": "^2.8.8",
+		"vuepress-plugin-sakura": "^1.2.1"
+	},
+	"gitHooks": {
+    "pre-commit": "lint-staged"
+	},
+	"lint-staged": {
+		"docs/**": [
+			"prettier --config .prettierrc.js --write",
+			"git add"
+		]
+	}
 }
