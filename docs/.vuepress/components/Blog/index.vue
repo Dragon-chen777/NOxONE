@@ -18,7 +18,9 @@
 <script>
 export default {
 	methods: {
-		ret() {}
+		ret() {
+			console.log(1)
+		}
 	}
 }
 </script>
