@@ -7,7 +7,6 @@
 		"docs:dev": "vuepress dev docs",
 		"docs:build": "vuepress build docs",
 		"docs:hot": "vuepress dev docs --host localhost",
-		"prepare": "husky install"
 	},
 	"dependencies": {
 		"@noxone/vuepress-plugin-cover": "^1.0.2",
@@ -26,8 +25,8 @@
     "pre-commit": "lint-staged"
 	},
 	"lint-staged": {
-		"docs/**": [
-			"prettier --config .prettierrc.js --write",
+		"*": [
+			"prettier --write",
 			"git add"
 		]
 	}

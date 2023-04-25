@@ -16,8 +16,8 @@
 </template>
 
 <script>
-export default {
-	methods:       {
+export default       {
+	methods:         {
 		ret()        {}
 	}
 }
