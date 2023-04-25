@@ -17,8 +17,8 @@
 
 <script>
 export default {
-	methods: {
-		ret() {}
+	methods:                        {
+		ret()                         {}
 	}
 }
 </script>
