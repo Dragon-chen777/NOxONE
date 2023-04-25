@@ -6,7 +6,7 @@
 	"scripts": {
 		"docs:dev": "vuepress dev docs",
 		"docs:build": "vuepress build docs",
-		"docs:hot": "vuepress dev docs --host localhost",
+		"docs:hot": "vuepress dev docs --host localhost"
 	},
 	"dependencies": {
 		"@noxone/vuepress-plugin-cover": "^1.0.2",
