@@ -41,7 +41,7 @@ export default {
       isMobile: false,
       isLoaded: false,
       isMobile: false,
-      isShowPanel: true,
+      isShowPanel: false,
       isShowMsg: false,
       msgHoldTime: NOXONE_LIVE2D_CONFIG.msgHoldTime,
       msgDelayTime: NOXONE_LIVE2D_CONFIG.msgDelayTime,
