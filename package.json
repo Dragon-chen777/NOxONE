@@ -6,7 +6,8 @@
 	"scripts": {
 		"docs:dev": "vuepress dev docs",
 		"docs:build": "vuepress build docs",
-		"docs:hot": "vuepress dev docs --host localhost"
+		"docs:hot": "vuepress dev docs --host localhost",
+		"prettier": "prettier --write ."
 	},
 	"dependencies": {
 		"@noxone/vuepress-plugin-cover": "^1.0.2",
@@ -22,7 +23,7 @@
 		"vuepress-plugin-sakura": "^1.2.1"
 	},
 	"gitHooks": {
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged --concurrent false"
 	},
 	"lint-staged": {
 		"*.{js,vue}": [
