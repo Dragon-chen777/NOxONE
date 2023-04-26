@@ -1,16 +1,19 @@
---- 
+---
 title: Three.js 梦开始的地方：Scene、Camera、Render、Mesh
 author: NOxONE
 date: '2023-03-22'
 categories:
-- three.js
+  - three.js
 tags:
-- three.js
+  - three.js
 ---
 
 ## 0. 写在开头
+
 本文秉承**Talk is cheap, show me the code**原则，做到文字精简，一切交由代码~
-## 1. three.js应用的基石
+
+## 1. three.js 应用的基石
+
 `Scene`：场景是我们能看到的一切的载体
 
 `Camera`：透过投影仪查看场景
@@ -24,10 +27,13 @@ tags:
 ![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e9e4d93009c443609dc7c23d5b36940e~tplv-k3u1fbpfcp-watermark.image)
 
 ## 2. Scene
-**创建Scene**
+
+**创建 Scene**
+
 ```js
 const scene = new Scene()
 ```
+
 场景定义了三维的**笛卡尔坐标系**，里边的物体都是基于这个坐标系移动
 
 ![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/42f83193a35644ea822f1283cd9ec33a~tplv-k3u1fbpfcp-watermark.image?)
@@ -37,7 +43,9 @@ const scene = new Scene()
 ![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/860aff38c80c4939bc1db3f4c8720e03~tplv-k3u1fbpfcp-watermark.image?)
 
 ## 3. Camera
-**创建Camera**
+
+**创建 Camera**
+
 ```js
 const container = document.getElementById('container') // 应用容器
 
@@ -47,6 +55,7 @@ const near = 0.1 // 可视近点
 const far = 1000 // 可视远点
 const camera = new PerspectiveCamera(fov, aspect, near, far) // 透视投影仪
 ```
+
 投影仪可选类型，传参配置项都不同
 
 0. [Camera（基类）](https://threejs.org/docs/index.html#api/zh/cameras/Camera)
@@ -54,17 +63,23 @@ const camera = new PerspectiveCamera(fov, aspect, near, far) // 透视投影仪
 2. [OrthographicCamera（正交）](https://threejs.org/docs/index.html#api/zh/cameras/OrthographicCamera)
 3. [CubeCamera（立方）](https://threejs.org/docs/index.html#api/zh/cameras/CubeCamera)
 4. [StereoCamera（立体）](https://threejs.org/docs/index.html#api/zh/cameras/StereoCamera)
+
 ## 4. Renderer
-**创建Render**
+
+**创建 Render**
+
 ```js
-const renderer= new WebGLRenderer() // WebGL渲染器
+const renderer = new WebGLRenderer() // WebGL渲染器
 ```
+
 ## 5. Mesh
-**创建Mesh**
+
+**创建 Mesh**
 
 `Mesh`由`几何体`和`材质`构成
 
 ![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b76fe72b2f2646abbdf9b34d17a40632~tplv-k3u1fbpfcp-watermark.image?)
+
 ```js
 const width = 2
 const height = 2
@@ -75,11 +90,14 @@ const material = new MeshBasicMaterial() // 基础网格材质
 
 const mesh = new Mesh(geometry, material) // 网格
 ```
+
 ## 6. 构建场景
+
 1. 获取应用容器
 2. 创建`Scene`、`Camera`、`Renderer`，并初始化
 3. 创建`Mesh`，并加入到`Sene`中
 4. 通过`Renderer`渲染场景
+
 ```js
 // 1.获取应用容器
 const container = document.getElementById('container') // 应用容器
@@ -105,6 +123,8 @@ scene.add(mesh) // 向场景中加入物体
 container.append(render.domElement) // 将渲染器生成的<canvas>添加到父容器中
 renderer.render(scene, camera) // 透过camera将观察到的sene绘制到<canvas>中
 ```
+
 ## 参考
+
 1. [Welcome to Discover three.js!](https://discoverthreejs.com/zh/book/first-steps/first-scene/#setup)
 2. [最官方的官方文档](https://threejs.org/docs/index.html#api/zh)

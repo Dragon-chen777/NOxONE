@@ -5,21 +5,25 @@ date: '2022-07-18'
 sticky: 1
 cover: 'https://dragon-chen777.github.io/assets/images/祢豆子/8.jpg'
 categories:
-- js
+  - js
 tags:
-- js
+  - js
 ---
 
 ## 0. 写在开头
+
 本文将秉承**talk is cheap, show me the code**原则，争取将`执行上下文`、`VO`、`AO`、`Scope`、`[[scope]]`、`作用域`、`作用域链`这些晦涩抽象的概念用`伪代码`的形式来清晰表述出来，用以强化理解和记忆。
 
 若有写的不对的地方，还请大佬们在评论区批评指正!
 
 那么，让我们开始吧~
-## 1. 执行上下文
-JS引擎在执行一段代码前，会先创建对应的`执行上下文`(`EC`，Execution Context)，该执行上下文负责存储`VO`、`AO`、`Scope`、`this`。同时也创建`执行上下文栈`(`ECStack`，Execution Context Stack)来管理执行上下文的推入和弹出
 
-不多BB，来看代码
+## 1. 执行上下文
+
+JS 引擎在执行一段代码前，会先创建对应的`执行上下文`(`EC`，Execution Context)，该执行上下文负责存储`VO`、`AO`、`Scope`、`this`。同时也创建`执行上下文栈`(`ECStack`，Execution Context Stack)来管理执行上下文的推入和弹出
+
+不多 BB，来看代码
+
 ```js
 let a = 1
 function fn1(){
@@ -44,10 +48,13 @@ ECStack.pop() // 弹出fn2EC并销毁
 ECStack.pop() // 弹出fn1EC并销毁
 // globalEC会一直保留，直到程序退出
 ```
+
 ## 2. VO
-`VO`即Variable Object 变量对象，仅定义在`全局执行上下文`(`globalEC`)中，存储`全局变量`和`函数`
+
+`VO`即 Variable Object 变量对象，仅定义在`全局执行上下文`(`globalEC`)中，存储`全局变量`和`函数`
 
 来看代码
+
 ```js
 let a = 1
 let arr = [1,2,3]
@@ -64,11 +71,13 @@ globalEC = {
   }
 }
 ```
+
 ## 3. AO
 
-`AO`即Activation Object 活跃对象，定义在函数执行上下文(`fnEC`)中（准确来说，在函数开始执行前才创建），存储`局部变量`和`子函数`以及`arguments`
+`AO`即 Activation Object 活跃对象，定义在函数执行上下文(`fnEC`)中（准确来说，在函数开始执行前才创建），存储`局部变量`和`子函数`以及`arguments`
 
-不多BB，来看代码
+不多 BB，来看代码
+
 ```js
 function fn(a,b){
   var c = 3,
@@ -90,8 +99,8 @@ fnEC = {
     },
     a:1,
     b:2,
-    c:undefined, 
-    fn2:undefined, 
+    c:undefined,
+    fn2:undefined,
   }
 }
 // 将fnEC推入执行上下文栈
@@ -124,16 +133,21 @@ ECStack.pop() // fn2EC销毁
 // 执行fn结束
 ECStack.pop() // fnEC销毁
 ```
+
 ## 4. Scope
+
 `Scope`定义在`执行上下文`中，就是所谓的`作用域`，存储在其中的一个个`AO`和`VO`按队列顺序链接成了所谓的`作用域链`，记忆为`作用域就是Scope，作用域链就是Scope的链结构`
 
 `[[scope]]`在函数`创建`时定义在`函数`中，保存当前所处执行上下文的`Scope`；若当前执行上下文是`globalEC`，那么保存的是当前全局执行上下文的`VO`，记忆为`[[scope]]保存函数创建时所处执行上下文的Scope`
 
 `Scope`、`[[scope]]`二者关系如下
+
 ```js
 fnEC.Scope = [ fnEC.AO ,...fn.[[scope]] ]
 ```
-文字介绍比较晦涩，所以不多bb，写代码就完事了
+
+文字介绍比较晦涩，所以不多 bb，写代码就完事了
+
 ```js
 let a = 1
 function fn(){
@@ -156,25 +170,27 @@ fn2.[[scope]] = fnEC.Scope = [fnEC.AO, ...fn.[[scope]] ]
 // 执行fn2函数，在其内部创建fn3函数时，定义fn3.[[scope]]
 fn3.[[scope]] = fn2EC.Scope = [fn2EC.AO,...fn2.[[scope]] ] // [fn2EC.AO, fn1EC.AO, globalEC.VO]
 ```
-不多BB，继续coding，这次串联上前面介绍的`EC`、`ECStack`、`VO`、`AO`、`[[scope]]`，只要搞懂了这些，作用域、作用域链、作用域链查询这些概念就是小case
+
+不多 BB，继续 coding，这次串联上前面介绍的`EC`、`ECStack`、`VO`、`AO`、`[[scope]]`，只要搞懂了这些，作用域、作用域链、作用域链查询这些概念就是小 case
+
 ```js
 // 执行代码如下
 let a = 0
-function fn3(){ 
-  console.log(a) 
+function fn3(){
+  console.log(a)
 }
 function fn1(b,c,d){
   let a = 1
   fn3()
   function fn2(b){
     let c = 8
-    console.log(a,b,c,d)  
+    console.log(a,b,c,d)
   }
   fn2(7)
 }
 fn1(2,3,4) // 输出: 0  1,7,8,4
 
-// 咳咳... 那么重头戏来了 
+// 咳咳... 那么重头戏来了
 // 这段代码详细执行过程分析如下（建议把上述执行的代码截图，对照着看以下的伪代码分析过程）
 ECStack.push(globalEC) // 推入全局执行上下文
 
@@ -202,7 +218,7 @@ fn1.AO.a = 1 // 执行let a = 1才会给AO中的a赋值
 
 fn3EC = { // 执行fn3前创建fn3EC
   AO:{
-    arguments:{length:0}	
+    arguments:{length:0}
   },
   Scope:[ fn3EC.AO, ...fn3.[[scope]] ] // [ fn3EC.AO, globalEC.VO ]
 }
@@ -217,7 +233,7 @@ fn3EC.Scope.forEach(scope=>{
   }
 )
 
-ECSTack.pop() // fn3EC销毁，[globalEC, fn1EC] 
+ECSTack.pop() // fn3EC销毁，[globalEC, fn1EC]
 
 fn2.[[scope]] = fn1EC.Scope // 创建fn2时定义[[scope]]
 fn2EC = { // 执行fn2前创建执行上下文
@@ -228,7 +244,7 @@ fn2EC = { // 执行fn2前创建执行上下文
   },
   Scope:[ fn2EC.AO, ...fn2.[[scope]] ] // [fn2EC.AO,fn1EC.AO,globalEC.VO]
 }
-ECStack.push(fn2EC) // [globalEC, fn1EC, fn2EC] 
+ECStack.push(fn2EC) // [globalEC, fn1EC, fn2EC]
 fn2EC.AO.c = 8
 // 执行console.log(a,b,c,d),从当前执行上下文即fn2EC的Scope查询
 fn2EC.Scope.forEach(scope=>{
@@ -242,14 +258,17 @@ fn2EC.Scope.forEach(scope=>{
   // 找到 fn1EC.AO.d即4
 )
 
-ECStack.pop() // 销毁fn2EC, [globalEC, fn1EC] 
+ECStack.pop() // 销毁fn2EC, [globalEC, fn1EC]
 ECStack.pop() // 销毁fn1EC， [globalEC]
 
 // 直到用户关闭当前页面，globalEC销毁，ECStack也销毁
 ```
+
 ## 5. 闭包
+
 在搞懂了前面的东西，那么理解闭包就是信手拈来，其本质上就是`返回的内部函数的[[scope]]保存了外部函数的Scope`，
-不多bb，来看代码
+不多 bb，来看代码
+
 ```js
 function fn1(){
   let a = 1
@@ -277,7 +296,9 @@ fnEC = {
 }
 // 通过fn1EC.AO可以访问fn1函数内部的变量a
 ```
+
 再来看一个老掉牙的闭包面试题
+
 ```js
 var data = []
 for (var i = 0; i < 3; i++) {

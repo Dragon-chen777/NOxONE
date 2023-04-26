@@ -35,7 +35,7 @@ export default {
 			isShowMeteors: NOXONE_COVER_CONFIG.isShowMeteors,
 			bgImg: '',
 			fontSize: NOXONE_COVER_CONFIG.fontSize,
-			randomContent: NOXONE_COVER_CONFIG.main[(Math.random() * NOXONE_COVER_CONFIG.main.length) | 0] // 随机内容
+			randomContent: NOXONE_COVER_CONFIG.main[(Math.random() * NOXONE_COVER_CONFIG.main.length) | 0], // 随机内容
 		}
 	},
 	computed: {
@@ -70,9 +70,9 @@ export default {
 				'--text-border-size': NOXONE_COVER_CONFIG.textBorderSize,
 				// 自适应
 				'--text-box-w': this.textBoxW + NOXONE_COVER_CONFIG.pixels,
-				'--text-box-h': this.textBoxH + NOXONE_COVER_CONFIG.pixels
+				'--text-box-h': this.textBoxH + NOXONE_COVER_CONFIG.pixels,
 			}
-		}
+		},
 	},
 	methods: {
 		typeText() {
@@ -85,7 +85,7 @@ export default {
 					if (NOXONE_COVER_CONFIG.isAutoClose) return _this.close('noxoneCoverDestroyedAuto') // 自动关闭
 					_this.enableClose = true
 					_this.$refs['noxone-cover'].onclick = () => _this.close('noxoneCoverDestroyed') // 点击关闭
-				}
+				},
 			})
 		},
 		initTextBox() {
@@ -101,7 +101,7 @@ export default {
 				document.body.style.overflow = 'visible'
 				window.noxone.Bus.$emit(eventName)
 			})
-		}
+		},
 	},
 	beforeMount() {
 		window.noxone = window.noxone || {}
@@ -131,7 +131,7 @@ export default {
 				this.typeText()
 			}, 500)
 		})
-	}
+	},
 }
 </script>
 

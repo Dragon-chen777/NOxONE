@@ -1,154 +1,139 @@
 <template>
-  <div class="noxone-music" :style="globalSty" :class="{playing: isPlaying, hidden: isPlayerHidden}">
-    <div class="music-container" >
-      <div class="music-info">
-        <div class="title">{{ curMusic.title }}</div>
-        <div class="progress-container hover" @click="setProgress($event)">
-          <div class="progress hover" :style="{width: playProgress}"></div>
-        </div>
-      </div>
-      <div class="music-cover">
-        <img :src="curMusic.cover"/>
-      </div>
-      <div class="control-pannel">
-        <div class="hide-btn hover" @click="setPlayerStatus('hide')">x</div>
-        <div class="action-btn fas fa-backward hover" @click="playMusic('pre')"></div>
-        <div class="action-btn action-btn-big fas hover" :class="[isPlaying ? 'fa-pause' : 'fa-play']" @click="playMusic(isPlaying?'pause':'play')"></div>
-        <div class="action-btn fas fa-forward hover" @click="playMusic('next')"></div>
-      </div>
-      <audio
-        ref="audio"
-        :src="curMusic.link"
-        @timeupdate="updateProgress"
-        @ended="playMusic('next')"
-      />
-    </div>
-    <div class="small-container hover" :class="{show: isPlayerHidden, hidden: !isPlayerHidden}" @click="setPlayerStatus('show')">
-      <div class="show-btn fas fa-angle-right"></div>
-    </div>
-  </div>
+	<div class="noxone-music" :style="globalSty" :class="{ playing: isPlaying, hidden: isPlayerHidden }">
+		<div class="music-container">
+			<div class="music-info">
+				<div class="title">{{ curMusic.title }}</div>
+				<div class="progress-container hover" @click="setProgress($event)">
+					<div class="progress hover" :style="{ width: playProgress }"></div>
+				</div>
+			</div>
+			<div class="music-cover">
+				<img :src="curMusic.cover" />
+			</div>
+			<div class="control-pannel">
+				<div class="hide-btn hover" @click="setPlayerStatus('hide')">x</div>
+				<div class="action-btn fas fa-backward hover" @click="playMusic('pre')"></div>
+				<div class="action-btn action-btn-big fas hover" :class="[isPlaying ? 'fa-pause' : 'fa-play']" @click="playMusic(isPlaying ? 'pause' : 'play')"></div>
+				<div class="action-btn fas fa-forward hover" @click="playMusic('next')"></div>
+			</div>
+			<audio ref="audio" :src="curMusic.link" @timeupdate="updateProgress" @ended="playMusic('next')" />
+		</div>
+		<div class="small-container hover" :class="{ show: isPlayerHidden, hidden: !isPlayerHidden }" @click="setPlayerStatus('show')">
+			<div class="show-btn fas fa-angle-right"></div>
+		</div>
+	</div>
 </template>
 <script>
-import {Bus} from '../util'
+import { Bus } from '../util'
 
 let AUDIO = null
 export default {
-  data() {
-    return {
-      isPlaying: false,
-      isPlayerHidden: false,
-      playProgress: 0,
-      curMusicIdx: 0,
-      musicList: MUSIC_LIST,
+	data() {
+		return {
+			isPlaying: false,
+			isPlayerHidden: false,
+			playProgress: 0,
+			curMusicIdx: 0,
+			musicList: MUSIC_LIST,
 
-      globalSty: {
-        zoom: CONTAINER.zoom,
-        bottom: CONTAINER.bottom,
-        zIndex: CONTAINER.zIndex,
-        '--container-bg-color': CONTAINER.containerBg,
-        '--theme-color': CONTAINER.themeColor,
-        '--music-info-bg-color': CONTAINER.musicInfoBg,
-        '--music-title-color': CONTAINER.musicTitleColor
-      }
-    }
-  },
-  computed: {
-    curMusic() {
-      return this.musicList[this.curMusicIdx]
-    },
-  },
-  beforeMount() {
-   window.noxone = window.noxone || {}
-    if (!window.noxone.Bus) window.noxone.Bus = new Bus()
-    console.log('%c noxoneMusicPlayer已成功加载~，欢迎访问作者博客：https://dragon-chen777.github.io/NOxONE/','color: #00a1d6')
+			globalSty: {
+				zoom: CONTAINER.zoom,
+				bottom: CONTAINER.bottom,
+				zIndex: CONTAINER.zIndex,
+				'--container-bg-color': CONTAINER.containerBg,
+				'--theme-color': CONTAINER.themeColor,
+				'--music-info-bg-color': CONTAINER.musicInfoBg,
+				'--music-title-color': CONTAINER.musicTitleColor,
+			},
+		}
+	},
+	computed: {
+		curMusic() {
+			return this.musicList[this.curMusicIdx]
+		},
+	},
+	beforeMount() {
+		window.noxone = window.noxone || {}
+		if (!window.noxone.Bus) window.noxone.Bus = new Bus()
+		console.log('%c noxoneMusicPlayer已成功加载~，欢迎访问作者博客：https://dragon-chen777.github.io/NOxONE/', 'color: #00a1d6')
 
-    let _this = this
-    window.noxone.Bus.$on(
-      'noxoneCoverDestroyed',
-      function musicPlay(){
-        _this.playMusic('play')
-      }
-    )
-    window.noxone.Bus.$on(
-      'playNoxoneMusic',
-      function musicPlay(cmd){
-        _this.playMusic(cmd)
-      }
-    )
-    window.noxone.Bus.$on(
-      'setPlayerStatus',
-      function setPlayerStatus(cmd) {
-        _this.setPlayerStatus(cmd)
-      }
-    )
-    const isMobile = !!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-    if (isMobile){
-      this.globalSty.zoom *= 0.7
-      this.setPlayerStatus('hide')
-    }
-  },
-  mounted() {
-    AUDIO = this.$refs.audio
-  },
-  methods: {
-    playMusic(cmd) {
-      if (cmd === 'play') {
-        AUDIO.play()
-        this.isPlaying = true
-        window.noxone.Bus.$emit('noxoneMusicPlayStatusChange', {cmd, curMusic: this.curMusic})
-        return
-      }
-      if (cmd === 'pause') {
-        AUDIO.pause()
-        this.isPlaying = false
-        window.noxone.Bus.$emit('noxoneMusicPlayStatusChange',{cmd, curMusic: this.curMusic})
-        return
-      }
-      if (cmd === 'pre') {
-        if (this.curMusicIdx === 0) this.curMusicIdx = this.musicList.length - 1
-        else this.curMusicIdx--
-        this.$nextTick(() => {
-          AUDIO.play()
-          this.isPlaying = true
-          window.noxone.Bus.$emit('noxoneMusicPlayStatusChange',{cmd, curMusic: this.curMusic})
-        })
-        return
-      }
-      if (cmd === 'next') {
-        this.curMusicIdx = ++this.curMusicIdx % this.musicList.length
-        this.$nextTick(() => {
-          AUDIO.play()
-          this.isPlaying = true
-          window.noxone.Bus.$emit('noxoneMusicPlayStatusChange',{cmd, curMusic: this.curMusic})
-
-        })
-        return
-      }
-    },
-    updateProgress(e) {
-      const { duration, currentTime } = e.target
-      this.playProgress = `${(currentTime / duration) * 100}%`
-    },
-    setProgress(e) {
-      console.log(e.target.clientWidth,e);
-      const progressContainerWidth = e.target.clientWidth
-      const clickX = e.offsetX / this.globalSty.zoom // zoom会影响到e.offsetX
-      const duration = AUDIO.duration
-      AUDIO.currentTime = (clickX / progressContainerWidth) * duration
-    },
-    setPlayerStatus(cmd) {
-      if (cmd === 'hide'){
-        this.isPlayerHidden = true
-        window.noxone.Bus.$emit('noxoneMusicPlayerStatusChange', {cmd, change: {isPlayerHidden: this.isPlayerHidden}})
-        return
-      }
-      if (cmd === 'show') {
-        this.isPlayerHidden = false
-        window.noxone.Bus.$emit('noxoneMusicPlayerStatusChange', {cmd, change: {isPlayerHidden: this.isPlayerHidden}})
-        return
-      }
-    }
-  }
+		let _this = this
+		window.noxone.Bus.$on('noxoneCoverDestroyed', function musicPlay() {
+			_this.playMusic('play')
+		})
+		window.noxone.Bus.$on('playNoxoneMusic', function musicPlay(cmd) {
+			_this.playMusic(cmd)
+		})
+		window.noxone.Bus.$on('setPlayerStatus', function setPlayerStatus(cmd) {
+			_this.setPlayerStatus(cmd)
+		})
+		const isMobile = !!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+		if (isMobile) {
+			this.globalSty.zoom *= 0.7
+			this.setPlayerStatus('hide')
+		}
+	},
+	mounted() {
+		AUDIO = this.$refs.audio
+	},
+	methods: {
+		playMusic(cmd) {
+			if (cmd === 'play') {
+				AUDIO.play()
+				this.isPlaying = true
+				window.noxone.Bus.$emit('noxoneMusicPlayStatusChange', { cmd, curMusic: this.curMusic })
+				return
+			}
+			if (cmd === 'pause') {
+				AUDIO.pause()
+				this.isPlaying = false
+				window.noxone.Bus.$emit('noxoneMusicPlayStatusChange', { cmd, curMusic: this.curMusic })
+				return
+			}
+			if (cmd === 'pre') {
+				if (this.curMusicIdx === 0) this.curMusicIdx = this.musicList.length - 1
+				else this.curMusicIdx--
+				this.$nextTick(() => {
+					AUDIO.play()
+					this.isPlaying = true
+					window.noxone.Bus.$emit('noxoneMusicPlayStatusChange', { cmd, curMusic: this.curMusic })
+				})
+				return
+			}
+			if (cmd === 'next') {
+				this.curMusicIdx = ++this.curMusicIdx % this.musicList.length
+				this.$nextTick(() => {
+					AUDIO.play()
+					this.isPlaying = true
+					window.noxone.Bus.$emit('noxoneMusicPlayStatusChange', { cmd, curMusic: this.curMusic })
+				})
+				return
+			}
+		},
+		updateProgress(e) {
+			const { duration, currentTime } = e.target
+			this.playProgress = `${(currentTime / duration) * 100}%`
+		},
+		setProgress(e) {
+			console.log(e.target.clientWidth, e)
+			const progressContainerWidth = e.target.clientWidth
+			const clickX = e.offsetX / this.globalSty.zoom // zoom会影响到e.offsetX
+			const duration = AUDIO.duration
+			AUDIO.currentTime = (clickX / progressContainerWidth) * duration
+		},
+		setPlayerStatus(cmd) {
+			if (cmd === 'hide') {
+				this.isPlayerHidden = true
+				window.noxone.Bus.$emit('noxoneMusicPlayerStatusChange', { cmd, change: { isPlayerHidden: this.isPlayerHidden } })
+				return
+			}
+			if (cmd === 'show') {
+				this.isPlayerHidden = false
+				window.noxone.Bus.$emit('noxoneMusicPlayerStatusChange', { cmd, change: { isPlayerHidden: this.isPlayerHidden } })
+				return
+			}
+		},
+	},
 }
 </script>
 <style lang="stylus" scoped>

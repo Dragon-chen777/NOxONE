@@ -1,25 +1,25 @@
 {
-  "name": "@noxone/vuepress-plugin-music-player",
-  "version": "1.2.2",
-  "description": "this is a tiny but awesome musicPlayer for vuepress",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Dragon-chen777/vuepress-plugin-music-player.git"
-  },
-  "keywords": [
-    "Vue",
-    "Vuepress",
-    "MusicPlayer",
-    "Plugin"
-  ],
-  "author": "noxone",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Dragon-chen777/vuepress-plugin-music-player/issues"
-  },
-  "homepage": "https://github.com/Dragon-chen777/vuepress-plugin-music-player#readme"
+	"name": "@noxone/vuepress-plugin-music-player",
+	"version": "1.2.2",
+	"description": "this is a tiny but awesome musicPlayer for vuepress",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Dragon-chen777/vuepress-plugin-music-player.git"
+	},
+	"keywords": [
+		"Vue",
+		"Vuepress",
+		"MusicPlayer",
+		"Plugin"
+	],
+	"author": "noxone",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Dragon-chen777/vuepress-plugin-music-player/issues"
+	},
+	"homepage": "https://github.com/Dragon-chen777/vuepress-plugin-music-player#readme"
 }

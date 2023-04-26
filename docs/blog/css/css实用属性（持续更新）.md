@@ -3,9 +3,9 @@ title: css实用属性（持续更新）
 author: NOxONE
 date: '2022-12-04'
 categories:
-- css
+  - css
 tags:
-- css
+  - css
 ---
 
 ```css
@@ -21,7 +21,7 @@ tags:
 .box{
   width 200px
   height 150px
-  background url(xxx.png) no-repeat 
+  background url(xxx.png) no-repeat
   background-size 3000% 100% // 假设精灵图由30张图片构成
   animation ani 3s steps(29) infinite // 29 = 30 - 1
 }
@@ -29,7 +29,7 @@ tags:
   0%
     background-position 0 0
   100%
-    background-position 100% 0  
-} 
+    background-position 100% 0
+}
 
 ```
