@@ -30,7 +30,7 @@ module.exports = {
 	description: '欢迎来到NOxONE的小破站~',
 	base: '/NOxONE/',
 	head: [['link', { rel: 'icon', href: `${BASE_URL}/assets/images/logo.png` }]],
-	theme: '@noxone/vuepress-theme-reco',
+	theme: '@noxone/vuepress-theme-noxone',
 	themeConfig: {
 		type: 'blog',
 		author: 'NOxONE',
