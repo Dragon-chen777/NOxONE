@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>《The way to go笔记》 第十一章 接口和反射 | NOXONE</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="https://dragon-chen777.github.io/assets/images/logo.png">
+    <meta name="description" content="欢迎来到NOxONE的小破站~">
+    
+    <link rel="preload" href="/NOxONE/assets/css/0.styles.5c3cf925.css" as="style"><link rel="preload" href="/NOxONE/assets/js/app.14d2458b.js" as="script"><link rel="preload" href="/NOxONE/assets/js/3.79819a85.js" as="script"><link rel="preload" href="/NOxONE/assets/js/1.c41ce1d3.js" as="script"><link rel="preload" href="/NOxONE/assets/js/34.cec58ef5.js" as="script"><link rel="prefetch" href="/NOxONE/assets/js/10.cdacbe28.js"><link rel="prefetch" href="/NOxONE/assets/js/11.00d9866a.js"><link rel="prefetch" href="/NOxONE/assets/js/12.88951628.js"><link rel="prefetch" href="/NOxONE/assets/js/13.5da1e137.js"><link rel="prefetch" href="/NOxONE/assets/js/14.5b9c27af.js"><link rel="prefetch" href="/NOxONE/assets/js/15.4d450dc8.js"><link rel="prefetch" href="/NOxONE/assets/js/16.763fefc3.js"><link rel="prefetch" href="/NOxONE/assets/js/17.309bf686.js"><link rel="prefetch" href="/NOxONE/assets/js/18.bac37e61.js"><link rel="prefetch" href="/NOxONE/assets/js/19.84309edf.js"><link rel="prefetch" href="/NOxONE/assets/js/20.46dfd50e.js"><link rel="prefetch" href="/NOxONE/assets/js/21.a2f6589e.js"><link rel="prefetch" href="/NOxONE/assets/js/22.6603c73f.js"><link rel="prefetch" href="/NOxONE/assets/js/23.d0ac4981.js"><link rel="prefetch" href="/NOxONE/assets/js/24.728534b0.js"><link rel="prefetch" href="/NOxONE/assets/js/25.323cd048.js"><link rel="prefetch" href="/NOxONE/assets/js/26.77e78e53.js"><link rel="prefetch" href="/NOxONE/assets/js/27.85bffb0a.js"><link rel="prefetch" href="/NOxONE/assets/js/28.fe7a37ff.js"><link rel="prefetch" href="/NOxONE/assets/js/29.441f53ee.js"><link rel="prefetch" href="/NOxONE/assets/js/30.b190a087.js"><link rel="prefetch" href="/NOxONE/assets/js/31.c21e951f.js"><link rel="prefetch" href="/NOxONE/assets/js/32.b626a720.js"><link rel="prefetch" href="/NOxONE/assets/js/33.b9a13a35.js"><link rel="prefetch" href="/NOxONE/assets/js/35.b2a63033.js"><link rel="prefetch" href="/NOxONE/assets/js/36.33ed9f62.js"><link rel="prefetch" href="/NOxONE/assets/js/37.87d71367.js"><link rel="prefetch" href="/NOxONE/assets/js/38.5281ba2e.js"><link rel="prefetch" href="/NOxONE/assets/js/39.7b2e9cec.js"><link rel="prefetch" href="/NOxONE/assets/js/4.1f181f1a.js"><link rel="prefetch" href="/NOxONE/assets/js/40.57b9b506.js"><link rel="prefetch" href="/NOxONE/assets/js/41.8f1b71e5.js"><link rel="prefetch" href="/NOxONE/assets/js/42.2ede9e2f.js"><link rel="prefetch" href="/NOxONE/assets/js/43.a3ec2169.js"><link rel="prefetch" href="/NOxONE/assets/js/44.036c23bc.js"><link rel="prefetch" href="/NOxONE/assets/js/45.3cac9ffa.js"><link rel="prefetch" href="/NOxONE/assets/js/46.cac9259a.js"><link rel="prefetch" href="/NOxONE/assets/js/47.f9bd588a.js"><link rel="prefetch" href="/NOxONE/assets/js/48.b4c4d043.js"><link rel="prefetch" href="/NOxONE/assets/js/49.6e49261c.js"><link rel="prefetch" href="/NOxONE/assets/js/5.c3cfc4e1.js"><link rel="prefetch" href="/NOxONE/assets/js/50.1ab0ee8c.js"><link rel="prefetch" href="/NOxONE/assets/js/51.bb94b2bc.js"><link rel="prefetch" href="/NOxONE/assets/js/52.e73b37ee.js"><link rel="prefetch" href="/NOxONE/assets/js/53.84847a0e.js"><link rel="prefetch" href="/NOxONE/assets/js/54.0c8d5209.js"><link rel="prefetch" href="/NOxONE/assets/js/55.d3ff07ae.js"><link rel="prefetch" href="/NOxONE/assets/js/56.09ee4345.js"><link rel="prefetch" href="/NOxONE/assets/js/57.e9848200.js"><link rel="prefetch" href="/NOxONE/assets/js/58.ec0828cc.js"><link rel="prefetch" href="/NOxONE/assets/js/59.3bbb1aaf.js"><link rel="prefetch" href="/NOxONE/assets/js/6.714535cf.js"><link rel="prefetch" href="/NOxONE/assets/js/60.cb3f98d5.js"><link rel="prefetch" href="/NOxONE/assets/js/61.53b7eb7a.js"><link rel="prefetch" href="/NOxONE/assets/js/62.c094de0e.js"><link rel="prefetch" href="/NOxONE/assets/js/63.c3776222.js"><link rel="prefetch" href="/NOxONE/assets/js/64.45aa10c3.js"><link rel="prefetch" href="/NOxONE/assets/js/65.19a91176.js"><link rel="prefetch" href="/NOxONE/assets/js/66.aee7b6b4.js"><link rel="prefetch" href="/NOxONE/assets/js/67.dbaa88d8.js"><link rel="prefetch" href="/NOxONE/assets/js/68.272c9404.js"><link rel="prefetch" href="/NOxONE/assets/js/69.c2dfdffe.js"><link rel="prefetch" href="/NOxONE/assets/js/7.49afa2ce.js"><link rel="prefetch" href="/NOxONE/assets/js/70.05a9f37e.js"><link rel="prefetch" href="/NOxONE/assets/js/71.4c7c57a8.js"><link rel="prefetch" href="/NOxONE/assets/js/72.7d7812b4.js"><link rel="prefetch" href="/NOxONE/assets/js/73.6c84c686.js"><link rel="prefetch" href="/NOxONE/assets/js/74.472a11ca.js"><link rel="prefetch" href="/NOxONE/assets/js/75.b6420e2e.js"><link rel="prefetch" href="/NOxONE/assets/js/76.b6e7d41d.js"><link rel="prefetch" href="/NOxONE/assets/js/77.43854fb1.js"><link rel="prefetch" href="/NOxONE/assets/js/78.b4221236.js"><link rel="prefetch" href="/NOxONE/assets/js/79.0c61602c.js"><link rel="prefetch" href="/NOxONE/assets/js/8.02671b08.js"><link rel="prefetch" href="/NOxONE/assets/js/80.c26c4132.js"><link rel="prefetch" href="/NOxONE/assets/js/81.23be79d3.js"><link rel="prefetch" href="/NOxONE/assets/js/82.874b62c6.js"><link rel="prefetch" href="/NOxONE/assets/js/83.34565def.js"><link rel="prefetch" href="/NOxONE/assets/js/84.9d19dff0.js"><link rel="prefetch" href="/NOxONE/assets/js/85.67baf08e.js"><link rel="prefetch" href="/NOxONE/assets/js/86.376729af.js"><link rel="prefetch" href="/NOxONE/assets/js/87.9171d282.js"><link rel="prefetch" href="/NOxONE/assets/js/88.1e24daa8.js"><link rel="prefetch" href="/NOxONE/assets/js/89.d5c76e61.js"><link rel="prefetch" href="/NOxONE/assets/js/9.cf0d15a2.js"><link rel="prefetch" href="/NOxONE/assets/js/90.8a37854e.js"><link rel="prefetch" href="/NOxONE/assets/js/91.d361aeb8.js">
+    <link rel="stylesheet" href="/NOxONE/assets/css/0.styles.5c3cf925.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-bfc11e02><div data-v-bfc11e02><div class="password-shadow password-wrapper-out" style="display:none;" data-v-b4034468 data-v-bfc11e02 data-v-bfc11e02><h3 class="title" data-v-b4034468>NOXONE</h3> <p class="description" data-v-b4034468>欢迎来到NOxONE的小破站~</p> <label id="box" class="inputBox" data-v-b4034468><input type="password" value="" data-v-b4034468> <span data-v-b4034468>Konck! Knock!</span> <button data-v-b4034468>OK</button></label> <div class="footer" data-v-b4034468><span data-v-b4034468><i class="iconfont reco-theme" data-v-b4034468></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-b4034468>vuePress-theme-reco</a></span> <span data-v-b4034468><i class="iconfont reco-copyright" data-v-b4034468></i> <a data-v-b4034468><span data-v-b4034468>NOxONE</span>
+          
+        <span data-v-b4034468>2023 - </span>
+        2024
+      </a></span></div></div> <div class="hide" data-v-bfc11e02><header class="navbar fixed" data-v-bfc11e02><a href="/NOxONE/" class="home-link router-link-active"><img src="https://p3-passport.byteimg.com/img/user-avatar/039391726bfa394febe9e5853f06026a~180x180.awebp" alt="NOXONE" class="logo"> <span class="site-name">NOXONE</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/NOxONE/blog/" class="nav-link router-link-active"><i class="iconfont reco-home"></i>
+  博客
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-other"></i>
+      Demos
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/Music-player" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎵NOxONE音乐播放器
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/Block-collision-game" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎮打方块游戏
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/Typer-game" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  👨马保国打字游戏
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/Book-of-answers" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  📕答案之书
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/Cinema-seat-reservation" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎥影院座位预订
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/My-first-web-20200722" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  💎我的处女作
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-menu"></i>
+      百宝箱
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.runjs.cool" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🔨开发工具箱
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://tinypng.com" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎨tinypng图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://99cc.vip/public/tools/vscode_snippet/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  👓代码片段生成器
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://imgse.com" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  路过图床
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://programmercarl.com" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎯代码随想录
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://qwerty.kaiyi.cool" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎲打字背英文
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-account"></i>
+      社交账号
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/Dragon-chen777" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.npmjs.com/~noxone" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-npm"></i>
+  npm
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://juejin.cn/user/3488066386291463" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-juejin"></i>
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/Xiaoyc7" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-csdn"></i>
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://space.bilibili.com/273377574" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-bilibili"></i>
+  Bilibili
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="/NOxONE/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      专栏
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/NOxONE/categories/css/" class="nav-link"><i class="undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/ES6/" class="nav-link"><i class="undefined"></i>
+  ES6
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/Golang/" class="nav-link"><i class="undefined"></i>
+  Golang
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/js/" class="nav-link"><i class="undefined"></i>
+  js
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/three.js/" class="nav-link"><i class="undefined"></i>
+  three.js
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/工程化/" class="nav-link"><i class="undefined"></i>
+  工程化
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/建站日记/" class="nav-link"><i class="undefined"></i>
+  建站日记
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/浏览器/" class="nav-link"><i class="undefined"></i>
+  浏览器
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/数据结构与算法/" class="nav-link"><i class="undefined"></i>
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/算法刷题集/" class="nav-link"><i class="undefined"></i>
+  算法刷题集
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-bfc11e02></div> <aside class="sidebar" data-v-bfc11e02><div class="personal-info-wrapper" data-v-feeb470e data-v-bfc11e02><div class="avatar-tip" data-v-feeb470e>芜湖，起飞~</div> <img src="https://p3-passport.byteimg.com/img/user-avatar/039391726bfa394febe9e5853f06026a~180x180.awebp" alt="author-avatar" class="personal-img" data-v-feeb470e> <h3 class="name" data-v-feeb470e>
+    NOxONE
+  </h3> <div class="num" data-v-feeb470e><div data-v-feeb470e><h3 data-v-feeb470e>79</h3> <h6 data-v-feeb470e>文章</h6></div> <div data-v-feeb470e><h3 data-v-feeb470e>12</h3> <h6 data-v-feeb470e>标签</h6></div></div> <ul class="social-links" data-v-feeb470e><li class="social-item" data-v-feeb470e><i class="iconfont reco-github" style="color:#849b87;" data-v-feeb470e></i></li><li class="social-item" data-v-feeb470e><i class="iconfont reco-npm" style="color:#f8b26a;" data-v-feeb470e></i></li><li class="social-item" data-v-feeb470e><i class="iconfont reco-juejin" style="color:#f47e60;" data-v-feeb470e></i></li><li class="social-item" data-v-feeb470e><i class="iconfont reco-csdn" style="color:#f26d6d;" data-v-feeb470e></i></li><li class="social-item" data-v-feeb470e><i class="iconfont reco-bilibili" style="color:#f8b26a;" data-v-feeb470e></i></li></ul> <hr data-v-feeb470e></div> <nav class="nav-links"><div class="nav-item"><a href="/NOxONE/blog/" class="nav-link router-link-active"><i class="iconfont reco-home"></i>
+  博客
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-other"></i>
+      Demos
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/Music-player" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎵NOxONE音乐播放器
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/Block-collision-game" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎮打方块游戏
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/Typer-game" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  👨马保国打字游戏
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/Book-of-answers" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  📕答案之书
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/Cinema-seat-reservation" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎥影院座位预订
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/My-first-web-20200722" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  💎我的处女作
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-menu"></i>
+      百宝箱
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.runjs.cool" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🔨开发工具箱
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://tinypng.com" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎨tinypng图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://99cc.vip/public/tools/vscode_snippet/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  👓代码片段生成器
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://imgse.com" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  路过图床
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://programmercarl.com" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎯代码随想录
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://qwerty.kaiyi.cool" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎲打字背英文
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-account"></i>
+      社交账号
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/Dragon-chen777" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.npmjs.com/~noxone" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-npm"></i>
+  npm
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://juejin.cn/user/3488066386291463" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-juejin"></i>
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/Xiaoyc7" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-csdn"></i>
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://space.bilibili.com/273377574" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-bilibili"></i>
+  Bilibili
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="/NOxONE/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      专栏
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/NOxONE/categories/css/" class="nav-link"><i class="undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/ES6/" class="nav-link"><i class="undefined"></i>
+  ES6
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/Golang/" class="nav-link"><i class="undefined"></i>
+  Golang
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/js/" class="nav-link"><i class="undefined"></i>
+  js
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/three.js/" class="nav-link"><i class="undefined"></i>
+  three.js
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/工程化/" class="nav-link"><i class="undefined"></i>
+  工程化
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/建站日记/" class="nav-link"><i class="undefined"></i>
+  建站日记
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/浏览器/" class="nav-link"><i class="undefined"></i>
+  浏览器
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/数据结构与算法/" class="nav-link"><i class="undefined"></i>
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/算法刷题集/" class="nav-link"><i class="undefined"></i>
+  算法刷题集
+</a></li></ul></div></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/JavaScript/Array原生方法实现" class="sidebar-heading clickable"><span>JavaScript</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/ES6/1.let和const" class="sidebar-heading clickable"><span>ES6</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/Golang/Gin笔记" class="sidebar-heading clickable open"><span>Golang</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/NOxONE/blog/Golang/Gin笔记.html" class="sidebar-link">Gin笔记</a></li><li><a href="/NOxONE/blog/Golang/Gorm笔记.html" class="sidebar-link">Gorm笔记</a></li><li><a href="/NOxONE/blog/Golang/SQL基础语法.html" class="sidebar-link">SQL基础语法</a></li><li><a href="/NOxONE/blog/Golang/《The way to go笔记》 第八章 Map.html" class="sidebar-link">《The way to go笔记》 第八章 Map</a></li><li><a href="/NOxONE/blog/Golang/《The way to go笔记》 第十一章 接口和反射.html" class="active sidebar-link">《The way to go笔记》 第十一章 接口和反射</a></li><li><a href="/NOxONE/blog/Golang/《The way to go笔记》 第十章 结构与方法.html" class="sidebar-link">《The way to go笔记》 第十章 结构与方法</a></li><li><a href="/NOxONE/blog/Golang/《The way to go笔记》第七章 数组与切片.html" class="sidebar-link">《The way to go笔记》第七章 数组与切片</a></li><li><a href="/NOxONE/blog/Golang/《The way to go笔记》第五章 控制结构.html" class="sidebar-link">《The way to go笔记》第五章 控制结构</a></li><li><a href="/NOxONE/blog/Golang/《The way to go笔记》第六章 函数.html" class="sidebar-link">《The way to go笔记》第六章 函数</a></li><li><a href="/NOxONE/blog/Golang/《The way to go笔记》第四章 基本结构和数据类型.html" class="sidebar-link">《The way to go笔记》第四章 基本结构和数据类型</a></li><li><a href="/NOxONE/blog/Golang/所以，jwt是个啥？.html" class="sidebar-link">所以，jwt是个啥？</a></li><li><a href="/NOxONE/blog/Golang/用Golang实现JS常用数组方法.html" class="sidebar-link">用Golang实现JS常用数组方法</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/VUE/Reactivity响应式实现" class="sidebar-heading clickable"><span>VUE</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/CSS/1. background、color、渐变" class="sidebar-heading clickable"><span>CSS</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/算法刷题集/LeetCode算法刷题：二叉树篇" class="sidebar-heading clickable"><span>算法刷题集</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/数据结构与算法/数据结构在JS中的实现" class="sidebar-heading clickable"><span>数据结构与算法</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/Three.js/Three.js Animation动画系统概念及应用" class="sidebar-heading clickable"><span>Three.js</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/浏览器相关/浏览器架构" class="sidebar-heading clickable"><span>浏览器相关</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/前端工程化/webpack搭建" class="sidebar-heading clickable"><span>前端工程化</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/建站日记/2023.04.01 ~ 2023.04.02" class="sidebar-heading clickable"><span>建站日记</span> <span class="arrow right"></span></a> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-b4034468 data-v-bfc11e02><h3 class="title" data-v-b4034468>《The way to go笔记》 第十一章 接口和反射</h3> <!----> <label id="box" class="inputBox" data-v-b4034468><input type="password" value="" data-v-b4034468> <span data-v-b4034468>Konck! Knock!</span> <button data-v-b4034468>OK</button></label> <div class="footer" data-v-b4034468><span data-v-b4034468><i class="iconfont reco-theme" data-v-b4034468></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-b4034468>vuePress-theme-reco</a></span> <span data-v-b4034468><i class="iconfont reco-copyright" data-v-b4034468></i> <a data-v-b4034468><span data-v-b4034468>NOxONE</span>
+          
+        <span data-v-b4034468>2023 - </span>
+        2024
+      </a></span></div></div> <div data-v-bfc11e02><main class="page" style="padding-right:0;"><section style="display:;"><div class="page-title"><h1 class="title">《The way to go笔记》 第十一章 接口和反射</h1> <div data-v-2896e5a4><i class="iconfont reco-account" data-v-2896e5a4><span data-v-2896e5a4>NOxONE</span></i> <i class="iconfont reco-date" data-v-2896e5a4><span data-v-2896e5a4>5/30/2023</span></i> <!----> <i class="tags iconfont reco-tag" data-v-2896e5a4><span class="tag-item" data-v-2896e5a4>Golang</span></i></div></div> <div class="theme-reco-content content__default"><h2 id="_11-1-what-s-an-interface"><a href="#_11-1-what-s-an-interface" class="header-anchor">#</a> 11.1 What's an interface?</h2> <p>接口是什么呢？一言以蔽之：“接口是一个<code>抽象类</code>，只<code>定义方法</code>但<code>不实现</code>，让其他对象去实现（实现接口）后再接收”，在接口类型定义的所有方法称为<code>方法集</code>，方法接收者有对象的<code>值类型</code>或<code>指针类型</code></p> <p>打个比方，接口类型就是一个适配器，让其他对象去实现接口，自己作为适配器接收就行了</p> <p>下面定义一个<code>Car</code>抽象接口，<code>Car</code>都有哪些具体功能呢？有<code>Run</code>、<code>Stop</code>、<code>AutoDrive</code></p> <div class="language-js extra-class"><pre class="language-js"><code>type Car <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+  <span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token function">Stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token function">AutoDrive</span><span class="token punctuation">(</span><span class="token punctuation">)</span> bool
+<span class="token punctuation">}</span>
+</code></pre></div><p>下面是实现接口的一些对象（结构体）</p> <div class="language-js extra-class"><pre class="language-js"><code>type Wuling struct <span class="token punctuation">{</span>
+  v  float64
+<span class="token punctuation">}</span>
+<span class="token function">func</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">*</span>Wuling<span class="token punctuation">)</span> <span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;五菱速度：&quot;</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>v<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token function">func</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">*</span>Wuling<span class="token punctuation">)</span> <span class="token function">Stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;五菱停车&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token function">func</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">*</span>Wuling<span class="token punctuation">)</span> <span class="token function">AutoDrive</span><span class="token punctuation">(</span><span class="token punctuation">)</span> bool <span class="token punctuation">{</span>
+  fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;老司机不需要自动驾驶&quot;</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code>type Tesla struct <span class="token punctuation">{</span>
+  v  float64
+<span class="token punctuation">}</span>
+<span class="token function">func</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">*</span>Tesla<span class="token punctuation">)</span> <span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;特斯拉速度：&quot;</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>v<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token function">func</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">*</span>Tesla<span class="token punctuation">)</span> <span class="token function">Stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;特斯拉停车&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token function">func</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">*</span>Tesla<span class="token punctuation">)</span> <span class="token function">AutoDrive</span><span class="token punctuation">(</span><span class="token punctuation">)</span> bool <span class="token punctuation">{</span>
+  fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;安全自动驾驶已启动，速度为：&quot;</span><span class="token punctuation">,</span> <span class="token number">2.5</span> <span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span>v<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code>func <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">w</span> <span class="token operator">:</span><span class="token operator">=</span> <span class="token operator">&amp;</span>Wuling<span class="token punctuation">{</span> <span class="token number">150</span> <span class="token punctuation">}</span>
+  <span class="token literal-property property">t</span> <span class="token operator">:</span><span class="token operator">=</span> <span class="token operator">&amp;</span>Tesla<span class="token punctuation">{</span> <span class="token number">200</span> <span class="token punctuation">}</span>
+  
+  <span class="token keyword">var</span> wIntf Car <span class="token operator">=</span> w <span class="token comment">// 将Wuling实例赋值给接口类型，以实现接口</span>
+  <span class="token keyword">var</span> tIntf Car <span class="token operator">=</span> t <span class="token comment">// 实现接口</span>
+  
+  <span class="token comment">// 作为已实现接口调用方法</span>
+  wIntf<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 五菱速度： 150</span>
+  wIntf<span class="token punctuation">.</span><span class="token function">Stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 五菱停车</span>
+  wIntf<span class="token punctuation">.</span><span class="token function">AutoDrive</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 老司机不需要自动驾驶</span>
+  
+  tIntf<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 特斯拉速度： 200</span>
+  tIntf<span class="token punctuation">.</span><span class="token function">Stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 特斯拉停车</span>
+  tIntf<span class="token punctuation">.</span><span class="token function">AutoDrive</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 安全自动驾驶已启动，速度为： 500</span>
+  
+  <span class="token comment">// 作为已实现接口传参</span>
+  fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token function">isAutoDrivable</span><span class="token punctuation">(</span>wIntf<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// false</span>
+  fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token function">isAutoDrivable</span><span class="token punctuation">(</span>tIntf<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// true</span>
+<span class="token punctuation">}</span>
+
+func <span class="token function">isAutoDrivable</span><span class="token punctuation">(</span>c Car<span class="token punctuation">)</span> bool <span class="token punctuation">{</span>
+  <span class="token keyword">return</span>  c<span class="token punctuation">.</span><span class="token function">AutoDrive</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>注意，接口定义的方法必须全部实现，否则报错</p> <p><strong>一个标准库例子</strong></p> <p><code>io</code>包里提供了一个接口类型<code>Reader</code></p> <div class="language-golang extra-class"><pre class="language-text"><code>type Reader interface {
+  Read(p []byte) (n int, err error)
+}
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> r io<span class="token punctuation">.</span>Reader <span class="token comment">// 抽象Reader接口</span>
+
+r <span class="token operator">=</span> os<span class="token punctuation">.</span>Stin  <span class="token comment">// os.Stin对象实现了Read方法</span>
+r <span class="token operator">=</span> bufio<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span> <span class="token comment">// bufio.NewReader(r Reader) 传参类型为Reader接口类型，返回的又是一个接口</span>
+r <span class="token operator">=</span> <span class="token keyword">new</span><span class="token punctuation">(</span>bytes<span class="token punctuation">.</span>Buffer<span class="token punctuation">)</span>
+f<span class="token punctuation">,</span> <span class="token literal-property property">_</span> <span class="token operator">:</span><span class="token operator">=</span> os<span class="token punctuation">.</span><span class="token function">Open</span><span class="token punctuation">(</span><span class="token string">&quot;test.text&quot;</span><span class="token punctuation">)</span>
+r <span class="token operator">=</span> bufio<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+</code></pre></div><h2 id="_11-2-接口嵌套"><a href="#_11-2-接口嵌套" class="header-anchor">#</a> 11.2 接口嵌套</h2> <p>和结构体内嵌一样，接口也是可以套娃的</p> <div class="language-golang extra-class"><pre class="language-text"><code>type ReadWrite interface {
+  Read(b Buffer) bool
+  Write(b Buffer) bool
+}
+
+type Lock interface {
+  Lock()
+  Unlock()
+}
+
+// 组合并拓展ReadWrite、Lock接口
+type File interface {
+  ReadWrite
+  Lock
+  Close()
+}
+</code></pre></div><h2 id="_11-3-类型断言"><a href="#_11-3-类型断言" class="header-anchor">#</a> 11.3 类型断言</h2> <p>接口类型变量可以包含任何类型的值，所以它属于<code>动态类型</code>，可通过<code>类型断言</code>来检测</p> <p>类型断言成功：返回该<code>类型值</code>和<code>true</code>，类型断言失败：返回<code>nil</code>和<code>false</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">if</span> v<span class="token punctuation">,</span> <span class="token literal-property property">ok</span> <span class="token operator">:</span><span class="token operator">=</span> varI<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token constant">T</span><span class="token punctuation">)</span><span class="token punctuation">;</span> ok <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 单纯拿到转化类型值</span>
+<span class="token literal-property property">v</span> <span class="token operator">:</span><span class="token operator">=</span> varI<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token constant">T</span><span class="token punctuation">)</span>
+<span class="token comment">// 单纯判断</span>
+_<span class="token punctuation">,</span> <span class="token literal-property property">ok</span><span class="token operator">:</span><span class="token operator">=</span> varI<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token constant">T</span><span class="token punctuation">)</span>
+</code></pre></div><p><strong>talk is cheap, show me the code</strong></p> <div class="language-js extra-class"><pre class="language-js"><code>type Shaper <span class="token keyword">interface</span> <span class="token punctuation">{</span> <span class="token function">Area</span><span class="token punctuation">(</span><span class="token punctuation">)</span> float32 <span class="token punctuation">}</span>
+type Square struct <span class="token punctuation">{</span> side float32 <span class="token punctuation">}</span>
+type Circle struct <span class="token punctuation">{</span> radius float32 <span class="token punctuation">}</span>
+<span class="token function">func</span> <span class="token punctuation">(</span>sq <span class="token operator">*</span>Square<span class="token punctuation">)</span> <span class="token function">Area</span><span class="token punctuation">(</span><span class="token punctuation">)</span> float32 <span class="token punctuation">{</span> <span class="token keyword">return</span> sq<span class="token punctuation">.</span>side <span class="token operator">*</span> sq<span class="token punctuation">.</span>side <span class="token punctuation">}</span>
+<span class="token function">func</span> <span class="token punctuation">(</span>ci <span class="token operator">*</span>Circle<span class="token punctuation">)</span> <span class="token function">Area</span><span class="token punctuation">(</span><span class="token punctuation">)</span> float32 <span class="token punctuation">{</span> <span class="token keyword">return</span> ci<span class="token punctuation">.</span>radius <span class="token operator">*</span> ci<span class="token punctuation">.</span>radius <span class="token operator">*</span> math<span class="token punctuation">.</span>Pi <span class="token punctuation">}</span>
+
+func <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> areaIntf Shaper  <span class="token comment">// 定义Shaper接口类型变量</span>
+  <span class="token literal-property property">sq1</span> <span class="token operator">:</span><span class="token operator">=</span> <span class="token keyword">new</span><span class="token punctuation">(</span>Square<span class="token punctuation">)</span> <span class="token comment">// Square类型变量</span>
+  sq1<span class="token punctuation">.</span>side <span class="token operator">=</span> <span class="token number">5</span>
+  areaIntf <span class="token operator">=</span> sq1 <span class="token comment">// Shaper接口接收Square类型变量</span>
+
+  <span class="token keyword">if</span> t<span class="token punctuation">,</span> <span class="token literal-property property">ok</span> <span class="token operator">:</span><span class="token operator">=</span> areaIntf<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token operator">*</span>Square<span class="token punctuation">)</span><span class="token punctuation">;</span> ok <span class="token punctuation">{</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;area: &quot;</span><span class="token punctuation">,</span> t<span class="token punctuation">.</span><span class="token function">Area</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// area:  25</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">if</span> v<span class="token punctuation">,</span> <span class="token literal-property property">ok</span> <span class="token operator">:</span><span class="token operator">=</span> areaIntf<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token operator">*</span>Circle<span class="token punctuation">)</span><span class="token punctuation">;</span> ok <span class="token punctuation">{</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;areaInft断言类型为*Circle，值为：&quot;</span><span class="token punctuation">,</span> v<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;areaIntf不包含Circle类型值&quot;</span><span class="token punctuation">)</span> <span class="token comment">//  areaIntf不能断言为*Circle类型，所以走这里</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token comment">// 注意：若断言类型不为指针类型会报错！！！</span>
+  <span class="token literal-property property">v</span> <span class="token operator">:</span><span class="token operator">=</span> areaIntf<span class="token punctuation">.</span><span class="token punctuation">(</span>Square<span class="token punctuation">)</span> 
+  <span class="token comment">// impossible type assertion: Square does not implement Shaper (Area method has pointer receiver)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>类型断言还可以使用<code>type-switch</code>形式来检测</p> <div class="language-golang extra-class"><pre class="language-text"><code>switch t := areaIntf.(type) { // type是关键字
+case *Square: // 会走这里
+  fmt.Printf(&quot;Type Square %T with value %v\n&quot;, t, t)
+case *Circle:
+  fmt.Printf(&quot;Type Circle %T with value %v\n&quot;, t, t)
+case nil:
+  fmt.Printf(&quot;nil value: nothing to check?\n&quot;)
+default:
+  fmt.Printf(&quot;Unexpected type %T\n&quot;, t)
+}
+</code></pre></div><p>也可以使用 <code>switch varIntf.(type) { ... }</code> 形式，忽略断言返回值</p> <p>对于处理来自于外部类型未知的数据，例如 JSON 或 XML 编码的数据时，类型测试和转换会非常有用</p> <div class="language-golang extra-class"><pre class="language-text"><code>func classifier(items ...interface{}) { // 变长接口类型切片
+  for i, x := range items {
+    switch x.(type) {
+    case bool:
+      fmt.Printf(&quot;Param%d is a bool\n&quot;, i)
+    case float64:
+      fmt.Printf(&quot;Param%d is a float64\n&quot;, i)
+    case int, int64:
+      fmt.Printf(&quot;Param%d is a int\n&quot;, i)
+    case nil:
+      fmt.Printf(&quot;Param%d is a nil\n&quot;, i)
+    case string:
+      fmt.Printf(&quot;Param%d is a string\n&quot;, i)
+    default:
+      fmt.Printf(&quot;Param%d is unknown\n&quot;, i)
+    }
+  }
+}
+
+classifier(7, &quot;abc&quot;, true, 3.14)
+// Param0 is a int
+// Param1 is a string
+// Param2 is a bool
+// Param3 is a float64
+</code></pre></div><h2 id="_11-4-接口实现方法接收者"><a href="#_11-4-接口实现方法接收者" class="header-anchor">#</a> 11.4 接口实现方法接收者</h2> <p>当接口实现方法的接收者为指针时，要求调用者也必须为指针！！</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 接口</span>
+type Lener <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+  <span class="token function">Len</span><span class="token punctuation">(</span><span class="token punctuation">)</span> int
+<span class="token punctuation">}</span>
+type Appender <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+  <span class="token function">Append</span><span class="token punctuation">(</span>int<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 实现</span>
+type List <span class="token punctuation">[</span><span class="token punctuation">]</span>int
+<span class="token function">func</span> <span class="token punctuation">(</span>l List<span class="token punctuation">)</span> <span class="token function">Len</span><span class="token punctuation">(</span><span class="token punctuation">)</span> int <span class="token punctuation">{</span> <span class="token comment">// 值类型</span>
+  <span class="token keyword">return</span> <span class="token function">len</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token function">func</span> <span class="token punctuation">(</span>l <span class="token operator">*</span>List<span class="token punctuation">)</span> <span class="token function">Append</span><span class="token punctuation">(</span><span class="token parameter">val int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 指针类型</span>
+  <span class="token operator">*</span>l <span class="token operator">=</span> <span class="token function">append</span><span class="token punctuation">(</span><span class="token operator">*</span>l<span class="token punctuation">,</span> val<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+func <span class="token function">LongEnough</span><span class="token punctuation">(</span>l Lener<span class="token punctuation">)</span> bool <span class="token punctuation">{</span> <span class="token comment">// 自动类型断言</span>
+  <span class="token keyword">return</span> l<span class="token punctuation">.</span><span class="token function">Len</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">10</span> <span class="token operator">&gt;</span> <span class="token number">42</span>
+<span class="token punctuation">}</span>
+func <span class="token function">CountInto</span><span class="token punctuation">(</span><span class="token parameter">a Appender<span class="token punctuation">,</span> start<span class="token punctuation">,</span> end int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 自动类型断言</span>
+  <span class="token keyword">for</span> <span class="token literal-property property">i</span> <span class="token operator">:</span><span class="token operator">=</span> start<span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> end<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+    a<span class="token punctuation">.</span><span class="token function">Append</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code>func <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> list List <span class="token comment">// 值类型</span>
+  list<span class="token punctuation">.</span><span class="token function">Len</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 0</span>
+  list<span class="token punctuation">.</span><span class="token function">Append</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">// [1]</span>
+  
+  <span class="token keyword">var</span> plist <span class="token operator">=</span> <span class="token keyword">new</span><span class="token punctuation">(</span>List<span class="token punctuation">)</span> <span class="token comment">// 指针类型</span>
+  plist<span class="token punctuation">.</span><span class="token function">Append</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">// [1]</span>
+  plist<span class="token punctuation">.</span><span class="token function">Len</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 1</span>
+  
+  <span class="token comment">// 接口类型断言后再调用</span>
+  <span class="token function">LongEnough</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span> <span class="token comment">// false</span>
+  <span class="token function">CountInto</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment">// 报错!</span>
+  <span class="token comment">// cannot use list (type List) as type Appender in argument to CountInto:</span>
+  <span class="token comment">// List does not implement Appender (Append method has pointer receiver)</span>
+
+  
+  <span class="token function">LongEnough</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span> <span class="token comment">// false</span>
+  <span class="token function">CountInto</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment">// [1 2 ... 9 10]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>以下是Go语言规范定义的接口方法集调用规则</p> <ul><li>类型 <code>*T</code> 的可调用方法集包含接受者为 <code>*T</code> 或 <code>T</code> 的所有方法集</li> <li>类型 <code>T</code> 的可调用方法集包含接受者为 <code>T</code> 的所有方法，不包含接收者为 <code>*T</code> 的方法</li></ul> <h2 id="_11-5-接口例子"><a href="#_11-5-接口例子" class="header-anchor">#</a> 11.5 接口例子</h2> <p><strong>1. 冒泡排序</strong></p> <div class="language-js extra-class"><pre class="language-js"><code>func <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+  <span class="token keyword">var</span> arr <span class="token operator">=</span> IntArr<span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span>  
+  <span class="token function">Sort</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span>  
+  fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token comment">// [1 2 3 4]  </span>
+<span class="token punctuation">}</span>  
+  
+<span class="token comment">// 冒泡排序  </span>
+<span class="token comment">// 传参为接口类型Sorter，其声明了三个方法：Len() int、Less(i, j int) bool、Swap(i, j int)  </span>
+func <span class="token function">Sort</span><span class="token punctuation">(</span><span class="token parameter">arr Sorter</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+  <span class="token keyword">for</span> <span class="token literal-property property">i</span> <span class="token operator">:</span><span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">Len</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span> <span class="token punctuation">{</span>  
+    <span class="token keyword">for</span> <span class="token literal-property property">j</span> <span class="token operator">:</span><span class="token operator">=</span> i<span class="token punctuation">;</span> j <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">;</span> j<span class="token operator">--</span> <span class="token punctuation">{</span>  
+      <span class="token keyword">if</span> arr<span class="token punctuation">.</span><span class="token function">Less</span><span class="token punctuation">(</span><span class="token parameter">j<span class="token punctuation">,</span> j<span class="token operator">-</span><span class="token number">1</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+        arr<span class="token punctuation">.</span><span class="token function">Swap</span><span class="token punctuation">(</span>j<span class="token punctuation">,</span> j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>  
+      <span class="token punctuation">}</span>  
+    <span class="token punctuation">}</span>  
+  <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>  
+  
+<span class="token comment">// 定义接口  </span>
+type Sorter <span class="token keyword">interface</span> <span class="token punctuation">{</span>  
+  <span class="token function">Len</span><span class="token punctuation">(</span><span class="token punctuation">)</span> int  
+  <span class="token function">Less</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> j int<span class="token punctuation">)</span> bool  
+  <span class="token function">Swap</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> j int<span class="token punctuation">)</span>  
+<span class="token punctuation">}</span>  
+  
+<span class="token comment">// 定义一个数组类型，实现Sorter接口方法  </span>
+type IntArr <span class="token punctuation">[</span><span class="token punctuation">]</span>int  
+  
+<span class="token function">func</span> <span class="token punctuation">(</span>p IntArr<span class="token punctuation">)</span> <span class="token function">Len</span><span class="token punctuation">(</span><span class="token punctuation">)</span> int <span class="token punctuation">{</span>  
+  <span class="token keyword">return</span> <span class="token function">p</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>  
+<span class="token punctuation">}</span>  
+<span class="token function">func</span> <span class="token punctuation">(</span>p IntArr<span class="token punctuation">)</span> <span class="token function">Less</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> j int<span class="token punctuation">)</span> bool <span class="token punctuation">{</span>  
+  <span class="token keyword">return</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> p<span class="token punctuation">[</span>j<span class="token punctuation">]</span>  
+<span class="token punctuation">}</span>  
+<span class="token function">func</span> <span class="token punctuation">(</span>p IntArr<span class="token punctuation">)</span> <span class="token function">Swap</span><span class="token punctuation">(</span><span class="token parameter">i<span class="token punctuation">,</span> j int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+  p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> p<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> p<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span>  
+<span class="token punctuation">}</span>
+</code></pre></div><p>再封装一层</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 由于</span>
+<span class="token comment">// var arr = []int{1, 2, 3}</span>
+<span class="token comment">// var arr2 = IntArr(arr)</span>
+<span class="token comment">// 这时arr和arr2共用同一个底层数组</span>
+func <span class="token function">SortInt</span><span class="token punctuation">(</span><span class="token parameter">a <span class="token punctuation">[</span><span class="token punctuation">]</span>int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">Sort</span><span class="token punctuation">(</span><span class="token function">IntArr</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+func <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>int<span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span>
+  <span class="token function">SortInt</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
+  fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token comment">// [1 2 3 4]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>2. io包中的Reader和Writter接口</strong></p> <p>io包中，定义了两个接口：<code>io.Reader</code>、<code>io.Writter</code></p> <div class="language-js extra-class"><pre class="language-js"><code>type Reader <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+  <span class="token function">Read</span><span class="token punctuation">(</span>p <span class="token punctuation">[</span><span class="token punctuation">]</span>byte<span class="token punctuation">)</span> <span class="token punctuation">(</span>n int<span class="token punctuation">,</span> err error<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+type Writer <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+  <span class="token function">Write</span><span class="token punctuation">(</span>p <span class="token punctuation">[</span><span class="token punctuation">]</span>byte<span class="token punctuation">)</span> <span class="token punctuation">(</span>n int<span class="token punctuation">,</span> err error<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="_11-6-空接口"><a href="#_11-6-空接口" class="header-anchor">#</a> 11.6 空接口</h2> <p>空接口即<code>不含任何方法</code>的接口，无须实现，通常命名为 <code>any</code> 或 <code>Any</code></p> <div class="language-js extra-class"><pre class="language-js"><code>type Any <span class="token keyword">interface</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre></div><p>任何类型都实现了空接口，所以空接口可用于接收任何类型的变量</p> <div class="language-js extra-class"><pre class="language-js"><code>type Any <span class="token keyword">interface</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+type Person struct<span class="token punctuation">{</span> name string <span class="token punctuation">}</span>
+func <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> val Any
+  val <span class="token operator">=</span> <span class="token number">7</span>
+  val <span class="token operator">=</span> <span class="token string">&quot;string&quot;</span>
+  val <span class="token operator">=</span> <span class="token keyword">new</span><span class="token punctuation">(</span>Person<span class="token punctuation">)</span>
+  
+  <span class="token keyword">switch</span> val<span class="token punctuation">.</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token literal-property property">int</span><span class="token operator">:</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token keyword">case</span> <span class="token literal-property property">string</span><span class="token operator">:</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+  <span class="token keyword">case</span> <span class="token operator">*</span>Person<span class="token operator">:</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment">// 类型断言为*Person，最终打印3</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token comment">// Test(val)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 或者封装起来</span>
+func <span class="token function">Test</span><span class="token punctuation">(</span><span class="token parameter">any <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">switch</span> any<span class="token punctuation">.</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token literal-property property">int</span><span class="token operator">:</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token keyword">case</span> <span class="token literal-property property">string</span><span class="token operator">:</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+  <span class="token keyword">case</span> <span class="token operator">*</span>Person<span class="token operator">:</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> 
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>用空接口实现通用类型数组，只需指定数组类型为空接口即可</p> <div class="language-js extra-class"><pre class="language-js"><code>type Any <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+type Vector struct <span class="token punctuation">{</span>
+  a <span class="token punctuation">[</span><span class="token punctuation">]</span>Any
+<span class="token punctuation">}</span>
+<span class="token function">func</span> <span class="token punctuation">(</span>p <span class="token operator">*</span>Vector<span class="token punctuation">)</span> <span class="token function">At</span><span class="token punctuation">(</span>i int<span class="token punctuation">)</span> Any <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> p<span class="token punctuation">.</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+<span class="token function">func</span> <span class="token punctuation">(</span>p <span class="token operator">*</span>Vector<span class="token punctuation">)</span> <span class="token function">Set</span><span class="token punctuation">(</span><span class="token parameter">i int<span class="token punctuation">,</span> val Any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  p<span class="token punctuation">.</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> any
+<span class="token punctuation">}</span>
+</code></pre></div><p>通用节点类型</p> <div class="language-js extra-class"><pre class="language-js"><code>type Node struct <span class="token punctuation">{</span>
+  left  <span class="token operator">*</span>Node
+  right <span class="token operator">*</span>Node
+  value <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+func <span class="token function">NewNode</span><span class="token punctuation">(</span>l<span class="token punctuation">,</span> r <span class="token operator">*</span>Node<span class="token punctuation">)</span> <span class="token operator">*</span>Node <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token operator">&amp;</span>Node<span class="token punctuation">{</span>l<span class="token punctuation">,</span> r<span class="token punctuation">,</span> value<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token function">func</span> <span class="token punctuation">(</span>n <span class="token operator">*</span>Node<span class="token punctuation">)</span> <span class="token function">SetValue</span><span class="token punctuation">(</span><span class="token parameter">val <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  n<span class="token punctuation">.</span>value <span class="token operator">=</span> val
+<span class="token punctuation">}</span>
+
+</code></pre></div><p>一个接口的值可以赋值给另一个接口变量，只要底层类型实现了必要的方法</p> <div class="language-js extra-class"><pre class="language-js"><code>type myPrintInterface <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+func <span class="token function">f3</span><span class="token punctuation">(</span><span class="token parameter">x myInterface</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  x<span class="token punctuation">.</span><span class="token punctuation">(</span>myPrintInterface<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 若x的底层类型实现了print方法就可以断言为myPrintInterface接口调用从而调用print()方法</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="_11-7-反射"><a href="#_11-7-反射" class="header-anchor">#</a> 11.7 反射</h2> <p>Go语言提供了一种机制可以在<code>运行时</code>访问到对象的属性和方法，但是在编译时并不知道这些变量的具体类型，这种机制被称为反射</p> <p>Go中的反射是由reflect包实现，由两大部分构成：<code>reflect.Type</code> 和 <code>reflect.Value</code>，并提供 <code>reflect.Typeof</code> 和 <code>reflect.ValueOf</code>进行访问</p> <p>如下图所示，原始值先转化成接口变量再转化成反射对象</p> <p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf41472b2ad14dddb7789654918af61c~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p> <h3 id="_11-7-1-interface-转-reflect"><a href="#_11-7-1-interface-转-reflect" class="header-anchor">#</a> 11.7.1 interface 转 reflect</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> val <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token literal-property property">rVal</span> <span class="token operator">:</span><span class="token operator">=</span> reflect<span class="token punctuation">.</span><span class="token function">ValueOf</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token comment">// 1</span>
+<span class="token literal-property property">rType</span> <span class="token operator">:</span><span class="token operator">=</span> reflect<span class="token punctuation">.</span><span class="token function">TypeOf</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token comment">// int</span>
+</code></pre></div><h3 id="_11-7-2-reflect-转-interface"><a href="#_11-7-2-reflect-转-interface" class="header-anchor">#</a> 11.7.2 reflect 转 interface</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> val <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token literal-property property">rVal</span> <span class="token operator">:</span><span class="token operator">=</span> reflect<span class="token punctuation">.</span><span class="token function">ValueOf</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span>
+rVal<span class="token punctuation">.</span><span class="token function">Interface</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="_11-7-3-reflect-转-interface-转-primitive"><a href="#_11-7-3-reflect-转-interface-转-primitive" class="header-anchor">#</a> 11.7.3 reflect 转 interface 转 Primitive</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> val <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token literal-property property">rVal</span> <span class="token operator">:</span><span class="token operator">=</span> reflect<span class="token punctuation">.</span><span class="token function">ValueOf</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span>
+rVal<span class="token punctuation">.</span><span class="token function">Interface</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">(</span>int<span class="token punctuation">)</span> <span class="token comment">// 断言</span>
+</code></pre></div><h3 id="_11-7-4-更新原始值"><a href="#_11-7-4-更新原始值" class="header-anchor">#</a> 11.7.4 更新原始值</h3> <p>如果我们想要更新一个 <code>reflect.Value</code>，那么它持有的值一定是可以被更新的（意味则要传递指针而非值）</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 按值传递，试图改变reflect.Value会报错</span>
+<span class="token literal-property property">n</span> <span class="token operator">:</span><span class="token operator">=</span> <span class="token number">1</span>
+<span class="token literal-property property">v</span> <span class="token operator">:</span><span class="token operator">=</span> reflect<span class="token punctuation">.</span><span class="token function">ValuedOf</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+v<span class="token punctuation">.</span><span class="token function">SetInt</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> 
+<span class="token comment">// panic: reflect: reflect.flag.mustBeAssignable using unaddressable value</span>
+<span class="token comment">// 错误：reflect.flag.mustBeAssignable使用的是不可寻址的值</span>
+
+<span class="token comment">// 按指针传递</span>
+<span class="token literal-property property">n</span> <span class="token operator">:</span><span class="token operator">=</span> <span class="token number">1</span>
+<span class="token literal-property property">v</span> <span class="token operator">:</span><span class="token operator">=</span> reflect<span class="token punctuation">.</span><span class="token function">ValueOf</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>n<span class="token punctuation">)</span>
+v<span class="token punctuation">.</span><span class="token function">Elem</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">SetInt</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment">// reflect.Value.Elem获取指针指向变量</span>
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token comment">// 10</span>
+<span class="token comment">// 通过v.Canset()可以检测反射值是否可以设置，返回一个bool值</span>
+
+<span class="token comment">// 和以下代码类似</span>
+<span class="token literal-property property">n</span> <span class="token operator">:</span><span class="token operator">=</span> <span class="token number">1</span>
+<span class="token literal-property property">v</span> <span class="token operator">:</span><span class="token operator">=</span> <span class="token operator">&amp;</span>n
+<span class="token operator">*</span>v <span class="token operator">=</span> <span class="token number">10</span>
+</code></pre></div><p><code>reflect.Value.SetType</code> 更新变量的<code>Type</code>值</p> <p><code>reflect.Value.Elem</code> 获取指针指向变量</p> <h3 id="_11-7-5-结构体反射"><a href="#_11-7-5-结构体反射" class="header-anchor">#</a> 11.7.5 结构体反射</h3> <p><code>reflect.Value</code>有一个<code>Type</code>方法返回反射对象<code>Type</code></p> <p><code>reflect.Value</code>和<code>reflect.Type</code>都有一个<code>Kink</code>方法返回一个<code>reflect包</code>里定义的常量表示<code>底层类型</code></p> <p>内置的常量如下</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token punctuation">(</span>
+    Invalid Kind <span class="token operator">=</span> iota
+    Bool
+    Int
+    Int8
+    Int16
+    Int32
+    Int64
+    Uint
+    Uint8
+    Uint16
+    Uint32
+    Uint64
+    Uintptr
+    Float32
+    Float64
+    Complex64
+    Complex128
+    Array
+    Chan
+    Func
+    Interface
+    Map
+    Ptr
+    Slice
+    String
+    Struct
+    UnsafePointer
+<span class="token punctuation">)</span>
+</code></pre></div><p>通过<code>NumField()</code>返回<code>struct</code>字段数量，通过<code>Filed(i)</code>返回字段值</p> <div class="language-js extra-class"><pre class="language-js"><code>type Person struct <span class="token punctuation">{</span>  
+  Name string  
+  id string  
+<span class="token punctuation">}</span>  
+  
+func <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+  <span class="token keyword">var</span> p <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token operator">=</span> Person<span class="token punctuation">{</span><span class="token string">&quot;noxone&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;123456&quot;</span><span class="token punctuation">}</span>  
+  <span class="token literal-property property">value</span> <span class="token operator">:</span><span class="token operator">=</span> reflect<span class="token punctuation">.</span><span class="token function">ValueOf</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token comment">// {&quot;noxone&quot; &quot;123456&quot;}  </span>
+  <span class="token literal-property property">typ</span> <span class="token operator">:</span><span class="token operator">=</span> reflect<span class="token punctuation">.</span><span class="token function">TypeOf</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token comment">// main.Person  </span>
+  <span class="token literal-property property">typ2</span> <span class="token operator">:</span><span class="token operator">=</span> value<span class="token punctuation">.</span><span class="token function">Type</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// main.Person  </span>
+  <span class="token literal-property property">knd</span> <span class="token operator">:</span><span class="token operator">=</span> value<span class="token punctuation">.</span><span class="token function">Kind</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// struct  </span>
+  <span class="token literal-property property">knd2</span> <span class="token operator">:</span><span class="token operator">=</span> typ<span class="token punctuation">.</span><span class="token function">Kind</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// struct  </span>
+  fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> typ<span class="token punctuation">,</span> typ2<span class="token punctuation">,</span> knd<span class="token punctuation">,</span> knd2<span class="token punctuation">)</span>  
+  
+  <span class="token keyword">for</span> <span class="token literal-property property">i</span> <span class="token operator">:</span><span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> value<span class="token punctuation">.</span><span class="token function">NumField</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>  
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>value<span class="token punctuation">.</span><span class="token function">Field</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// noxone 123456  </span>
+  <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>
+</code></pre></div><p>与此同时<code>Filed(i)</code>也是一个<code>reflect.Value</code>，意味则可以调用<code>Type</code>、<code>Interface</code>以及<code>Kind</code>方法</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">for</span> <span class="token literal-property property">i</span> <span class="token operator">:</span><span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> value<span class="token punctuation">.</span><span class="token function">NumField</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>  
+  <span class="token literal-property property">f</span> <span class="token operator">:</span><span class="token operator">=</span> value<span class="token punctuation">.</span><span class="token function">Field</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>  
+  fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>f<span class="token punctuation">,</span> f<span class="token punctuation">.</span><span class="token function">Type</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> f<span class="token punctuation">.</span><span class="token function">Interface</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> f<span class="token punctuation">.</span><span class="token function">Kind</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// noxone string noxone string  </span>
+  <span class="token comment">// 打印id字段时，f.Interface()会报错，因为是未导出的字段（即小写开头）  </span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>修改未导出的字段（即小写字母开头的字段）会报错，修改非指针值的字段也会报错</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 错误示范</span>
+type Person struct <span class="token punctuation">{</span>  
+  Name string  
+  id string  
+<span class="token punctuation">}</span>  
+
+<span class="token keyword">var</span> p <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token operator">=</span> Person<span class="token punctuation">{</span><span class="token string">&quot;noxone&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;123456&quot;</span><span class="token punctuation">}</span>
+<span class="token literal-property property">value</span> <span class="token operator">:</span><span class="token operator">=</span> reflect<span class="token punctuation">.</span><span class="token function">ValueOf</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+  
+value<span class="token punctuation">.</span><span class="token function">Field</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">SetString</span><span class="token punctuation">(</span><span class="token string">&quot;wxq&quot;</span><span class="token punctuation">)</span> <span class="token comment">// 修改非指针值的字段</span>
+<span class="token comment">// panic: reflect: reflect.Value.SetString using unaddressable value  </span>
+value<span class="token punctuation">.</span><span class="token function">Field</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">SetString</span><span class="token punctuation">(</span><span class="token string">&quot;9999&quot;</span><span class="token punctuation">)</span> <span class="token comment">// 修改未导出的字段</span>
+<span class="token comment">// panic: reflect: reflect.Value.SetString using value obtained using unexported field</span>
+  
+<span class="token comment">// 正确示范</span>
+type Person struct <span class="token punctuation">{</span>  
+  Name string  
+  Id string  
+<span class="token punctuation">}</span>  
+
+<span class="token keyword">var</span> p <span class="token operator">=</span> Person<span class="token punctuation">{</span><span class="token string">&quot;noxone&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;123456&quot;</span><span class="token punctuation">}</span>  
+<span class="token literal-property property">s</span> <span class="token operator">:</span><span class="token operator">=</span> reflect<span class="token punctuation">.</span><span class="token function">ValueOf</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>p<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Elem</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 拿到指针反射值指向的对象  </span>
+
+s<span class="token punctuation">.</span><span class="token function">Field</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">SetString</span><span class="token punctuation">(</span><span class="token string">&quot;wxq&quot;</span><span class="token punctuation">)</span>  
+s<span class="token punctuation">.</span><span class="token function">Field</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">SetString</span><span class="token punctuation">(</span><span class="token string">&quot;9999&quot;</span><span class="token punctuation">)</span> 
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token comment">// {wxq 9999}</span>
+
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/NOxONE/blog/Golang/《The way to go笔记》 第八章 Map.html" class="prev">
+          《The way to go笔记》 第八章 Map
+        </a></span> <span class="next"><a href="/NOxONE/blog/Golang/《The way to go笔记》 第十章 结构与方法.html">
+          《The way to go笔记》 第十章 结构与方法
+        </a></span></p></div> <div class="comments-wrapper"><!----></div></main> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:0;" data-v-44fdc95c data-v-bfc11e02></ul></div></div></div><div class="global-ui"><div id="noxone-cover" class="noxone-cover" style="--bg-color:#333;--bg-mobile-color:#333;--text-font-color:#fff;--text-font-size:36px;--text-line-height:54px;--text-writing-mode:horizontal-tb;--text-font-align:center;--text-border-color:#000;--text-border-size:1px;--text-box-w:autopx;--text-box-h:autopx;" data-v-34f32310><div id="text" class="text" data-v-34f32310></div> <div id="text-copy" class="text-copy" data-v-34f32310>我想，<br>在这个世界上,<br>虽然没有最美好的相遇，<br>但却应该有为了相遇或重逢，<br>所做的最美好的努力。<br></div> <!----> <!----> <!----> <!----></div><div class="noxone-music" style="zoom:0.7;bottom:50px;z-index:19;--container-bg-color:#fff;--theme-color:#69c6f5;--music-info-bg-color:rgba(255, 255, 255, 0.5);--music-title-color:#000;" data-v-74bc303d><div class="music-container" data-v-74bc303d><div class="music-info" data-v-74bc303d><div class="title" data-v-74bc303d>红莲华</div> <div class="progress-container hover" data-v-74bc303d><div class="progress hover" style="width:0;" data-v-74bc303d></div></div></div> <div class="music-cover" data-v-74bc303d><img src="https://dragon-chen777.github.io/assets/music/红莲华.png" data-v-74bc303d></div> <div class="control-pannel" data-v-74bc303d><div class="hide-btn hover" data-v-74bc303d>x</div> <div class="action-btn fas fa-backward hover" data-v-74bc303d></div> <div class="action-btn action-btn-big fas hover fa-play" data-v-74bc303d></div> <div class="action-btn fas fa-forward hover" data-v-74bc303d></div></div> <audio src="https://dragon-chen777.github.io/assets/music/红莲华.mp3" data-v-74bc303d></audio></div> <div class="small-container hover hidden" data-v-74bc303d><div class="show-btn fas fa-angle-right" data-v-74bc303d></div></div></div><div class="NoxoneLive2D" style="--live2d-width:undefinedpx;--live2d-height:undefinedpx;--live2d-container-right:100px;--live2d-container-bottom:0px;--live2d-msgbox-bg-color:#fefefe;--live2d-msgbox-font-color:#333;" data-v-1888014f><div class="live2d-container hover" style="display:none;" data-v-1888014f><div class="panel" style="display:none;" data-v-1888014f><div class="music-player item" data-v-1888014f><i class="music-icon iconfont icon-musicIcon1" data-v-1888014f></i> <div class="music-control" data-v-1888014f><div class="btn pre-btn" data-v-1888014f><i class="iconfont icon-preBtn" data-v-1888014f></i></div> <div class="btn play-btn" data-v-1888014f><i class="iconfont icon-play" data-v-1888014f></i></div> <div class="btn next-btn" data-v-1888014f><i class="iconfont icon-nextBtn" data-v-1888014f></i></div> <div class="btn hide-btn" data-v-1888014f>收起</div></div></div> <div class="game-box item" data-v-1888014f><div class="game" data-v-1888014f><i class="iconfont icon-youxi" data-v-1888014f></i></div></div></div> <div class="message-box" style="display:none;" data-v-1888014f>天上飘着些微云，地上吹着些微风。啊！微风吹动了我头发，教我如何不想她？</div> <canvas id="live2d" height="220" width="150" data-v-1888014f></canvas></div> <div class="loading" data-v-1888014f>loading...</div></div><div class="Sakura" data-v-248d85d6><canvas id="canvas_sakura" style="z-index:9999;" data-v-248d85d6></canvas></div><!----><div id="goTop" class="hide-cat" data-v-646dd891></div></div></div>
+    <script src="/NOxONE/assets/js/app.14d2458b.js" defer></script><script src="/NOxONE/assets/js/3.79819a85.js" defer></script><script src="/NOxONE/assets/js/1.c41ce1d3.js" defer></script><script src="/NOxONE/assets/js/34.cec58ef5.js" defer></script>
+  </body>
+</html>
