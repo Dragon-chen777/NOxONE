@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>《The way to go笔记》 第十章 结构与方法 | NOXONE</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="https://dragon-chen777.github.io/assets/images/logo.png">
+    <meta name="description" content="欢迎来到NOxONE的小破站~">
+    
+    <link rel="preload" href="/NOxONE/assets/css/0.styles.49c58420.css" as="style"><link rel="preload" href="/NOxONE/assets/js/app.aa05a484.js" as="script"><link rel="preload" href="/NOxONE/assets/js/3.79819a85.js" as="script"><link rel="preload" href="/NOxONE/assets/js/1.c41ce1d3.js" as="script"><link rel="preload" href="/NOxONE/assets/js/35.83e23bcb.js" as="script"><link rel="prefetch" href="/NOxONE/assets/js/10.f5ac7630.js"><link rel="prefetch" href="/NOxONE/assets/js/11.00d9866a.js"><link rel="prefetch" href="/NOxONE/assets/js/12.7a1f7652.js"><link rel="prefetch" href="/NOxONE/assets/js/13.5da1e137.js"><link rel="prefetch" href="/NOxONE/assets/js/14.2a9b725e.js"><link rel="prefetch" href="/NOxONE/assets/js/15.4d450dc8.js"><link rel="prefetch" href="/NOxONE/assets/js/16.cadb4149.js"><link rel="prefetch" href="/NOxONE/assets/js/17.b552fea6.js"><link rel="prefetch" href="/NOxONE/assets/js/18.bfd73080.js"><link rel="prefetch" href="/NOxONE/assets/js/19.4e4e487f.js"><link rel="prefetch" href="/NOxONE/assets/js/20.04c991d1.js"><link rel="prefetch" href="/NOxONE/assets/js/21.739f56ba.js"><link rel="prefetch" href="/NOxONE/assets/js/22.183f2f4e.js"><link rel="prefetch" href="/NOxONE/assets/js/23.6bee343f.js"><link rel="prefetch" href="/NOxONE/assets/js/24.20efb366.js"><link rel="prefetch" href="/NOxONE/assets/js/25.e2874fb4.js"><link rel="prefetch" href="/NOxONE/assets/js/26.dffb2aab.js"><link rel="prefetch" href="/NOxONE/assets/js/27.173f5c47.js"><link rel="prefetch" href="/NOxONE/assets/js/28.7cecd7ff.js"><link rel="prefetch" href="/NOxONE/assets/js/29.ec70d1b9.js"><link rel="prefetch" href="/NOxONE/assets/js/30.eccbc420.js"><link rel="prefetch" href="/NOxONE/assets/js/31.2234188a.js"><link rel="prefetch" href="/NOxONE/assets/js/32.9c8f2080.js"><link rel="prefetch" href="/NOxONE/assets/js/33.360c989c.js"><link rel="prefetch" href="/NOxONE/assets/js/34.0c54ee69.js"><link rel="prefetch" href="/NOxONE/assets/js/36.9110d151.js"><link rel="prefetch" href="/NOxONE/assets/js/37.c57a3c69.js"><link rel="prefetch" href="/NOxONE/assets/js/38.ac6a2b9a.js"><link rel="prefetch" href="/NOxONE/assets/js/39.7b2e9cec.js"><link rel="prefetch" href="/NOxONE/assets/js/4.1f181f1a.js"><link rel="prefetch" href="/NOxONE/assets/js/40.57b9b506.js"><link rel="prefetch" href="/NOxONE/assets/js/41.8f1b71e5.js"><link rel="prefetch" href="/NOxONE/assets/js/42.1517424f.js"><link rel="prefetch" href="/NOxONE/assets/js/43.6b7d6c99.js"><link rel="prefetch" href="/NOxONE/assets/js/44.e9228d0b.js"><link rel="prefetch" href="/NOxONE/assets/js/45.e3135cf8.js"><link rel="prefetch" href="/NOxONE/assets/js/46.3ae41f15.js"><link rel="prefetch" href="/NOxONE/assets/js/47.f9bd588a.js"><link rel="prefetch" href="/NOxONE/assets/js/48.bdf87e5c.js"><link rel="prefetch" href="/NOxONE/assets/js/49.ba681628.js"><link rel="prefetch" href="/NOxONE/assets/js/5.c3cfc4e1.js"><link rel="prefetch" href="/NOxONE/assets/js/50.3465a1b3.js"><link rel="prefetch" href="/NOxONE/assets/js/51.bb94b2bc.js"><link rel="prefetch" href="/NOxONE/assets/js/52.45cc8b43.js"><link rel="prefetch" href="/NOxONE/assets/js/53.84847a0e.js"><link rel="prefetch" href="/NOxONE/assets/js/54.a407c34c.js"><link rel="prefetch" href="/NOxONE/assets/js/55.d3ff07ae.js"><link rel="prefetch" href="/NOxONE/assets/js/56.f35b93c2.js"><link rel="prefetch" href="/NOxONE/assets/js/57.f6002003.js"><link rel="prefetch" href="/NOxONE/assets/js/58.8246a0ce.js"><link rel="prefetch" href="/NOxONE/assets/js/59.3bbb1aaf.js"><link rel="prefetch" href="/NOxONE/assets/js/6.714535cf.js"><link rel="prefetch" href="/NOxONE/assets/js/60.043612a5.js"><link rel="prefetch" href="/NOxONE/assets/js/61.80efbe09.js"><link rel="prefetch" href="/NOxONE/assets/js/62.e8f1f281.js"><link rel="prefetch" href="/NOxONE/assets/js/63.b8e95816.js"><link rel="prefetch" href="/NOxONE/assets/js/64.b4b72117.js"><link rel="prefetch" href="/NOxONE/assets/js/65.6d6af898.js"><link rel="prefetch" href="/NOxONE/assets/js/66.44b61763.js"><link rel="prefetch" href="/NOxONE/assets/js/67.67a628bd.js"><link rel="prefetch" href="/NOxONE/assets/js/68.a950a252.js"><link rel="prefetch" href="/NOxONE/assets/js/69.452e4de2.js"><link rel="prefetch" href="/NOxONE/assets/js/7.49afa2ce.js"><link rel="prefetch" href="/NOxONE/assets/js/70.70cb6f63.js"><link rel="prefetch" href="/NOxONE/assets/js/71.831bdf6e.js"><link rel="prefetch" href="/NOxONE/assets/js/72.f50589e4.js"><link rel="prefetch" href="/NOxONE/assets/js/73.1bee02eb.js"><link rel="prefetch" href="/NOxONE/assets/js/74.2862f343.js"><link rel="prefetch" href="/NOxONE/assets/js/75.a13e1235.js"><link rel="prefetch" href="/NOxONE/assets/js/76.3c23c8e9.js"><link rel="prefetch" href="/NOxONE/assets/js/77.47bb1ae5.js"><link rel="prefetch" href="/NOxONE/assets/js/78.91dfdf90.js"><link rel="prefetch" href="/NOxONE/assets/js/79.ee6e30d5.js"><link rel="prefetch" href="/NOxONE/assets/js/8.02671b08.js"><link rel="prefetch" href="/NOxONE/assets/js/80.915f63e9.js"><link rel="prefetch" href="/NOxONE/assets/js/81.86afc616.js"><link rel="prefetch" href="/NOxONE/assets/js/82.88855bb0.js"><link rel="prefetch" href="/NOxONE/assets/js/83.30cb95b9.js"><link rel="prefetch" href="/NOxONE/assets/js/84.16921032.js"><link rel="prefetch" href="/NOxONE/assets/js/85.ba9a9fad.js"><link rel="prefetch" href="/NOxONE/assets/js/86.d76e82b9.js"><link rel="prefetch" href="/NOxONE/assets/js/87.cef030ac.js"><link rel="prefetch" href="/NOxONE/assets/js/88.b0e78977.js"><link rel="prefetch" href="/NOxONE/assets/js/89.42f063fd.js"><link rel="prefetch" href="/NOxONE/assets/js/9.cf0d15a2.js"><link rel="prefetch" href="/NOxONE/assets/js/90.b2d70a03.js"><link rel="prefetch" href="/NOxONE/assets/js/91.86659ce3.js"><link rel="prefetch" href="/NOxONE/assets/js/92.41c6e0e4.js"><link rel="prefetch" href="/NOxONE/assets/js/93.4b424029.js"><link rel="prefetch" href="/NOxONE/assets/js/94.9e23ea00.js">
+    <link rel="stylesheet" href="/NOxONE/assets/css/0.styles.49c58420.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-bfc11e02><div data-v-bfc11e02><div class="password-shadow password-wrapper-out" style="display:none;" data-v-b4034468 data-v-bfc11e02 data-v-bfc11e02><h3 class="title" data-v-b4034468>NOXONE</h3> <p class="description" data-v-b4034468>欢迎来到NOxONE的小破站~</p> <label id="box" class="inputBox" data-v-b4034468><input type="password" value="" data-v-b4034468> <span data-v-b4034468>Konck! Knock!</span> <button data-v-b4034468>OK</button></label> <div class="footer" data-v-b4034468><span data-v-b4034468><i class="iconfont reco-theme" data-v-b4034468></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-b4034468>vuePress-theme-reco</a></span> <span data-v-b4034468><i class="iconfont reco-copyright" data-v-b4034468></i> <a data-v-b4034468><span data-v-b4034468>NOxONE</span>
+          
+        <span data-v-b4034468>2023 - </span>
+        2024
+      </a></span></div></div> <div class="hide" data-v-bfc11e02><header class="navbar fixed" data-v-bfc11e02><a href="/NOxONE/" class="home-link router-link-active"><img src="https://p3-passport.byteimg.com/img/user-avatar/039391726bfa394febe9e5853f06026a~180x180.awebp" alt="NOXONE" class="logo"> <span class="site-name">NOXONE</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/NOxONE/blog/" class="nav-link router-link-active"><i class="iconfont reco-home"></i>
+  博客
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-other"></i>
+      Demos
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/Music-player" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎵NOxONE音乐播放器
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/Block-collision-game" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎮打方块游戏
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/Typer-game" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  👨马保国打字游戏
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/Book-of-answers" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  📕答案之书
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/Cinema-seat-reservation" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎥影院座位预订
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/My-first-web-20200722" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  💎我的处女作
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-menu"></i>
+      百宝箱
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.runjs.cool" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🔨开发工具箱
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://tinypng.com" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎨tinypng图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://99cc.vip/public/tools/vscode_snippet/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  👓代码片段生成器
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://imgse.com" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  路过图床
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://programmercarl.com" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎯代码随想录
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://qwerty.kaiyi.cool" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎲打字背英文
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-account"></i>
+      社交账号
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/Dragon-chen777" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.npmjs.com/~noxone" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-npm"></i>
+  npm
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://juejin.cn/user/3488066386291463" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-juejin"></i>
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/Xiaoyc7" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-csdn"></i>
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://space.bilibili.com/273377574" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-bilibili"></i>
+  Bilibili
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="/NOxONE/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      专栏
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/NOxONE/categories/css/" class="nav-link"><i class="undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/ES6/" class="nav-link"><i class="undefined"></i>
+  ES6
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/Golang/" class="nav-link"><i class="undefined"></i>
+  Golang
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/js/" class="nav-link"><i class="undefined"></i>
+  js
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/solidity/" class="nav-link"><i class="undefined"></i>
+  solidity
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/three.js/" class="nav-link"><i class="undefined"></i>
+  three.js
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/工程化/" class="nav-link"><i class="undefined"></i>
+  工程化
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/建站日记/" class="nav-link"><i class="undefined"></i>
+  建站日记
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/浏览器/" class="nav-link"><i class="undefined"></i>
+  浏览器
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/数据结构与算法/" class="nav-link"><i class="undefined"></i>
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/算法刷题集/" class="nav-link"><i class="undefined"></i>
+  算法刷题集
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-bfc11e02></div> <aside class="sidebar" data-v-bfc11e02><div class="personal-info-wrapper" data-v-feeb470e data-v-bfc11e02><div class="avatar-tip" data-v-feeb470e>芜湖，起飞~</div> <img src="https://p3-passport.byteimg.com/img/user-avatar/039391726bfa394febe9e5853f06026a~180x180.awebp" alt="author-avatar" class="personal-img" data-v-feeb470e> <h3 class="name" data-v-feeb470e>
+    NOxONE
+  </h3> <div class="num" data-v-feeb470e><div data-v-feeb470e><h3 data-v-feeb470e>82</h3> <h6 data-v-feeb470e>文章</h6></div> <div data-v-feeb470e><h3 data-v-feeb470e>14</h3> <h6 data-v-feeb470e>标签</h6></div></div> <ul class="social-links" data-v-feeb470e><li class="social-item" data-v-feeb470e><i class="iconfont reco-github" style="color:#f8b26a;" data-v-feeb470e></i></li><li class="social-item" data-v-feeb470e><i class="iconfont reco-npm" style="color:#f8b26a;" data-v-feeb470e></i></li><li class="social-item" data-v-feeb470e><i class="iconfont reco-juejin" style="color:#abbd81;" data-v-feeb470e></i></li><li class="social-item" data-v-feeb470e><i class="iconfont reco-csdn" style="color:#3498db;" data-v-feeb470e></i></li><li class="social-item" data-v-feeb470e><i class="iconfont reco-bilibili" style="color:#f8b26a;" data-v-feeb470e></i></li></ul> <hr data-v-feeb470e></div> <nav class="nav-links"><div class="nav-item"><a href="/NOxONE/blog/" class="nav-link router-link-active"><i class="iconfont reco-home"></i>
+  博客
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-other"></i>
+      Demos
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/Music-player" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎵NOxONE音乐播放器
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/Block-collision-game" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎮打方块游戏
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/Typer-game" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  👨马保国打字游戏
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/Book-of-answers" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  📕答案之书
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/Cinema-seat-reservation" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎥影院座位预订
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dragon-chen777.github.io/My-first-web-20200722" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  💎我的处女作
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-menu"></i>
+      百宝箱
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.runjs.cool" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🔨开发工具箱
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://tinypng.com" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎨tinypng图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://99cc.vip/public/tools/vscode_snippet/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  👓代码片段生成器
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://imgse.com" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  路过图床
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://programmercarl.com" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎯代码随想录
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://qwerty.kaiyi.cool" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  🎲打字背英文
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-account"></i>
+      社交账号
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/Dragon-chen777" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.npmjs.com/~noxone" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-npm"></i>
+  npm
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://juejin.cn/user/3488066386291463" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-juejin"></i>
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/Xiaoyc7" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-csdn"></i>
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://space.bilibili.com/273377574" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-bilibili"></i>
+  Bilibili
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="/NOxONE/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      专栏
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/NOxONE/categories/css/" class="nav-link"><i class="undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/ES6/" class="nav-link"><i class="undefined"></i>
+  ES6
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/Golang/" class="nav-link"><i class="undefined"></i>
+  Golang
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/js/" class="nav-link"><i class="undefined"></i>
+  js
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/solidity/" class="nav-link"><i class="undefined"></i>
+  solidity
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/three.js/" class="nav-link"><i class="undefined"></i>
+  three.js
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/工程化/" class="nav-link"><i class="undefined"></i>
+  工程化
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/建站日记/" class="nav-link"><i class="undefined"></i>
+  建站日记
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/浏览器/" class="nav-link"><i class="undefined"></i>
+  浏览器
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/数据结构与算法/" class="nav-link"><i class="undefined"></i>
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/NOxONE/categories/算法刷题集/" class="nav-link"><i class="undefined"></i>
+  算法刷题集
+</a></li></ul></div></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/JavaScript/Array原生方法实现" class="sidebar-heading clickable"><span>JavaScript</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/ES6/1.let和const" class="sidebar-heading clickable"><span>ES6</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/Golang/Gin笔记" class="sidebar-heading clickable open"><span>Golang</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/NOxONE/blog/Golang/Gin笔记.html" class="sidebar-link">Gin笔记</a></li><li><a href="/NOxONE/blog/Golang/Gorm笔记.html" class="sidebar-link">Gorm笔记</a></li><li><a href="/NOxONE/blog/Golang/SQL基础语法.html" class="sidebar-link">SQL基础语法</a></li><li><a href="/NOxONE/blog/Golang/《The way to go笔记》 第八章 Map.html" class="sidebar-link">《The way to go笔记》 第八章 Map</a></li><li><a href="/NOxONE/blog/Golang/《The way to go笔记》 第十一章 接口和反射.html" class="sidebar-link">《The way to go笔记》 第十一章 接口和反射</a></li><li><a href="/NOxONE/blog/Golang/《The way to go笔记》 第十章 结构与方法.html" class="active sidebar-link">《The way to go笔记》 第十章 结构与方法</a></li><li><a href="/NOxONE/blog/Golang/《The way to go笔记》第七章 数组与切片.html" class="sidebar-link">《The way to go笔记》第七章 数组与切片</a></li><li><a href="/NOxONE/blog/Golang/《The way to go笔记》第五章 控制结构.html" class="sidebar-link">《The way to go笔记》第五章 控制结构</a></li><li><a href="/NOxONE/blog/Golang/《The way to go笔记》第六章 函数.html" class="sidebar-link">《The way to go笔记》第六章 函数</a></li><li><a href="/NOxONE/blog/Golang/《The way to go笔记》第四章 基本结构和数据类型.html" class="sidebar-link">《The way to go笔记》第四章 基本结构和数据类型</a></li><li><a href="/NOxONE/blog/Golang/所以，jwt是个啥？.html" class="sidebar-link">所以，jwt是个啥？</a></li><li><a href="/NOxONE/blog/Golang/用Golang实现JS常用数组方法.html" class="sidebar-link">用Golang实现JS常用数组方法</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/VUE/Reactivity响应式实现" class="sidebar-heading clickable"><span>VUE</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/CSS/1. background、color、渐变" class="sidebar-heading clickable"><span>CSS</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/Solidity/变量数据存储和作用域" class="sidebar-heading clickable"><span>Solidity</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/算法刷题集/LeetCode算法刷题：二叉树篇" class="sidebar-heading clickable"><span>算法刷题集</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/数据结构与算法/数据结构在JS中的实现" class="sidebar-heading clickable"><span>数据结构与算法</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/Three.js/Three.js Animation动画系统概念及应用" class="sidebar-heading clickable"><span>Three.js</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/浏览器相关/浏览器架构" class="sidebar-heading clickable"><span>浏览器相关</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/前端工程化/webpack搭建" class="sidebar-heading clickable"><span>前端工程化</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/NOxONE/blog/建站日记/2023.04.01 ~ 2023.04.02" class="sidebar-heading clickable"><span>建站日记</span> <span class="arrow right"></span></a> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-b4034468 data-v-bfc11e02><h3 class="title" data-v-b4034468>《The way to go笔记》 第十章 结构与方法</h3> <!----> <label id="box" class="inputBox" data-v-b4034468><input type="password" value="" data-v-b4034468> <span data-v-b4034468>Konck! Knock!</span> <button data-v-b4034468>OK</button></label> <div class="footer" data-v-b4034468><span data-v-b4034468><i class="iconfont reco-theme" data-v-b4034468></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-b4034468>vuePress-theme-reco</a></span> <span data-v-b4034468><i class="iconfont reco-copyright" data-v-b4034468></i> <a data-v-b4034468><span data-v-b4034468>NOxONE</span>
+          
+        <span data-v-b4034468>2023 - </span>
+        2024
+      </a></span></div></div> <div data-v-bfc11e02><main class="page" style="padding-right:0;"><section style="display:;"><div class="page-title"><h1 class="title">《The way to go笔记》 第十章 结构与方法</h1> <div data-v-2896e5a4><i class="iconfont reco-account" data-v-2896e5a4><span data-v-2896e5a4>NOxONE</span></i> <i class="iconfont reco-date" data-v-2896e5a4><span data-v-2896e5a4>5/22/2023</span></i> <!----> <i class="tags iconfont reco-tag" data-v-2896e5a4><span class="tag-item" data-v-2896e5a4>Golang</span></i></div></div> <div class="theme-reco-content content__default"><h2 id="_10-1-结构体的定义和初始化"><a href="#_10-1-结构体的定义和初始化" class="header-anchor">#</a> 10.1 结构体的定义和初始化</h2> <h3 id="_10-1-1-定义"><a href="#_10-1-1-定义" class="header-anchor">#</a> 10.1.1 定义</h3> <div class="language-golang extra-class"><pre class="language-text"><code>type obj struct {
+  key1 type1
+  key2 type2
+  ...
+}
+</code></pre></div><p>字段可以是任何类型，甚至可以包括结构体本身、函数或接口</p> <h3 id="_10-1-2-初始化"><a href="#_10-1-2-初始化" class="header-anchor">#</a> 10.1.2 初始化</h3> <p>结构体初始化有多种方式</p> <div class="language-golang extra-class"><pre class="language-text"><code>type Obj struct {
+  name  string
+  id    string
+  age   int
+}
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token literal-property property">o2</span> <span class="token operator">:</span><span class="token operator">=</span> Obj<span class="token punctuation">{</span> <span class="token string">&quot;noxone&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;1007&quot;</span><span class="token punctuation">,</span> <span class="token number">18</span> <span class="token punctuation">}</span> <span class="token comment">// 按字段定义顺序赋值</span>
+<span class="token literal-property property">o3</span> <span class="token operator">:</span><span class="token operator">=</span> Obj<span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;noxone&quot;</span><span class="token punctuation">,</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token string">&quot;1007&quot;</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">18</span> <span class="token punctuation">}</span> <span class="token comment">// 字段显式赋值</span>
+<span class="token literal-property property">o4</span> <span class="token operator">:</span><span class="token operator">=</span> Obj <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;noxone&quot;</span> <span class="token punctuation">}</span> <span class="token comment">// 其余字段为对应类型零值</span>
+
+<span class="token comment">// 以下返回的是指针</span>
+<span class="token literal-property property">o5</span> <span class="token operator">:</span><span class="token operator">=</span> <span class="token keyword">new</span><span class="token punctuation">(</span>Obj<span class="token punctuation">)</span>
+o5<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">&quot;noxone&quot;</span> <span class="token comment">// &amp;{ name:&quot;noxone&quot;, id: &quot;&quot;, age: 0 }</span>
+<span class="token literal-property property">o6</span> <span class="token operator">:</span><span class="token operator">=</span> <span class="token operator">&amp;</span>Obj<span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;noxone&quot;</span><span class="token punctuation">,</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token string">&quot;1007&quot;</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">18</span> <span class="token punctuation">}</span> <span class="token comment">// &amp;{ name: &quot;noxone&quot;, id: &quot;1007&quot;, age: 18 }</span>
+</code></pre></div><h3 id="_10-1-3-结构体内存连续"><a href="#_10-1-3-结构体内存连续" class="header-anchor">#</a> 10.1.3 结构体内存连续</h3> <p>Go 语言中，结构体和它所包含的数据在内存中是以<code>连续块</code>的形式存在的，即使结构体中嵌套有其他的结构体，这在性能上带来了很大的优势!</p> <div class="language-js extra-class"><pre class="language-js"><code>type Rect1 struct <span class="token punctuation">{</span>Min<span class="token punctuation">,</span> Max Point <span class="token punctuation">}</span>
+type Rect2 struct <span class="token punctuation">{</span>Min<span class="token punctuation">,</span> Max <span class="token operator">*</span>Point <span class="token punctuation">}</span>
+</code></pre></div><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aba90b27241b461194cf75edcf1b2e7d~tplv-k3u1fbpfcp-watermark.image?" alt="image.png">
+由于结构体内数据在内存中是连续的，所以定义一个链表结构、二叉树结构也从根本上实现了内存连续！！！</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 链表节点</span>
+type LinkNode struct <span class="token punctuation">{</span>
+  pre   <span class="token operator">*</span>LinkNode
+  val   float64
+  next  <span class="token operator">*</span>LinkNode
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 二叉树节点</span>
+type TreeNode struct <span class="token punctuation">{</span>
+  left  <span class="token operator">*</span>TreeNode
+  val   float64
+  next  <span class="token operator">*</span>TreeNode
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_10-1-4-结构体别名"><a href="#_10-1-4-结构体别名" class="header-anchor">#</a> 10.1.4 结构体别名</h3> <div class="language-js extra-class"><pre class="language-js"><code>type Person struct <span class="token punctuation">{</span>
+  name  string
+<span class="token punctuation">}</span>
+
+type People Person <span class="token comment">// 定义Person别名</span>
+
+<span class="token literal-property property">p1</span> <span class="token operator">:</span><span class="token operator">=</span> Person<span class="token punctuation">{</span> <span class="token string">&quot;jack&quot;</span> <span class="token punctuation">}</span>
+<span class="token literal-property property">p2</span> <span class="token operator">:</span><span class="token operator">=</span> People<span class="token punctuation">{</span> <span class="token string">&quot;jack&quot;</span> <span class="token punctuation">}</span>
+
+<span class="token comment">// People转Person</span>
+<span class="token comment">// var p3 Person = P2  error</span>
+<span class="token literal-property property">p3</span> <span class="token operator">:</span><span class="token operator">=</span> <span class="token function">Person</span><span class="token punctuation">(</span>p2<span class="token punctuation">)</span>
+</code></pre></div><h2 id="_10-2-工厂模式创建结构体实例"><a href="#_10-2-工厂模式创建结构体实例" class="header-anchor">#</a> 10.2 工厂模式创建结构体实例</h2> <p>Go 语言不像其他面向对象编程语言中那样可以使用构造子方法（即<code>new Obj(...)</code>）来创建实例，因此常用的是替代性的使用工厂模式来弥补这一短板</p> <div class="language-js extra-class"><pre class="language-js"><code>func <span class="token function">NewObj</span><span class="token punctuation">(</span>name string<span class="token punctuation">,</span> age int<span class="token punctuation">)</span> <span class="token operator">*</span>Obj <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token operator">&amp;</span>Obj<span class="token punctuation">{</span> name<span class="token punctuation">,</span> age <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="_10-3-结构体标签"><a href="#_10-3-结构体标签" class="header-anchor">#</a> 10.3 结构体标签</h2> <p>结构体中的字段除了<code>key</code>和<code>type</code>之外，还有一个可选的标签<code>tag</code>：它是一个附属于字段的字符串，在后续可以通过泛型<code>reflect.TypeOf(obj).Field(idx).Tag</code>拿到对应下标的tag</p> <div class="language-js extra-class"><pre class="language-js"><code>type Obj struct <span class="token punctuation">{</span>
+  key1 int <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">tag1</span><span class="token template-punctuation string">`</span></span>
+  key2 int <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">tag2</span><span class="token template-punctuation string">`</span></span>
+<span class="token punctuation">}</span>
+
+func <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">obj</span> <span class="token operator">:</span><span class="token operator">=</span> Obj<span class="token punctuation">{</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span> <span class="token punctuation">}</span>
+  <span class="token literal-property property">objType</span> <span class="token operator">:</span><span class="token operator">=</span> reflect<span class="token punctuation">.</span><span class="token function">TypeOf</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+  
+  <span class="token keyword">for</span> <span class="token literal-property property">i</span> <span class="token operator">:</span><span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">ixField</span> <span class="token operator">:</span><span class="token operator">=</span> objType<span class="token punctuation">.</span><span class="token function">Field</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>ixField<span class="token punctuation">.</span>Tag<span class="token punctuation">)</span> <span class="token comment">// tag1 tag2</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="_10-4-内嵌结构体"><a href="#_10-4-内嵌结构体" class="header-anchor">#</a> 10.4 内嵌结构体</h2> <p>结构体可以<code>内嵌结构体</code>或者<code>其他值类型</code>，作为<code>匿名字段</code>。在Go中，继承是通过内嵌或组合来实现</p> <div class="language-golang extra-class"><pre class="language-text"><code>type Person struct {
+  name  string
+}
+type SuperMan struct {
+  id  int
+  Person // 内嵌结构体
+  bool // 内嵌值类型
+}
+func main() {
+  s := new(SuperMan)
+  s.id = 107
+  s.name = &quot;noxone&quot;
+  s.bool = true
+  
+  fmt.Println(s) // &amp;{ id:107, Person:{ name: &quot;noxone&quot; } bool:true }
+  fmt.Println(s.name) // noxone 实际上为 s.Person.name，类似js的原型链查找
+
+  // 以下是使用结构体字面量定义
+  s2 := SuperMan{
+    id: 107,
+    Person: Person{
+      name: &quot;noxone&quot;
+    },
+    bool: true,
+  }
+  s3 := SuperMan{107, Person{&quot;noxone&quot;}, true}
+  
+  fmt.Println(s2) // { id:107, Person:{ name: &quot;noxone&quot; } bool:true }
+  fmt.Println(s3) // { id:107, Person:{ name: &quot;noxone&quot; } bool:true }
+}
+</code></pre></div><p>在一个结构体中，当字段相同时，外层会覆盖内层，同层字段相同则会报错(不使用的时候不报错！)</p> <div class="language-golang extra-class"><pre class="language-text"><code>// 外层会覆盖内层
+type A struct { a int }
+type C struct {
+  A
+  a  int
+}
+func main() {
+  c := C{ a: 10 } // { a: 10, A: {a:0} }
+  fmt.Println(c.a) // 10
+  fmt.Println(c.A.a) // 0
+}
+</code></pre></div><div class="language-golang extra-class"><pre class="language-text"><code>// 同层字段相同报错
+type A struct {a int}
+type B struct {a, b int}
+type C struct {
+  A 
+  B
+}
+
+func main() {
+  c := C{} // { A: {a:0}, B: {a:0, b:0} }
+  fmt.Println(c.a) // ambiguous selector c.a 摸棱两可的c.a（可能是c.A.a或c.B.a）
+}
+</code></pre></div><h2 id="_10-5-方法"><a href="#_10-5-方法" class="header-anchor">#</a> 10.5 方法</h2> <h3 id="_10-5-1-定义"><a href="#_10-5-1-定义" class="header-anchor">#</a> 10.5.1 定义</h3> <p>在Go中，方法是作用在接收者（receiver）上的一个函数，接收者是某种类型的变量，定义方式如下</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">func</span> <span class="token punctuation">(</span>recv receiver_type<span class="token punctuation">)</span> <span class="token function">methodName</span><span class="token punctuation">(</span>parameter_list<span class="token punctuation">)</span> <span class="token punctuation">(</span>return_value_list<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span>
+</code></pre></div><p>其中<code>recv</code>是接收者（可以立即为JS中的<code>this</code>），<code>receiver_type</code>是接收者的类型，剩余的是定义的方法，在方法中可以操作<code>recv</code>，从而访问到<code>recv</code>里边的字段</p> <div class="language-js extra-class"><pre class="language-js"><code>type Obj struct <span class="token punctuation">{</span>
+  name  string
+<span class="token punctuation">}</span>
+<span class="token function">func</span> <span class="token punctuation">(</span><span class="token keyword">this</span> Obj<span class="token punctuation">)</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> string <span class="token punctuation">{</span> <span class="token comment">// 这里的this并非关键字，只是单纯的变量名，你也可以命名为self，怎么舒服怎么来</span>
+  <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name
+<span class="token punctuation">}</span>
+<span class="token function">func</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">*</span>Obj<span class="token punctuation">)</span> <span class="token function">setName</span><span class="token punctuation">(</span><span class="token parameter">newName</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> newName
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_10-5-2-接收者按值传递和按指针传递"><a href="#_10-5-2-接收者按值传递和按指针传递" class="header-anchor">#</a> 10.5.2 接收者按值传递和按指针传递</h3> <p>一般修改实例属性的方法都要指定传入指针而非值，否则修改不成功</p> <p><strong>按值传递</strong></p> <div class="language-js extra-class"><pre class="language-js"><code>type Obj struct <span class="token punctuation">{</span>
+  name  string
+<span class="token punctuation">}</span>
+<span class="token function">func</span> <span class="token punctuation">(</span><span class="token keyword">this</span> Obj<span class="token punctuation">)</span> <span class="token function">setName</span><span class="token punctuation">(</span><span class="token parameter">newName</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> newName
+<span class="token punctuation">}</span>
+
+func <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">o</span> <span class="token operator">:</span><span class="token operator">=</span> Obj<span class="token punctuation">{</span><span class="token string">&quot;a&quot;</span><span class="token punctuation">}</span>
+  o<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">&quot;b&quot;</span><span class="token punctuation">)</span>
+  fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token comment">// a，改了个寂寞</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>按指针传递</strong></p> <div class="language-js extra-class"><pre class="language-js"><code>type Obj struct <span class="token punctuation">{</span>
+  name  string
+<span class="token punctuation">}</span>
+<span class="token function">func</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">*</span>Obj<span class="token punctuation">)</span> <span class="token function">setName</span><span class="token punctuation">(</span><span class="token parameter">newName</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> newName
+<span class="token punctuation">}</span>
+
+func <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">o</span> <span class="token operator">:</span><span class="token operator">=</span> Obj<span class="token punctuation">{</span><span class="token string">&quot;a&quot;</span><span class="token punctuation">}</span>
+  o<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">&quot;b&quot;</span><span class="token punctuation">)</span>
+  fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token comment">// b</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_10-5-3-getter-setter"><a href="#_10-5-3-getter-setter" class="header-anchor">#</a> 10.5.3 getter/setter</h3> <div class="language-golang extra-class"><pre class="language-text"><code>package person
+
+// 属性小写开头意味着对外部包不可见 
+type Person struct {
+    firstName string
+    lastName  string
+}
+
+// 只能通过方法访问属性
+func (p *Person) FirstName() string {
+    return p.firstName
+}
+
+func (p *Person) SetFirstName(newName string) {
+    p.firstName = newName
+}
+</code></pre></div><h3 id="_10-5-4-方法继承"><a href="#_10-5-4-方法继承" class="header-anchor">#</a> 10.5.4 方法继承</h3> <p>在go中，实例可以继承内嵌结构体实例的方法</p> <div class="language-js extra-class"><pre class="language-js"><code>type Engine struct <span class="token punctuation">{</span>
+  v float64
+<span class="token punctuation">}</span>
+
+type Car struct <span class="token punctuation">{</span>
+  Engine
+  name string
+<span class="token punctuation">}</span>
+<span class="token function">func</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">*</span>Engine<span class="token punctuation">)</span> <span class="token function">getV</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;引擎速度为: &quot;</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>v<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+func <span class="token function">main</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">car</span> <span class="token operator">:</span><span class="token operator">=</span> <span class="token operator">&amp;</span>Car<span class="token punctuation">{</span> Engine<span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">&quot;BMW&quot;</span> <span class="token punctuation">}</span>
+  car<span class="token punctuation">.</span><span class="token function">getV</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 引擎速度为：100</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>在自身定义方法，可以覆盖继承的同名方法</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">func</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">*</span>Car<span class="token punctuation">)</span> <span class="token function">getV</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 覆盖基类</span>
+  fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token string">&quot;的速度为: &quot;</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>v <span class="token operator">+</span> <span class="token number">50</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+func <span class="token function">main</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">car</span> <span class="token operator">:</span><span class="token operator">=</span> <span class="token operator">&amp;</span>Car<span class="token punctuation">{</span> Engine<span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">&quot;BMW&quot;</span> <span class="token punctuation">}</span>
+  car<span class="token punctuation">.</span><span class="token function">getV</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// BMW的速度为：150</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>对于方法的继承，具体分为<strong>组合</strong>和<strong>内嵌</strong>，区别是什么呢？不多bb，上代码</p> <p><strong>组合</strong></p> <div class="language-golang extra-class"><pre class="language-text"><code>type A struct {}
+type B struct {}
+type C struct {
+  id  int
+  a   *A
+  b   *B
+}
+func (this *A) fnA() { fmt.Println(&quot;a&quot;) }
+func (this *B) fnB() { fmt.Println(&quot;b&quot;) }
+
+func main() {
+  c := new(C)
+  c.a.fnA() // a
+  c.b.fnB() // b
+  
+  // 下面这样不行！
+  c.fnA() // c.fnA undefined (type *C has no field or method fnA)
+}
+</code></pre></div><p><strong>内嵌</strong></p> <p>内嵌也是默认常用的实现继承的方式</p> <div class="language-golang extra-class"><pre class="language-text"><code>type A struct {}
+type B struct {}
+type C struct {
+  id  int
+  A
+  B
+}
+func (this *A) fnA() { fmt.Println(&quot;a&quot;) }
+func (this *B) fnB() { fmt.Println(&quot;b&quot;) }
+
+func main() {
+  c := new(C)
+  c.fnA() // a   
+  c.fnB() // b
+  
+  // 下面这样也OK，实际上和JS的原型链查找类似
+  c.A.fnA() // a
+  c.B.fnB() // b
+}
+</code></pre></div><h3 id="_10-5-5-多重继承"><a href="#_10-5-5-多重继承" class="header-anchor">#</a> 10.5.5 多重继承</h3> <p>Go实现继承相比其他语言来说比较奔放，js老弟是通过原型即<code>prototype</code>，java老哥则是<code>class B extend A</code></p> <p>不管js还是java，继承的本质上都是<code>一个儿子一个爹</code></p> <p>而Go就像吕布那样奔放，<code>一个儿子多个爹！！！</code></p> <p>但是要注意的是父类之间的方法和属性名千万别重合，否则报形如<code>ambiguous selector o.fn</code>的错</p> <div class="language-js extra-class"><pre class="language-js"><code>type Camera struct<span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token function">func</span> <span class="token punctuation">(</span>c <span class="token operator">*</span>Camera<span class="token punctuation">)</span> <span class="token function">TakeAPicture</span><span class="token punctuation">(</span><span class="token punctuation">)</span> string <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token string">&quot;Click&quot;</span> <span class="token punctuation">}</span>
+
+type Phone struct<span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token function">func</span> <span class="token punctuation">(</span>p <span class="token operator">*</span>Phone<span class="token punctuation">)</span> <span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span> string <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token string">&quot;Ring Ring&quot;</span> <span class="token punctuation">}</span>
+
+type CameraPhone struct <span class="token punctuation">{</span>
+    Camera
+    Phone
+<span class="token punctuation">}</span>
+
+func <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">cp</span> <span class="token operator">:</span><span class="token operator">=</span> <span class="token keyword">new</span><span class="token punctuation">(</span>CameraPhone<span class="token punctuation">)</span>
+  cp<span class="token punctuation">.</span><span class="token function">TakeAPicture</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  cp<span class="token punctuation">.</span><span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_10-5-6-string-方法和格式化描述符"><a href="#_10-5-6-string-方法和格式化描述符" class="header-anchor">#</a> 10.5.6 String()方法和格式化描述符</h3> <p>在调用<code>fmt.Println(o)</code>时，或其他尝试获取<code>o</code>的字符串操作时，会自动调用<code>o</code>的<code>String()</code>方法，和JS里的<code>toString()</code>一毛一样</p> <div class="language-js extra-class"><pre class="language-js"><code>type Obj struct<span class="token punctuation">{</span>
+  name  string
+<span class="token punctuation">}</span>
+<span class="token function">func</span> <span class="token punctuation">(</span><span class="token keyword">this</span> Obj<span class="token punctuation">)</span> <span class="token function">String</span><span class="token punctuation">(</span><span class="token punctuation">)</span> string <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token string">&quot;hello &quot;</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name
+<span class="token punctuation">}</span>
+
+<span class="token literal-property property">o</span> <span class="token operator">:</span><span class="token operator">=</span> Obj <span class="token punctuation">{</span> <span class="token string">&quot;noxone&quot;</span> <span class="token punctuation">}</span>
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span> <span class="token comment">// hello noxone</span>
+fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">&quot;%v&quot;</span><span class="token punctuation">,</span> o<span class="token punctuation">)</span> <span class="token comment">// hello noxone</span>
+fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">&quot;%T&quot;</span><span class="token punctuation">,</span> o<span class="token punctuation">)</span> <span class="token comment">// main.Obj</span>
+fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">&quot;%#v&quot;</span><span class="token punctuation">,</span> o<span class="token punctuation">)</span> <span class="token comment">// main.Obj{name: &quot;noxone&quot;}</span>
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/NOxONE/blog/Golang/《The way to go笔记》 第十一章 接口和反射.html" class="prev">
+          《The way to go笔记》 第十一章 接口和反射
+        </a></span> <span class="next"><a href="/NOxONE/blog/Golang/《The way to go笔记》第七章 数组与切片.html">
+          《The way to go笔记》第七章 数组与切片
+        </a></span></p></div> <div class="comments-wrapper"><!----></div></main> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:0;" data-v-44fdc95c data-v-bfc11e02></ul></div></div></div><div class="global-ui"><div id="noxone-cover" class="noxone-cover" style="--bg-color:#333;--bg-mobile-color:#333;--text-font-color:#fff;--text-font-size:36px;--text-line-height:54px;--text-writing-mode:horizontal-tb;--text-font-align:center;--text-border-color:#000;--text-border-size:1px;--text-box-w:autopx;--text-box-h:autopx;" data-v-34f32310><div id="text" class="text" data-v-34f32310></div> <div id="text-copy" class="text-copy" data-v-34f32310>我想，<br>在这个世界上,<br>虽然没有最美好的相遇，<br>但却应该有为了相遇或重逢，<br>所做的最美好的努力。<br></div> <!----> <!----> <!----> <!----></div><div class="noxone-music" style="zoom:0.7;bottom:50px;z-index:19;--container-bg-color:#fff;--theme-color:#69c6f5;--music-info-bg-color:rgba(255, 255, 255, 0.5);--music-title-color:#000;" data-v-74bc303d><div class="music-container" data-v-74bc303d><div class="music-info" data-v-74bc303d><div class="title" data-v-74bc303d>红莲华</div> <div class="progress-container hover" data-v-74bc303d><div class="progress hover" style="width:0;" data-v-74bc303d></div></div></div> <div class="music-cover" data-v-74bc303d><img src="https://dragon-chen777.github.io/assets/music/红莲华.png" data-v-74bc303d></div> <div class="control-pannel" data-v-74bc303d><div class="hide-btn hover" data-v-74bc303d>x</div> <div class="action-btn fas fa-backward hover" data-v-74bc303d></div> <div class="action-btn action-btn-big fas hover fa-play" data-v-74bc303d></div> <div class="action-btn fas fa-forward hover" data-v-74bc303d></div></div> <audio src="https://dragon-chen777.github.io/assets/music/红莲华.mp3" data-v-74bc303d></audio></div> <div class="small-container hover hidden" data-v-74bc303d><div class="show-btn fas fa-angle-right" data-v-74bc303d></div></div></div><div class="NoxoneLive2D" style="--live2d-width:undefinedpx;--live2d-height:undefinedpx;--live2d-container-right:100px;--live2d-container-bottom:0px;--live2d-msgbox-bg-color:#fefefe;--live2d-msgbox-font-color:#333;" data-v-1888014f><div class="live2d-container hover" style="display:none;" data-v-1888014f><div class="panel" style="display:none;" data-v-1888014f><div class="music-player item" data-v-1888014f><i class="music-icon iconfont icon-musicIcon1" data-v-1888014f></i> <div class="music-control" data-v-1888014f><div class="btn pre-btn" data-v-1888014f><i class="iconfont icon-preBtn" data-v-1888014f></i></div> <div class="btn play-btn" data-v-1888014f><i class="iconfont icon-play" data-v-1888014f></i></div> <div class="btn next-btn" data-v-1888014f><i class="iconfont icon-nextBtn" data-v-1888014f></i></div> <div class="btn hide-btn" data-v-1888014f>收起</div></div></div> <div class="game-box item" data-v-1888014f><div class="game" data-v-1888014f><i class="iconfont icon-youxi" data-v-1888014f></i></div></div></div> <div class="message-box" style="display:none;" data-v-1888014f>天上飘着些微云，地上吹着些微风。啊！微风吹动了我头发，教我如何不想她？</div> <canvas id="live2d" height="220" width="150" data-v-1888014f></canvas></div> <div class="loading" data-v-1888014f>loading...</div></div><div class="Sakura" data-v-248d85d6><canvas id="canvas_sakura" style="z-index:9999;" data-v-248d85d6></canvas></div><!----><div id="goTop" class="hide-cat" data-v-646dd891></div></div></div>
+    <script src="/NOxONE/assets/js/app.aa05a484.js" defer></script><script src="/NOxONE/assets/js/3.79819a85.js" defer></script><script src="/NOxONE/assets/js/1.c41ce1d3.js" defer></script><script src="/NOxONE/assets/js/35.83e23bcb.js" defer></script>
+  </body>
+</html>
